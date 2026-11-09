@@ -7,4 +7,6 @@
 - Seeded the experiment backlog from the strongest public whole-proof techniques.
 - Added conservative phase-marker and experiment wrappers.
 - Added the lead template and CI checks.
+- Added an active roadmap mapped to the current frontier's exact prover surfaces.
+- Added a research-cycle gate that records the frontier diff before experiments.
 

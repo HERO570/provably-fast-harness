@@ -50,7 +50,7 @@ Read `docs/RESEARCH_PLAYBOOK.md` before changing the prover. New ideas belong in
 
 ## Current status
 
-The first seeded research pass is documented in `experiments/leader-techniques.md`. The harness currently provides phase markers, a conservative local measurement wrapper, evidence templates, and role prompts. The remote GitHub publication step is pending GitHub authentication for the local account.
+The first seeded research pass is documented in `experiments/leader-techniques.md`. The actionable, non-duplicative roadmap is in `docs/ACTIVE_PLAN.md`. The harness currently provides phase markers, a conservative local measurement wrapper, a research-cycle gate, evidence templates, and role prompts. It does not change the proving tree automatically.
 
 ## Sources
 
