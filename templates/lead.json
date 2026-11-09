@@ -1,0 +1,18 @@
+{
+  "title": "",
+  "hypothesis": "",
+  "mechanism": "",
+  "code_paths": [],
+  "critical_phase": "",
+  "expected_effect": "",
+  "memory_lifetime": {
+    "allocates": [],
+    "releases": [],
+    "peak_delta": ""
+  },
+  "proof_identity_argument": "",
+  "local_test_plan": [],
+  "graph_parents": [],
+  "evaluator_result": null,
+  "status": "UNTESTED"
+}
