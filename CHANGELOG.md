@@ -10,4 +10,5 @@
 - Added an active roadmap mapped to the current frontier's exact prover surfaces.
 - Added a research-cycle gate that records the frontier diff before experiments.
 - Recorded the first 10-pair local frontier screen: byte-identical and verified, but statistically unresolved and not faster.
+- Recorded and published the first signed challenge-2 lead and workshop discussion.
 
