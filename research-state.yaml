@@ -1,0 +1,84 @@
+project:
+  title: "provably.fast whole-proof optimization"
+  question: "Which byte-identical, verifier-valid change improves the current Stwo whole-proof frontier by at least 1% without increasing peak memory by more than 1%?"
+  status: active
+  started: "2026-11-09"
+  domain: "STARK proving systems and multicore performance engineering"
+
+literature:
+  key_papers:
+    - id: "plonky3-831"
+      title: "Efficient PCS coset interpolation"
+      authors: "Plonky3 contributors"
+      year: 2024
+      relevance: "Implementation evidence for reducing interpolation and evaluation overhead."
+    - id: "plonky3-869"
+      title: "Rayon square-transpose acceleration"
+      authors: "Plonky3 contributors"
+      year: 2024
+      relevance: "Implementation evidence for parallel transform layout work."
+    - id: "plonky3-2057"
+      title: "Contiguous staging for same-height multi-matrix Merkle hashing"
+      authors: "Plonky3 contributors"
+      year: 2025
+      relevance: "Implementation evidence for commitment-memory layout."
+  open_problems:
+    - "Find an independent gain large enough to combine with the current 0.64% near-miss."
+    - "Locate remaining serial or low-occupancy windows after frontier 69645ee0."
+  evidence_gaps:
+    - "Fresh local phase and memory measurements for frontier 69645ee0."
+    - "Ablations separating transform, scheduling, cache, and allocation gains."
+
+hypotheses:
+  - id: H1
+    statement: "Frontier 69645ee0 is reproducible locally with byte-identical verified proofs and stable phase measurements."
+    status: active
+    motivation: "Every optimization decision needs a trustworthy current-frontier baseline."
+    parent: null
+    priority: high
+  - id: H2
+    statement: "A bounded transform/evaluation change can save at least 0.8% independently of Rukafe's 0.64% near-miss while staying within the frontier memory envelope."
+    status: pending
+    motivation: "The combined gain should clear the evaluator's 1% promotion threshold with margin."
+    parent: H1
+    priority: high
+  - id: H3
+    statement: "A narrow serial-window overlap can improve whole-proof time without the memory cost and regressions of generic readiness scheduling."
+    status: pending
+    motivation: "Current frontier work indicates idle capacity remains, but broad schedulers are crowded and often refuted."
+    parent: H1
+    priority: medium
+
+experiments:
+  proxy_metric: "candidate/frontier median wall-time ratio over alternating fresh-input pairs, with byte identity, independent verification, and peak-memory gates"
+  baseline_value: 1.0
+  best_value: 1.0
+  total_runs: 2
+  trajectory:
+    - run_id: "evaluator-fused-levels-6"
+      hypothesis: "H2"
+      metric_value: 1.0448
+      delta: 0.0448
+      wall_time_min: null
+      change_summary: "Raised lifted-Merkle FUSED_LEVELS from 5 to 6; valid but slower."
+      timestamp: "2026-11-10"
+    - run_id: "local-oods-grain-2048"
+      hypothesis: "H3"
+      metric_value: 1.3310
+      delta: 0.3310
+      wall_time_min: null
+      change_summary: "Reduced grouped-OODS Rayon chunk size; grossly slower on loaded ARM host and reverted."
+      timestamp: "2026-11-11"
+
+outer_loop:
+  cycle: 2
+  last_direction: pivot
+  last_reflection: "Broad scheduling and deeper Merkle fusion have not scored. Rebase on frontier 69645ee0, reproduce it, then seek an independent bounded transform/evaluation gain."
+
+workspace:
+  findings: "findings.md"
+  log: "research-log.md"
+  literature_dir: "literature/"
+  experiments_dir: "experiments/"
+  to_human_dir: "to_human/"
+  paper_dir: "paper/"
