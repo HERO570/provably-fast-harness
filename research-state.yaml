@@ -48,12 +48,18 @@ hypotheses:
     motivation: "Current frontier work indicates idle capacity remains, but broad schedulers are crowded and often refuted."
     parent: H1
     priority: medium
+  - id: H2.1
+    statement: "Reusing write_frac_cols scratch vectors per Rayon worker reduces enough allocator traffic to improve the complete proof."
+    status: inconclusive
+    motivation: "Twenty call sites allocate four 128-row temporary vectors for every chunk."
+    parent: H2
+    priority: low
 
 experiments:
   proxy_metric: "candidate/frontier median wall-time ratio over alternating fresh-input pairs, with byte identity, independent verification, and peak-memory gates"
   baseline_value: 1.0
   best_value: 1.0
-  total_runs: 2
+  total_runs: 3
   trajectory:
     - run_id: "evaluator-fused-levels-6"
       hypothesis: "H2"
@@ -69,11 +75,18 @@ experiments:
       wall_time_min: null
       change_summary: "Reduced grouped-OODS Rayon chunk size; grossly slower on loaded ARM host and reverted."
       timestamp: "2026-11-11"
+    - run_id: "local-logup-worker-scratch"
+      hypothesis: "H2.1"
+      metric_value: 1.0005
+      delta: 0.0005
+      wall_time_min: 2.7
+      change_summary: "Reused four LogUp scratch vectors per Rayon worker; exact and verified, but ten-pair whole-proof timing was neutral and noisy."
+      timestamp: "2026-11-11"
 
 outer_loop:
-  cycle: 2
-  last_direction: pivot
-  last_reflection: "Broad scheduling and deeper Merkle fusion have not scored. Rebase on frontier 69645ee0, reproduce it, then seek an independent bounded transform/evaluation gain."
+  cycle: 3
+  last_direction: deepen
+  last_reflection: "Worker-local LogUp scratch reuse was neutral in a noisy ten-pair ARM screen. Keep the exact implementation as evidence, but do not submit; test shared evaluation-basis construction next."
 
 workspace:
   findings: "findings.md"
