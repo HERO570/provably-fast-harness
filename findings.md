@@ -15,6 +15,7 @@ The newest public near-miss is about 0.64% faster than frontier `69645ee0`, with
 - `FUSED_LEVELS=6`: verifier-valid, byte-identical, but 4.48% slower on the evaluator. The extra fusion reduced IPC and increased branch misses.
 - Grouped-OODS chunk 4096→2048: verifier-valid locally but grossly slower on a loaded ARM host. Task overhead dominated.
 - Worker-local LogUp scratch reuse: exact and verified, but neutral over ten pairs at 1.0005 (95% CI 0.9398–1.0651) on an overloaded ARM host. The early two-pair 0.9219 signal was noise and was not submitted.
+- Parallel shared evaluation-basis construction: differential test passed and proofs stayed exact, but both gross-screen pairs regressed (1.0030 and 1.0123; ratio 1.0076). Stop; Rayon setup and per-chunk starts cost more than the exposed serial chain on this host.
 - Frontier `69645ee0`: current public baseline, cumulative ratio 0.8622706 versus the pinned commit.
 - Rukafe near-miss on that frontier: ratio 0.9936471, 95% CI 0.9900004–0.9973072; valid but below the 1% scoring threshold.
 
@@ -32,6 +33,7 @@ The newest public near-miss is about 0.64% faster than frontier `69645ee0`, with
 - Do not retry finer grouped-OODS task grains without new evidence about evaluator occupancy.
 - Do not submit source records as though they were speed results; points that affect the performance leaderboard require evaluator-validated patches.
 - Do not submit worker-local LogUp scratch reuse by itself on the current frontier without new Linux x86 evidence; the available whole-proof screen is neutral.
+- Do not retry parallel basis construction on this frontier without a new mechanism that removes its per-chunk setup or demonstrates x86 occupancy; the current ARM screen is a refutation of this patch shape.
 - Every candidate must preserve exact proof bytes and pass independent verification.
 - Peak memory may not exceed the current frontier by more than 1%.
 - The patch budget is tight, so prefer compact edits and delete dead experimental code.

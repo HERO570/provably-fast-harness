@@ -54,12 +54,18 @@ hypotheses:
     motivation: "Twenty call sites allocate four 128-row temporary vectors for every chunk."
     parent: H2
     priority: low
+  - id: H2.2
+    statement: "Parallelizing the shared eval_at_point_group basis construction improves whole-proof time."
+    status: refuted
+    motivation: "The frontier's deferred-reduction dot makes the remaining sequential basis producer a plausible exposed tail."
+    parent: H2
+    priority: medium
 
 experiments:
   proxy_metric: "candidate/frontier median wall-time ratio over alternating fresh-input pairs, with byte identity, independent verification, and peak-memory gates"
   baseline_value: 1.0
   best_value: 1.0
-  total_runs: 3
+  total_runs: 4
   trajectory:
     - run_id: "evaluator-fused-levels-6"
       hypothesis: "H2"
@@ -82,11 +88,18 @@ experiments:
       wall_time_min: 2.7
       change_summary: "Reused four LogUp scratch vectors per Rayon worker; exact and verified, but ten-pair whole-proof timing was neutral and noisy."
       timestamp: "2026-11-11"
+    - run_id: "local-parallel-evaluation-basis"
+      hypothesis: "H2.2"
+      metric_value: 1.0076
+      delta: 0.0076
+      wall_time_min: 1.1
+      change_summary: "Filled the shared coefficient evaluation basis in 4096-entry Rayon chunks; differential test passed, but both gross-screen pairs were slower."
+      timestamp: "2026-11-12"
 
 outer_loop:
-  cycle: 3
-  last_direction: deepen
-  last_reflection: "Worker-local LogUp scratch reuse was neutral in a noisy ten-pair ARM screen. Keep the exact implementation as evidence, but do not submit; test shared evaluation-basis construction next."
+  cycle: 4
+  last_direction: pivot
+  last_reflection: "Worker-local LogUp scratch reuse was neutral and parallel evaluation-basis construction regressed both gross-screen pairs. Stop both; focus on Linux-specific prefault contention or a measured existing open lead rather than adding Rayon setup work."
 
 workspace:
   findings: "findings.md"
