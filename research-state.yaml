@@ -65,7 +65,7 @@ experiments:
   proxy_metric: "candidate/frontier median wall-time ratio over alternating fresh-input pairs, with byte identity, independent verification, and peak-memory gates"
   baseline_value: 1.0
   best_value: 1.0
-  total_runs: 4
+  total_runs: 5
   trajectory:
     - run_id: "evaluator-fused-levels-6"
       hypothesis: "H2"
@@ -95,11 +95,18 @@ experiments:
       wall_time_min: 1.1
       change_summary: "Filled the shared coefficient evaluation basis in 4096-entry Rayon chunks; differential test passed, but both gross-screen pairs were slower."
       timestamp: "2026-11-12"
+    - run_id: "local-sonic-prover-input-parser"
+      hypothesis: "H3.1"
+      metric_value: 1.0140
+      delta: 0.0140
+      wall_time_min: 5.5
+      change_summary: "Swapped the prepared ProverInput byte-slice parse from serde_json to the already-locked Sonic parser; ten proofs were exact and verified, but timing was not faster and noisy on Darwin arm64."
+      timestamp: "2026-11-13"
 
 outer_loop:
   cycle: 4
   last_direction: pivot
-  last_reflection: "Worker-local LogUp scratch reuse was neutral and parallel evaluation-basis construction regressed both gross-screen pairs. Stop both; focus on Linux-specific prefault contention or a measured existing open lead rather than adding Rayon setup work."
+  last_reflection: "The isolated Sonic parser swap also failed to establish a gain on a ten-pair Darwin arm64 screen (1.0140, noisy CI; no peak memory). Do not submit it. Obtain Linux x86-64 evidence or pursue a different supported mechanism with exact patch availability before spending evaluator time."
 
 workspace:
   findings: "findings.md"
