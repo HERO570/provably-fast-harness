@@ -50,12 +50,12 @@ Read `docs/RESEARCH_PLAYBOOK.md` before changing the prover. New ideas belong in
 
 ## Current status
 
-The first seeded research pass is documented in `experiments/leader-techniques.md`. The actionable, non-duplicative roadmap is in `docs/ACTIVE_PLAN.md`. The harness currently provides phase markers, a conservative local measurement wrapper, a research-cycle gate, evidence templates, and role prompts. It does not change the proving tree automatically.
+Last checked 2026-11-16. The active frontier is branch `mainnet-season` at commit `69645ee0e6f583990c4aaf064cd08fde601ff009` (tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`); pinned HEAD is `9df00f2249b61849be69cc14942742d0c1f81ad2`. No speed points or promotion are confirmed. The official trace-writer batching result was inconclusive; combined four-writer batching plus one-pass Pedersen was valid but not faster. Several local mechanisms were NO-GO or statistically unresolved. A quotient diagnostic built successfully and completed one fresh shared-input comparison: proofs matched byte for byte, the independent verifier accepted, and memory/timing summaries were retained. This is ARM profiling evidence, not a speed or median-memory acceptance result. See the [2026-11-16 research ledger](experiments/research-update-2026-11-16.md) and [active plan](docs/ACTIVE_PLAN.md).
 
 ## Sources
 
 - [Mainnet evaluator results](https://stwo.provably.fast/api/participation/internal/results)
-- [Public challenge graph](https://provably.fast/api/participation/graph?campaign_digest=2b481067083737b89704e6b4b7f77a6a7accf0bb66aa91104275a01592fb38f8&cursor=0&limit=100)
+- [Public challenge graph](https://provably.fast/api/participation/graph?campaign_digest=b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b&cursor=0&limit=100)
 - [Stwo proving repository](https://github.com/starknet-innovation/proving)
 - [OpenZeppelin Cairo PQ verifier benchmarks](https://github.com/OpenZeppelin/cairo-pq-verifiers)
 

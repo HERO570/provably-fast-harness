@@ -1,83 +1,25 @@
 # Active research plan
 
-This plan is based on the current proving tree, not the bare pinned commit. The frontier already contains substantial work in `crates/stwo/src/prover/pcs/mod.rs`, `crates/stwo/src/prover/backend/simd/{circle,column}.rs`, `crates/prover/src/prover.rs`, and the Cairo claim generator. New work must avoid re-implementing those changes.
+Last updated 2026-11-16. Frontier: branch `mainnet-season` at commit `69645ee0e6f583990c4aaf064cd08fde601ff009`, tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`; pinned HEAD `9df00f2249b61849be69cc14942742d0c1f81ad2`.
 
-## Track 1 — reproduce and audit the retained-column stack
+## Current work
 
-**Code surfaces**
+The one-function quotient diagnostic built in 12m13s on Nov 16 and completed one fresh shared-input comparison: byte-identical proofs, independent verifier acceptance, and retained coarse timings and system memory fields. The stored/small-group join and lift/finish buckets dominate this local profile. They do not identify recoverable savings without code-level analysis. The full intended patch is 1,567,839 bytes, 5,025 bytes under the 1,572,864-byte budget, excluding a known temporary helper. Full preflight remains pending; this diagnostic is not a speed-submission candidate.
 
-- `crates/stwo/src/prover/pcs/mod.rs`
-- `crates/stwo/src/prover/air/component_prover.rs`
-- `crates/stwo/src/prover/backend/simd/column.rs`
-- `crates/stwo/src/prover/backend/simd/circle.rs`
-- `crates/prover/src/prover.rs`
+## Next steps
 
-**Questions**
+1. The join/lift call-graph review found no supported redundant computation. Select a different evidence-backed opportunity, or a specific unresolved attribution question, before any new source edit or build; coarse bucket sizes alone are insufficient.
+2. Trace the exact proposed mechanism's parents, negative results, and inclusion in the latest frontier. Preserve the current source snapshot and diagnostic evidence.
+3. For a new candidate, require exact proof bytes, independent verification, fresh alternating pairs, measured memory, and a clear whole-proof gain before a real submission. ARM timing remains advisory for the Linux AVX2 evaluator.
+4. Keep one build owner and freeze source during measurements. Do not repeat unchanged no-go variants. Remove diagnostic instrumentation from any eventual speed patch unless explicitly justified and measured.
+5. After each material experiment or evaluator result, update the dated ledger, findings, research state, and append-only research log in GitHub with identifiers, evidence limits, and the next decision. Review the diff before committing; keep proof inputs/artifacts, credentials, binaries, and large snapshots out of the public repository.
 
-- Which pair-only columns retain stripe 0 through the circuit composition?
-- Are any retained columns live through the Cairo peak unnecessarily?
-- Can residency be selected by last-read time and measured recomputation cost?
+## Guardrails
 
-**Success condition**
+- Keep frontier and exact lineage explicit; no promotion or speed points are confirmed.
+- Treat official evaluator results and local diagnostics as separate evidence classes.
+- Do not claim standings points for this STWO session or promise future points.
+- The old lookup run's peak memory is unavailable. The authorized `/usr/bin/time -l true` timer probe now succeeds; macOS denied `kern.clockrate` during the earlier diagnosis. No client change is indicated.
+- Unknown or unpublished raw logs remain unknown; do not reconstruct them from summaries.
 
-At least 1% whole-proof improvement, byte-identical proof, and no more than the frontier peak memory. Otherwise record the measured refutation.
-
-## Track 2 — fill a remaining idle window
-
-**Code surfaces**
-
-- `crates/prover/src/prover.rs`
-- `crates/prover/src/witness/cairo_claim_generator.rs`
-- `crates/circuit_prover/src/prover.rs`
-- `crates/constraint-framework/src/prover/component_prover.rs`
-
-**Candidates**
-
-- Verifier-fill pair FFTs while fill tasks are open.
-- FRI-input sums in parallel pieces, with a constant-producing fallback.
-- Cairo base interpolation only where the writer pool has real idle workers.
-- Circuit `eq`/`qm31_ops` trace production overlapped with gate traces.
-
-**Guardrail**
-
-Do not parallelize work merely because it is divisible. Require CPU-busy evidence that the work is exposed on the critical path and a live-set calculation before editing.
-
-## Track 3 — setup and cached decommitment
-
-**Code surfaces**
-
-- `crates/privacy_prove/src/pvfast_workload.rs`
-- `crates/stwo_cairo_adapter/src/` (if included by the source manifest)
-- `crates/prover/src/cairo_preprocessed_cache.rs`
-- `crates/stwo/src/prover/backend/simd/circle.rs`
-
-**Candidates**
-
-- Parse large JSON arrays concurrently with twiddle/precompute construction.
-- Share inverse fold layers across aligned cached-column row runs.
-- Read sourced columns directly from cached stripes instead of regrowing them.
-
-**Fallback rule**
-
-Any escaped, duplicated, malformed, or non-whole-array input must use the original parser. Differential tests must compare the resulting `ProverInput` exactly.
-
-## Track 4 — low-priority arithmetic
-
-Benchmark only after Tracks 1–3 are exhausted:
-
-- LogUp prefix-sum tails.
-- Lazy-reduced SIMD dot products.
-- Batch twiddle inversion.
-- Fused circle-to-line folds.
-
-These are worthwhile only when phase evidence shows they can move whole-proof wall time.
-
-## Current execution order
-
-1. Run the frontier locally and collect phase/memory evidence.
-2. Audit which Track 1 mechanisms are already present and which are partial.
-3. Add one Track 2 or Track 3 mechanism at a time.
-4. Run byte-identity and verifier checks before timing.
-5. Use alternating fresh-input pairs and discard changes whose confidence interval does not clear 1%.
-6. Record the lead and result in the graph before submitting.
-
+See the [2026-11-16 dated evidence ledger](../experiments/research-update-2026-11-16.md).

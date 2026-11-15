@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-16
+
+- Updated the documented frontier, tree, pinned HEAD, and public graph campaign digest.
+- Added the dated research ledger, with official evaluator outcomes separated from local screens and the completed single-input diagnostic.
+- Recorded exact-byte proof comparison, independent verifier acceptance, coarse quotient timings, single-run memory fields, artifact identities, and their limits.
+- Refreshed findings and research state; replaced the active plan with the current diagnostic gate and submission criteria.
+- Recorded no confirmed speed points or promotion. See `experiments/research-update-2026-11-16.md` for metrics, unknowns, and provenance caveats.
+
 ## 2026-11-09
 
 - Created the research harness repository.

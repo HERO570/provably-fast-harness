@@ -26,7 +26,7 @@ literature:
     - "Find an independent gain large enough to combine with the current 0.64% near-miss."
     - "Locate remaining serial or low-occupancy windows after frontier 69645ee0."
   evidence_gaps:
-    - "Fresh local phase and memory measurements for frontier 69645ee0."
+    - "A specific removable operation within the measured quotient join/lift buckets; one ARM diagnostic is not evaluator timing or median-memory evidence."
     - "Ablations separating transform, scheduling, cache, and allocation gains."
 
 hypotheses:
@@ -103,10 +103,52 @@ experiments:
       change_summary: "Swapped the prepared ProverInput byte-slice parse from serde_json to the already-locked Sonic parser; ten proofs were exact and verified, but timing was not faster and noisy on Darwin arm64."
       timestamp: "2026-11-13"
 
+current_update:
+  date: "2026-11-16"
+  frontier_branch: "mainnet-season"
+  frontier_commit: "69645ee0e6f583990c4aaf064cd08fde601ff009"
+  frontier_tree: "07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689"
+  pinned_head: "9df00f2249b61849be69cc14942742d0c1f81ad2"
+  official_results:
+    - job_id: "6eaeae2c-a2ea-4688-84cf-0fcdab4c1d7f"
+      mechanism: "four-small-Cairo trace-writer batching"
+      status: "INCONCLUSIVE / STOPPED_UNRESOLVED"
+      ratio: 0.9924
+      ci: "0.9869–0.9980"
+      peak_memory_gib: "2.78 vs 2.77"
+    - job_id: "4d480c53-d78e-43da-9381-71d96d25768d"
+      experiment_id: "rgr1_fc910092286ad7d45655548f76154d7a75ae19cbf2db7c66476a4a99c1f3de84"
+      mechanism: "combined four-writer batching plus one-pass Pedersen"
+      status: "VALID_NOT_FASTER / STOPPED_NOT_FASTER"
+      ratio: 0.9949
+      ci: "0.9907–0.9992"
+      clean_pairs: 10
+      peak_memory_gib: "2.78 vs 2.78"
+      exact_and_verified: true
+  local_diagnostics:
+    status: "separate from official speed results"
+    admitted_lead: "rgr1_b08ed0a74faf5a9cf17568064f2374d54b640a876d0b9e2e44bd3292b4b6bfdd"
+    exact_run_count: "unknown; do not infer aggregate total"
+    lookup_peak_memory: "unavailable"
+    diagnostic_build: "release build success, 12m13s"
+    diagnostic_run: "one fresh shared-input ARM diagnostic; proofs byte-identical, independent verifier ACCEPTED"
+    diagnostic_pairs: 1
+    diagnostic_peak_footprint_bytes:
+      frontier: 3053768784
+      candidate: 3041087664
+    diagnostic_limit: "single-run attribution only; no speed claim or passed median-memory gate"
+    diagnostic_followup: "read-only call-graph review found no supported redundant computation; no new patch or build selected"
+    full_preflight: "pending"
+  promotion:
+    speed_points_confirmed: false
+    promotion_confirmed: false
+    points_attribution: "Nov 15 standings points are STARKS math cross-site work, not this STWO session"
+  ledger: "experiments/research-update-2026-11-16.md"
+
 outer_loop:
-  cycle: 4
-  last_direction: pivot
-  last_reflection: "The isolated Sonic parser swap also failed to establish a gain on a ten-pair Darwin arm64 screen (1.0140, noisy CI; no peak memory). Do not submit it. Obtain Linux x86-64 evidence or pursue a different supported mechanism with exact patch availability before spending evaluator time."
+  cycle: 5
+  last_direction: "diagnostic-first"
+  last_reflection: "The official combined writer/Pedersen result was valid but not faster, and writer batching remained unresolved. One Nov 16 ARM quotient diagnostic passed exact-byte comparison and independent verification with retained timing and memory fields. Inspect its dominant join/lift buckets for actual repeated work before proposing a new patch. No speed points or promotion are confirmed."
 
 workspace:
   findings: "findings.md"

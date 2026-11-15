@@ -1,6 +1,16 @@
 # Research Findings
 
+## Current update — 2026-11-16
+
+Frontier branch `mainnet-season` is at `69645ee0e6f583990c4aaf064cd08fde601ff009` (tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`), last checked Nov 16; pinned HEAD is `9df00f2249b61849be69cc14942742d0c1f81ad2`. No speed points or promotion are confirmed. Official four-small-Cairo-trace-writer batching was inconclusive (0.9924, CI 0.9869–0.9980; 2.78 vs 2.77 GiB). The official four-writer plus one-pass Pedersen combination was valid but not faster enough (0.9949, CI 0.9907–0.9992; ten clean pairs; 2.78 vs 2.78 GiB), despite a favorable local ARM screen (0.9764, CI 0.9540–0.9993). Local writer, decommit, and lookup screens are detailed in the [2026-11-16 ledger](experiments/research-update-2026-11-16.md); they are not official results. The corrected lookup variant's admitted lead is `rgr1_b08ed0a74faf5a9cf17568064f2374d54b640a876d0b9e2e44bd3292b4b6bfdd`, but its local screen remains NO-GO.
+
+One Nov 16 quotient diagnostic built and completed a fresh shared-input comparison: exact proof bytes, pinned verifier acceptance, working authorized timer, and retained coarse bucket timings. Stored/small-group join and lift/finish were the largest quotient intervals on this ARM run. They are not isolated operation costs or a promised speedup. Single-run peak footprints were 3,053,768,784 bytes for frontier and 3,041,087,664 for candidate; these do not establish median-memory acceptance. Follow-up read-only call-graph review found no supported redundant computation, so no optimization or further build has been selected from this diagnostic.
+
+Evidence limits remain: detailed local writer logs are not uploaded; the later dependency-group result is conversation-reported; peak memory is unavailable for the earlier corrected lookup screen; no new aggregate run count is inferred. Authorized macOS timer probing now works after the sandbox `kern.clockrate` restriction was identified. Standings points in the ledger are from STARKS math cross-site work, not this STWO session.
+
 ## Research Question
+
+Historical section, as of 2026-11-13; current evidence is summarized above and in the [2026-11-16 ledger](experiments/research-update-2026-11-16.md).
 
 Which byte-identical, verifier-valid optimization can improve the current Stwo whole-proof frontier by at least 1% without increasing peak memory by more than 1%?
 
@@ -46,6 +56,6 @@ The newest public near-miss is about 0.64% faster than frontier `69645ee0`, with
 - Can interpolation/evaluation share a transform or denominator computation across existing groups without changing order?
 - Can an independent transform gain stack with the 0.64% near-miss while preserving the memory envelope?
 
-## Optimization Trajectory
+## Historical Optimization Trajectory (as of 2026-11-13)
 
-Pinned base → cumulative frontier 0.86227. Our scored experiments have not improved that frontier yet: one evaluator run was 1.0448 and one local task-grain screen was discarded. The next milestone is a current-frontier local result below 0.99 with exact proofs and stable memory before consuming evaluator time.
+Pinned base → cumulative frontier 0.86227. At that date, the recorded experiments had not improved that frontier; the next milestone was a qualifying current-frontier local result before evaluator time. Subsequent official and local results, including their limits, are in the [2026-11-16 ledger](experiments/research-update-2026-11-16.md).
