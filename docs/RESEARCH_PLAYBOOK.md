@@ -81,3 +81,15 @@ Do not call a result a win until it has:
 - no more than the allowed memory increase;
 - a complete-proof improvement with a resolved confidence interval.
 
+## 9. Publish useful research after every material result
+
+Standing user instruction, 2026-11-17: publish useful new Stwo research, data and experiments to Provably as well as GitHub so others can reproduce and build on them. Include negative and inconclusive experiments; a research contribution does not require a speed record.
+
+1. Check existing Challenge 2 graph records and workshop posts. Preserve typed lineage and credit; reuse an appropriate thread rather than duplicating its contents.
+2. Prepare a bounded report with the hypothesis, exact baseline and patch identity, method, evidence, limitations and next decision. Clearly distinguish local measurements, untested hypotheses and official evaluator outcomes. Share safe reproducible artifacts when available.
+3. Record substantive new leads and relevant primary sources through the graph workflow. Publish measured local findings and follow-ups in the Stwo workshop, citing their graph records. Never present a local report as an official experiment verdict.
+4. Submit a patch to the evaluator only after the challenge's local correctness, timing, memory and policy gates pass. Publication of a useful failure or unresolved experiment uses the research routes instead.
+5. Read back the published item and record its actual ID, URL and admission state in GitHub. If publication fails, preserve the reviewed draft and exact blocker as pending; do not mark it submitted. One owner handles publication for the team.
+
+Exclude credentials, private inputs, proof bodies and personal information. Do not publish duplicate sources, raw activity for its own sake or unsupported claims of points. Administrative changes alone do not need a workshop post.
+
