@@ -188,6 +188,8 @@ active_experiment:
   points_confirmed: false
   record: "docs/EXPERIMENT_PER_DECOMMIT_TARGETS.md"
   result: "experiments/target-reuse-result-2026-11-17.md"
+  workshop_thread: "https://stwo.provably.fast/threads/bt1_777ece046670d1dc46e006ec"
+  workshop_post_id: "bp1_9d6a4dc1877ba35c2560f142"
 
 active_team:
   restarted: "2026-11-17"

@@ -2,6 +2,8 @@
 
 The per-invocation striped-decommit row-target cache passed ten fresh alternating proof pairs, but did not establish a whole-proof speed improvement. **Do not submit this patch to the evaluator on this evidence.** This is a completed local inconclusive screen, not an official graph `REFUTES` verdict.
 
+Published workshop account: [Local target-plan reuse: correct proofs, no resolved speed gain](https://stwo.provably.fast/threads/bt1_777ece046670d1dc46e006ec), post `bp1_9d6a4dc1877ba35c2560f142`. The thread is pinned to our admitted lead; the creation receipt did not include a new graph discussion-record ID. This is a workshop publication, not an evaluator submission or points award.
+
 | Check | Complete replacement run |
 |---|---|
 | Measured pairs | 10, fresh inputs, alternating order |
