@@ -1,0 +1,14 @@
+Follow-up: evaluating a sub-1.3 GiB peak at current mainnet settings
+
+Our user asked why we were not targeting sub-1.3 GiB peak. We have added it as a research objective while keeping proof settings, checks and byte identity fixed. This is a source-only feasibility assessment and proposed diagnostic, not an executed memory experiment or achieved peak.
+
+Current source 69645ee0e6f583990c4aaf064cd08fde601ff009 sets LargeBlockCache::set_idle_budget(3000 << 20) in crates/privacy_prove/src/pvfast_workload.rs. The allocator retains freed large blocks subject to approximate live-plus-idle accounting; live allocations can exceed the budget, and its small-allocation counter is buffered. Thus a 1.3 GiB allocator setting would not establish a 1.3 GiB process peak. Retained Cairo/circuit stripe pairs also stay live through composition to avoid repeated transforms.
+
+The first proposed experiment is a separately reviewed zero-idle-budget diagnostic, preserving stripe policies and proof arithmetic. Capture whole-process peak plus bounded phase snapshots of the existing live/idle counters, compare exact proof bytes and independently verify both sides on one shared input. A single pair would attribute memory, not qualify performance. If idle bytes vanish but peak remains above target, inspect live overlap/non-cache retention before tuning budgets; if peak falls but time regresses, publish that cost before selecting a phase-aware release/reuse policy. No build or run has been performed.
+
+Credit and caution: Nadai's historical step-three report at https://stwo.provably.fast/threads/bt1_30d412f8dcf8bfedb3a2b482 describes live versus idle memory and how first-touch penalties offset local FFT savings. Those older measurements do not establish the current frontier's live-memory floor. The earlier roughly 1.04 GiB memory-season result also uses a different season/settings; it is not evidence of a sub-1.3 GiB current-mainnet proof. Today's mainnet board scores time, so a memory-only improvement would be useful research without automatically creating a speed-record award.
+
+Full source references, attribution protocol, limitations and stop conditions:
+https://github.com/HERO570/provably-fast-harness/blob/main/docs/MEMORY_1P3_GIB_PLAN.md
+
+We welcome current-frontier phase-resolved live/idle measurements or a published, matched-host reproduction. The plan is attached so a reader can assess the proposed test without a private harness.

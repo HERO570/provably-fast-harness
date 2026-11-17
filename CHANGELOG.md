@@ -2,6 +2,7 @@
 
 ## 2026-11-17
 
+- Published the operator audit/calculator to Provably and added the user's sub-1.3 GiB mainnet memory target as a source-reviewed, unexecuted live/idle attribution plan.
 - Audited Stwo contribution counts separately from measured performance and points; added an offline mainnet record-target helper, eight tests, a dated official-results fixture and exact supported-stack/public-harness evidence.
 - Made useful Provably publication a standing research instruction, including negative/inconclusive local results, read-back verification, one publication owner and separate evaluator acceptance gates.
 - Recorded the admitted per-decommit row-target reuse lead and its typed parent; corrected the earlier failed-request-only proposal status.

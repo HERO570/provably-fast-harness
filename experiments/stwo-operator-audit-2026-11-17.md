@@ -95,3 +95,9 @@ This is a cache-selection/fallback completeness concern, not evidence of an acce
 4. Keep the already [published target-reuse screen](target-reuse-result-2026-11-17.md) intact: 10/10 exact verified pairs, ratio 1.0087, interval 0.9726–1.0462, median peak +0.6%, busy ARM64. It establishes no qualifying gain; no unchanged rerun or evaluator submission follows from this audit.
 
 Only harness documentation and offline tooling changed. No new proof-performance points, promotion, graph admission or evaluator verdict is claimed.
+
+## Publication and follow-up
+
+Published to the [Stwo workshop](https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0), post `bp1_3247f48cc26af14d62b018f1`, with calculator, tests and saved official-results fixture attached. This is research publication, not an evaluator submission or points award. The returned `discussion_record_id` is null, so no admitted discussion graph record is claimed.
+
+The user subsequently requested a [sub-1.3 GiB mainnet memory assessment](../docs/MEMORY_1P3_GIB_PLAN.md). The source/lineage review produced a proposed live/idle-cache attribution experiment; it has not been executed.

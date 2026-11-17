@@ -14,6 +14,8 @@ The [Nov 17 Stwo operator audit](../experiments/stwo-operator-audit-2026-11-17.m
 
 The [operational experiment plan](NEXT_EXPERIMENT.md) and [untested inverse-scatter design](INVERSE_SCATTER_HYPOTHESIS.md) expand the steps below for independent reproduction and review.
 
+User-requested parallel objective: investigate [sub-1.3 GiB mainnet peak](MEMORY_1P3_GIB_PLAN.md), beginning with a live/idle attribution experiment. This target is unmeasured; an allocator budget is not a process cap. Preserve mainnet settings and measure the time cost. Memory-only research publication remains useful even when it does not establish a current time-board record.
+
 1. Identify an existing quiet Linux x86-64 AVX2 host suitable for profiling and paired measurement. The bounded Herdr machine inventory is empty; this does not rule out unlisted infrastructure. No new host provisioning or spending is authorized.
 2. Refresh the official frontier and published record target. Obtain the exact supported fixed-table LogUp/writer-hand-off stack payload and check source inclusion/lineage before choosing a distinct increment. Profile the chosen path on the matched host before another patch build. Mixed coarse phase medians on loaded ARM do not identify recoverable savings.
 3. Keep inverse scatter-map reuse as a conditional source-level hypothesis rather than the default next patch. Another contributor now reports a speed-unestablished local screen (graph sequence 1065); exact novelty and evaluator effect remain unknown. Review actual workload counts, combined metadata capacity and resident-suffix invariants before any implementation. It has no transferred support.
