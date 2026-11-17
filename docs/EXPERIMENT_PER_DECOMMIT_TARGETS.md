@@ -22,21 +22,29 @@ The increment is confined to `crates/stwo/src/prover/pcs/mod.rs` and a new stand
 
 ## Review and test gates
 
-Independent design and actual-diff review cleared controlled compilation and focused unit tests. The reviewer caught an omitted live key-vector allocation before compilation; the fixed stack bitmap resolves that issue. Static whitespace checks passed. On Nov 17 the pinned focused command passed **3 tests, 0 failures**:
+Independent design and actual-diff review cleared controlled compilation and focused unit tests. The reviewer caught an omitted live key-vector allocation before compilation; the fixed stack bitmap resolves that issue. Static whitespace checks passed. On Nov 17 the pinned focused command passed **3 tests, 0 failures** both before and after the test-module policy correction:
 
 ```sh
 cargo +nightly-2026-01-15 test --locked -p stwo --features prover,parallel --lib target_rows_cache_tests
 ```
 
-Coverage includes cached/fallback target equivalence, duplicate and out-of-order rows, multiple sizes, resident suffixes, and estimate/capacity budget fallback. These tests do not establish whole-proof identity or speed. Source hashes remained unchanged after the tests:
+Coverage includes cached/fallback target equivalence, duplicate and out-of-order rows, multiple sizes, resident suffixes, and estimate/capacity budget fallback. These tests do not establish whole-proof identity or speed. Corrected source hashes remained unchanged after the second test run:
 
 | File | SHA-256 |
 |---|---|
-| `pcs/mod.rs` | `44d4eb6dfc85cd7b44856859d5a4e0fb7207c5573c7149ea9f367788e240305c` |
-| `pcs/target_rows_cache_tests.rs` | `6c32742c752cb58f7e0a00be6e2a43eaa41704a9166e4f5e7dc2c5c6316b88ef` |
+| `pcs/mod.rs` | `3498174c5c12be54837060520faaa3c1b3cbdeada708521d0a4cbc4fd2397c2b` |
+| `pcs/target_rows_cache_tests.rs` | `30874fe7e525fa8d3d203f97b97e05900fd97661709a7464ffd4e12e0e0d6909` |
 
-The authorized next stages are one attributable native release prover build, then the unchanged client's ten fresh alternating pairs against the preserved frontier binaries. Require byte-identical proofs, independent verification, valid peak-memory measurements, and a clear whole-proof time gain. ARM local results are advisory for the Linux x86-64 AVX2 evaluator. Final policy preflight and parent review precede evaluator submission using the existing proposal ID.
+The authorized remaining stages are an attributable corrected native release prover build, then the unchanged client's ten fresh alternating pairs against the preserved frontier binaries. Require byte-identical proofs, independent verification, valid peak-memory measurements, and a clear whole-proof time gain. ARM local results are advisory for the Linux x86-64 AVX2 evaluator. Final policy preflight and parent review precede evaluator submission using the existing proposal ID.
 
 ## Current execution state
 
-Focused tests passed. The release-build/measurement pipeline is in progress; no full-proof result or evaluator submission is recorded here yet. The temporary build helper is outside the permitted submission surface and must be excluded from the final patch. Keep inputs, preimages, proofs, binaries, credentials, and private raw logs out of this public repository.
+The first native release build succeeded in **15m50s**. Its binary was preserved, SHA-256 `02098105e18d8f0e306e119d4d5fb3f6117949b086c2ab8fe9e1a03d5861b165`, and was not benchmarked because of the policy issue below. Flags were `-C target-cpu=native -C opt-level=3 -C codegen-units=1` on Darwin ARM64.
+
+The static source checker initially flagged the added `#[cfg(test)]` module declaration as `PROTECTED_CFG_TEST_REGION`. After the build ended, the approved correction removed that new attribute and moved imports inside the three standalone test functions. The existing protected tests and scanner stayed unchanged. Independent actual-diff review and the unchanged static source/promotion checkers now report **zero violations**. The corrected focused run passed **3/3**; its retained local log SHA-256 is `d8ddb4817c20e7958c33a6099760aba5da617e4f302bf51101b746901ad4b51a`.
+
+The corrected read-only canonical serializer reports **1,536,778 bytes across 42 candidate paths**, excluding the known temporary helper, leaving **36,086 bytes** below the 1,572,864-byte limit. Canonical patch digest: `e5a3aae5f43763b77d035c1575c22bef8042a918d881fb97d95c74800507b43c`. Editable paths, base blobs, protected tests, manifests, compile inputs, tokens, and promotion checks pass. This excludes the helper and remains distinct from final full preflight. Full source-policy checks now belong before the first build in the [playbook](RESEARCH_PLAYBOOK.md).
+
+One corrected same-flags release build is running. Measurement will use that attributable binary, not the preserved pre-correction artifact.
+
+No full-proof result or evaluator submission is recorded yet. The temporary build helper is outside the permitted submission surface and must be excluded from the final patch. Keep inputs, preimages, proofs, binaries, credentials, and private raw logs out of this public repository.

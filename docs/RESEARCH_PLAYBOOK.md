@@ -26,6 +26,14 @@ Every hypothesis must identify:
 
 Prefer combinations only after each component has an independent measurement or a clear non-overlapping mechanism.
 
+### Before the first build
+
+Run the installed Challenge 2 source-policy checks over the complete patch against pinned HEAD, including unstaged frontier changes and untracked Rust files. Check serialized patch bytes, editable paths, protected test regions, forbidden constructs, and unchanged settings. Source review alone is insufficient. Repeat these checks after source changes and run the full client preflight before upload.
+
+In the current client, adding a new `#[cfg(test)] mod ...;` in an existing source file can trigger the protected-test attribute check. A compliant local precedent is an unconditional new module containing only standalone `#[test]` functions, with imports inside those functions. Preserve existing test regions and validate the arrangement with the unchanged checker.
+
+Keep build-only helpers separate in the inventory. A diagnostic check that excludes a known helper is not a successful final preflight. Freeze source during builds and proof runs; review any correction before rebuilding, and bind the measured binary to the corrected source hashes.
+
 ## 4. Safe local measurement
 
 For every pair:
