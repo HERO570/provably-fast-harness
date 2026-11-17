@@ -56,6 +56,8 @@ Previous official trace-writer batching was inconclusive; combined four-writer b
 
 The [scoring note](docs/SCORING.md) distinguishes Stwo performance records, graph admission, and cross-site mathematics points. Publishing research context does not by itself establish a Stwo points award.
 
+The [Stwo operator/scoring audit](experiments/stwo-operator-audit-2026-11-17.md) separates contribution activity from performance points and identifies supported current research paths. The [offline record-target helper](scripts/stwo_record_target.py) reproduces the captured gap between the source frontier and best published eligible result; its [eight tests](scripts/test_stwo_record_target.py) cover the official deduplication/status/order semantics. It does not predict awards.
+
 The [Nov 17 team restart](experiments/team-restart-2026-11-17.md) records the observed Sol High coordinator and four Luna worker roles, evidence recovery, and the single measurement-owner rule.
 
 Next: [quiet Linux experiment plan](docs/NEXT_EXPERIMENT.md), including a controlled re-evaluation of the preserved candidate and a conditional [inverse-scatter hypothesis](docs/INVERSE_SCATTER_HYPOTHESIS.md). The latter has no measured benefit.

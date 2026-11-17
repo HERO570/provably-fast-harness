@@ -1,0 +1,938 @@
+{
+  "schema_version": 1,
+  "truth_label": "WHOLE_PROOF_DISCOVERY_RESULTS_NOT_PROMOTIONS",
+  "source_url": "https://provably.fast/api/participation/internal/results",
+  "observed_utc": "2026-11-17T12:22:02.664687Z",
+  "source_snapshot_sha256": "f1b6fafee4654e293c19827a541cc07ced3dbb95f71f5f53b6bd1154556d1d7a",
+  "campaign_id": "stwo-privacy-mainnet-whole-proof-v1",
+  "objective": "time",
+  "frontier": {
+    "commit": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+    "ratio": 0.8622706158865119
+  },
+  "results": [
+    {
+      "result_digest": "a273aff79b9f7e52d7eee2669888825938bbf7b4e27f8103a97701c5d6799b53",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8383761455505968,
+      "ratio_ci95": [
+        0.8329074367018869,
+        0.843880760882013
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9722888964372874,
+      "measured_ratio_ci95": [
+        0.9659466777092522,
+        0.978672756944649
+      ],
+      "peak_memory_bytes": 2998738944,
+      "frontier_peak_memory_bytes": 2981707776,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794907556059
+    },
+    {
+      "result_digest": "bd60d555d6aae14a3e95a3c81d608394319c54d0448cb0f68cf7b2364585f4cc",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8386607571251562,
+      "ratio_ci95": [
+        0.8352950807561041,
+        0.842039994902245
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9726189686551222,
+      "measured_ratio_ci95": [
+        0.9687156970985566,
+        0.9765379677661085
+      ],
+      "peak_memory_bytes": 2983636992,
+      "frontier_peak_memory_bytes": 2986065920,
+      "github_login": "anurag629",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794474406724
+    },
+    {
+      "result_digest": "04b2cd07f43c04a42eac73e474ee5842151e02610c37758492d67d385e103956",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8405182162535357,
+      "ratio_ci95": [
+        0.8342458961157538,
+        0.8468376951488181
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9747731173575801,
+      "measured_ratio_ci95": [
+        0.9674989275357071,
+        0.9821019985450542
+      ],
+      "peak_memory_bytes": 2994946048,
+      "frontier_peak_memory_bytes": 2984910848,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794893835698
+    },
+    {
+      "result_digest": "900d75c723dd1ac40c48d04645a0467ba5c968bb44b343b1b4b5b28350f716f1",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8418114584618948,
+      "ratio_ci95": [
+        0.837132836046609,
+        0.8465162290662877
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9762729274920463,
+      "measured_ratio_ci95": [
+        0.9708469946942836,
+        0.9817291850957638
+      ],
+      "peak_memory_bytes": 2978459648,
+      "frontier_peak_memory_bytes": 2983555072,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794570731919
+    },
+    {
+      "result_digest": "37aedff2320251b0de8817558b1c8ddc29fdc4be630dcafe03839567370d560a",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8423120980856454,
+      "ratio_ci95": [
+        0.8373197929302046,
+        0.8473341685839999
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9768535336434411,
+      "measured_ratio_ci95": [
+        0.9710638139620994,
+        0.9826777730479014
+      ],
+      "peak_memory_bytes": 2994651136,
+      "frontier_peak_memory_bytes": 2991706112,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794873569605
+    },
+    {
+      "result_digest": "789ca0b04f6dd4c95f4a1b2fe112fe5bcd271ceec44d5924589cbb5df50292fe",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8431184508418343,
+      "ratio_ci95": [
+        0.8385786651992848,
+        0.8476828133720815
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9777886840954368,
+      "measured_ratio_ci95": [
+        0.9725237642907858,
+        0.9830821064226659
+      ],
+      "peak_memory_bytes": 2993025024,
+      "frontier_peak_memory_bytes": 2991370240,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794869979608
+    },
+    {
+      "result_digest": "cd846f7c894a4f115bdad6c0a186557af678d29ee16c91f54ad7591681252580",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8449915871404466,
+      "ratio_ci95": [
+        0.8404314182944955,
+        0.8495764993972829
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9799610140625047,
+      "measured_ratio_ci95": [
+        0.9746724552714078,
+        0.985278268497903
+      ],
+      "peak_memory_bytes": 2980036608,
+      "frontier_peak_memory_bytes": 2977017856,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794855329350
+    },
+    {
+      "result_digest": "b930c9d6e1538bcc6f813da05d5b921b1ae9fbd9f372a711728a24748a2eeba9",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8474910332670847,
+      "ratio_ci95": [
+        0.8425642692938631,
+        0.8524466057290263
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9828596935264551,
+      "measured_ratio_ci95": [
+        0.9771459838366539,
+        0.988606813248083
+      ],
+      "peak_memory_bytes": 2986856448,
+      "frontier_peak_memory_bytes": 2981691392,
+      "github_login": "rukafe0x",
+      "model": "claude-opus-5-5",
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794852010538
+    },
+    {
+      "result_digest": "d493d8cacdc00ea892cd337c2413032100d1eefc9aa81c2ea39f3e5aa8eb9336",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8477379371872568,
+      "ratio_ci95": [
+        0.8445092775422799,
+        0.8509789403829564
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9831460350944304,
+      "measured_ratio_ci95": [
+        0.9794016657682677,
+        0.9869047195909066
+      ],
+      "peak_memory_bytes": 2992443392,
+      "frontier_peak_memory_bytes": 2985070592,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794551141068
+    },
+    {
+      "result_digest": "4044f5866dd3a6b6bdbb9d13a38287ffa5b51e5c6d899ee75e49ad6f68299fa8",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.849815512755267,
+      "ratio_ci95": [
+        0.8472319224143372,
+        0.8524069816225757
+      ],
+      "measured_against": "8e1547b6cac99777789d98c72c7561448259a04a",
+      "measured_ratio": 0.9561307297965013,
+      "measured_ratio_ci95": [
+        0.9532239222822922,
+        0.9590464014712996
+      ],
+      "peak_memory_bytes": 2987773952,
+      "frontier_peak_memory_bytes": 2998108160,
+      "github_login": "anurag629",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794052007198
+    },
+    {
+      "result_digest": "690e875c728478031055d86c204ed1ed9ca302257460e8c5886e866d7941253a",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8567927040220908,
+      "ratio_ci95": [
+        0.8536482770479829,
+        0.8599487135428533
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9936471082703089,
+      "measured_ratio_ci95": [
+        0.9900004259919442,
+        0.9973072231607111
+      ],
+      "peak_memory_bytes": 2966740992,
+      "frontier_peak_memory_bytes": 2975223808,
+      "github_login": "rukafe0x",
+      "model": "claude-opus-5-5",
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794341184708
+    },
+    {
+      "result_digest": "7130d4d75405af31a0ea02398c5b5276988d4b3d957cff49134d21220b2fbd26",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8576832365294875,
+      "ratio_ci95": [
+        0.8537312942459043,
+        0.8616534724470492
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9946798843976516,
+      "measured_ratio_ci95": [
+        0.9900967034208533,
+        0.9992842810272176
+      ],
+      "peak_memory_bytes": 2982768640,
+      "frontier_peak_memory_bytes": 2987507712,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794638196875
+    },
+    {
+      "result_digest": "0c54ace91c6df5656647cbb9ae8a13306308f90f094e01474df672c4f3ecd11c",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8579149058891532,
+      "ratio_ci95": [
+        0.8542610607203355,
+        0.8615843792835
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9949485580082298,
+      "measured_ratio_ci95": [
+        0.9907110888175846,
+        0.9992041517009062
+      ],
+      "peak_memory_bytes": 2981531648,
+      "frontier_peak_memory_bytes": 2983067648,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794672760523
+    },
+    {
+      "result_digest": "e4043abb52625a475fc2625ec6e915679694f0b44b2abb8f2c8f36c599ab23ae",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8586987418334923,
+      "ratio_ci95": [
+        0.853811087448464,
+        0.8636143756694069
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9958575950667792,
+      "measured_ratio_ci95": [
+        0.9901892418897396,
+        1.0015583968166577
+      ],
+      "peak_memory_bytes": 2975215616,
+      "frontier_peak_memory_bytes": 2972364800,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794645916378
+    },
+    {
+      "result_digest": "7bb980a0a1db14908537d376f55a6b1ee52d4c811eb4c87829be18efc26bf5f9",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.858833204903495,
+      "ratio_ci95": [
+        0.8527486437344983,
+        0.8649611808405965
+      ],
+      "measured_against": "8e1547b6cac99777789d98c72c7561448259a04a",
+      "measured_ratio": 0.9662765702116884,
+      "measured_ratio_ci95": [
+        0.9594308068387155,
+        0.97317117970866
+      ],
+      "peak_memory_bytes": 2983051264,
+      "frontier_peak_memory_bytes": 3007082496,
+      "github_login": "anurag629",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794036074414
+    },
+    {
+      "result_digest": "3554e73660b303e0cab799064ed453fa6a50b31623d7e112dcc72a337ec12124",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.858843680865451,
+      "ratio_ci95": [
+        0.8537743210077421,
+        0.8639431404916054
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9960256850251848,
+      "measured_ratio_ci95": [
+        0.9901466027924022,
+        1.0019396748239808
+      ],
+      "peak_memory_bytes": 2982408192,
+      "frontier_peak_memory_bytes": 2974375936,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794641516691
+    },
+    {
+      "result_digest": "9ebe8337fb7f1d36334e622a94afded0f353356680754bc95c5789e9b87a3203",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8590475082903509,
+      "ratio_ci95": [
+        0.8543787648742666,
+        0.863741764003769
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9962620695443191,
+      "measured_ratio_ci95": [
+        0.9908475937056819,
+        1.0017061327269567
+      ],
+      "peak_memory_bytes": 2971365376,
+      "frontier_peak_memory_bytes": 2987294720,
+      "github_login": "rukafe0x",
+      "model": "claude-opus-5-5",
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794642837083
+    },
+    {
+      "result_digest": "4f9c4fb94732bec0290a52a719ed05282d14fd0cd63061121e935a87aad6da03",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8595422223299793,
+      "ratio_ci95": [
+        0.8541657693133918,
+        0.8649525168420681
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9968358036256083,
+      "measured_ratio_ci95": [
+        0.9906005766359238,
+        1.0031102775696454
+      ],
+      "peak_memory_bytes": 2990706688,
+      "frontier_peak_memory_bytes": 2979418112,
+      "github_login": "rukafe0x",
+      "model": "claude-opus-5-5",
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794636347602
+    },
+    {
+      "result_digest": "6900890eece7c825dc39e3498d246450c1f682c3796cda32ab1b23549d7bb25f",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8600644630700953,
+      "ratio_ci95": [
+        0.8541520877133736,
+        0.8660177634363811
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9974414612120948,
+      "measured_ratio_ci95": [
+        0.9905847096914099,
+        1.0043456746418487
+      ],
+      "peak_memory_bytes": 3002249216,
+      "frontier_peak_memory_bytes": 2977660928,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794512396666
+    },
+    {
+      "result_digest": "3aedd2df3c687936b1a1f57931ff20348701eb4fb24d940a130e7f78badac38e",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8613617494768401,
+      "ratio_ci95": [
+        0.8542600770145639,
+        0.8685224598751248
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9989459615195894,
+      "measured_ratio_ci95": [
+        0.9907099479857465,
+        1.0072504430435512
+      ],
+      "peak_memory_bytes": 2977443840,
+      "frontier_peak_memory_bytes": 2993045504,
+      "github_login": "lyskey1",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794679342021
+    }
+  ],
+  "recent": [
+    {
+      "result_digest": "a273aff79b9f7e52d7eee2669888825938bbf7b4e27f8103a97701c5d6799b53",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8383761455505968,
+      "ratio_ci95": [
+        0.8329074367018869,
+        0.843880760882013
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9722888964372874,
+      "measured_ratio_ci95": [
+        0.9659466777092522,
+        0.978672756944649
+      ],
+      "peak_memory_bytes": 2998738944,
+      "frontier_peak_memory_bytes": 2981707776,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794907556059
+    },
+    {
+      "result_digest": "04b2cd07f43c04a42eac73e474ee5842151e02610c37758492d67d385e103956",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8405182162535357,
+      "ratio_ci95": [
+        0.8342458961157538,
+        0.8468376951488181
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9747731173575801,
+      "measured_ratio_ci95": [
+        0.9674989275357071,
+        0.9821019985450542
+      ],
+      "peak_memory_bytes": 2994946048,
+      "frontier_peak_memory_bytes": 2984910848,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794893835698
+    },
+    {
+      "result_digest": "37aedff2320251b0de8817558b1c8ddc29fdc4be630dcafe03839567370d560a",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8423120980856454,
+      "ratio_ci95": [
+        0.8373197929302046,
+        0.8473341685839999
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9768535336434411,
+      "measured_ratio_ci95": [
+        0.9710638139620994,
+        0.9826777730479014
+      ],
+      "peak_memory_bytes": 2994651136,
+      "frontier_peak_memory_bytes": 2991706112,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794873569605
+    },
+    {
+      "result_digest": "789ca0b04f6dd4c95f4a1b2fe112fe5bcd271ceec44d5924589cbb5df50292fe",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8431184508418343,
+      "ratio_ci95": [
+        0.8385786651992848,
+        0.8476828133720815
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9777886840954368,
+      "measured_ratio_ci95": [
+        0.9725237642907858,
+        0.9830821064226659
+      ],
+      "peak_memory_bytes": 2993025024,
+      "frontier_peak_memory_bytes": 2991370240,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794869979608
+    },
+    {
+      "result_digest": "cd846f7c894a4f115bdad6c0a186557af678d29ee16c91f54ad7591681252580",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8449915871404466,
+      "ratio_ci95": [
+        0.8404314182944955,
+        0.8495764993972829
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9799610140625047,
+      "measured_ratio_ci95": [
+        0.9746724552714078,
+        0.985278268497903
+      ],
+      "peak_memory_bytes": 2980036608,
+      "frontier_peak_memory_bytes": 2977017856,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794855329350
+    },
+    {
+      "result_digest": "b930c9d6e1538bcc6f813da05d5b921b1ae9fbd9f372a711728a24748a2eeba9",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8474910332670847,
+      "ratio_ci95": [
+        0.8425642692938631,
+        0.8524466057290263
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9828596935264551,
+      "measured_ratio_ci95": [
+        0.9771459838366539,
+        0.988606813248083
+      ],
+      "peak_memory_bytes": 2986856448,
+      "frontier_peak_memory_bytes": 2981691392,
+      "github_login": "rukafe0x",
+      "model": "claude-opus-5-5",
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794852010538
+    },
+    {
+      "result_digest": "77cc8cbbc57b3e93c8ad961f4aed2f9aec2544af5c06e326ee7968051be1e1f3",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 1.1007876128908705,
+      "ratio_ci95": [
+        1.083039480667919,
+        1.1188265897256993
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 1.2766150122825837,
+      "measured_ratio_ci95": [
+        1.2560319935690165,
+        1.2975353318463936
+      ],
+      "peak_memory_bytes": 2958602240,
+      "frontier_peak_memory_bytes": 2981625856,
+      "github_login": "lyskey1",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794818061271
+    },
+    {
+      "result_digest": "c966ef34ecb0c3831dd01e2be3bdb620b7174973db2218bc7a030e8dbcda4f2b",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8730659167643464,
+      "ratio_ci95": [
+        0.8645323254068541,
+        0.8816837411566444
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 1.012519620498416,
+      "measured_ratio_ci95": [
+        1.0026229694931874,
+        1.0225139589735104
+      ],
+      "peak_memory_bytes": 3250302976,
+      "frontier_peak_memory_bytes": 2975473664,
+      "github_login": "lyskey1",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794694567228
+    },
+    {
+      "result_digest": "0d387c1787230843ab482342bc09d926d8dd99763f2f14fc3dd52c696ddb73bd",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8629975527196753,
+      "ratio_ci95": [
+        0.8575510243198403,
+        0.8684786734303684
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 1.0008430495250218,
+      "measured_ratio_ci95": [
+        0.9945265541006296,
+        1.0071996626459014
+      ],
+      "peak_memory_bytes": 2981916672,
+      "frontier_peak_memory_bytes": 2966867968,
+      "github_login": "lyskey1",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794692315870
+    },
+    {
+      "result_digest": "1f501f2e04dee8da68f92f5fae6e342397d9d716a2e741b18a5cb443637ba5f0",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8636657014901151,
+      "ratio_ci95": [
+        0.8551530371157033,
+        0.8722631056147309
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 1.0016179208451501,
+      "measured_ratio_ci95": [
+        0.9917455394632799,
+        1.0115885773492879
+      ],
+      "peak_memory_bytes": 2974904320,
+      "frontier_peak_memory_bytes": 2981994496,
+      "github_login": "lyskey1",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794689043643
+    },
+    {
+      "result_digest": "f1d21c2b8ef34d413471ab11061ea4fc4b2df54146c02a76055967bb524ecd0e",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8975227498599424,
+      "ratio_ci95": [
+        0.8879079671885727,
+        0.907241646976991
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 1.0408829123061178,
+      "measured_ratio_ci95": [
+        1.0297323726794316,
+        1.0521541964459078
+      ],
+      "peak_memory_bytes": 2985177088,
+      "frontier_peak_memory_bytes": 2993954816,
+      "github_login": "lyskey1",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794682349176
+    },
+    {
+      "result_digest": "3aedd2df3c687936b1a1f57931ff20348701eb4fb24d940a130e7f78badac38e",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8613617494768401,
+      "ratio_ci95": [
+        0.8542600770145639,
+        0.8685224598751248
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9989459615195894,
+      "measured_ratio_ci95": [
+        0.9907099479857465,
+        1.0072504430435512
+      ],
+      "peak_memory_bytes": 2977443840,
+      "frontier_peak_memory_bytes": 2993045504,
+      "github_login": "lyskey1",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794679342021
+    },
+    {
+      "result_digest": "0c54ace91c6df5656647cbb9ae8a13306308f90f094e01474df672c4f3ecd11c",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8579149058891532,
+      "ratio_ci95": [
+        0.8542610607203355,
+        0.8615843792835
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9949485580082298,
+      "measured_ratio_ci95": [
+        0.9907110888175846,
+        0.9992041517009062
+      ],
+      "peak_memory_bytes": 2981531648,
+      "frontier_peak_memory_bytes": 2983067648,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794672760523
+    },
+    {
+      "result_digest": "e4043abb52625a475fc2625ec6e915679694f0b44b2abb8f2c8f36c599ab23ae",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8586987418334923,
+      "ratio_ci95": [
+        0.853811087448464,
+        0.8636143756694069
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9958575950667792,
+      "measured_ratio_ci95": [
+        0.9901892418897396,
+        1.0015583968166577
+      ],
+      "peak_memory_bytes": 2975215616,
+      "frontier_peak_memory_bytes": 2972364800,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794645916378
+    },
+    {
+      "result_digest": "9ebe8337fb7f1d36334e622a94afded0f353356680754bc95c5789e9b87a3203",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8590475082903509,
+      "ratio_ci95": [
+        0.8543787648742666,
+        0.863741764003769
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9962620695443191,
+      "measured_ratio_ci95": [
+        0.9908475937056819,
+        1.0017061327269567
+      ],
+      "peak_memory_bytes": 2971365376,
+      "frontier_peak_memory_bytes": 2987294720,
+      "github_login": "rukafe0x",
+      "model": "claude-opus-5-5",
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794642837083
+    },
+    {
+      "result_digest": "3554e73660b303e0cab799064ed453fa6a50b31623d7e112dcc72a337ec12124",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.858843680865451,
+      "ratio_ci95": [
+        0.8537743210077421,
+        0.8639431404916054
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9960256850251848,
+      "measured_ratio_ci95": [
+        0.9901466027924022,
+        1.0019396748239808
+      ],
+      "peak_memory_bytes": 2982408192,
+      "frontier_peak_memory_bytes": 2974375936,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794641516691
+    },
+    {
+      "result_digest": "7130d4d75405af31a0ea02398c5b5276988d4b3d957cff49134d21220b2fbd26",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8576832365294875,
+      "ratio_ci95": [
+        0.8537312942459043,
+        0.8616534724470492
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9946798843976516,
+      "measured_ratio_ci95": [
+        0.9900967034208533,
+        0.9992842810272176
+      ],
+      "peak_memory_bytes": 2982768640,
+      "frontier_peak_memory_bytes": 2987507712,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794638196875
+    },
+    {
+      "result_digest": "4f9c4fb94732bec0290a52a719ed05282d14fd0cd63061121e935a87aad6da03",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8595422223299793,
+      "ratio_ci95": [
+        0.8541657693133918,
+        0.8649525168420681
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9968358036256083,
+      "measured_ratio_ci95": [
+        0.9906005766359238,
+        1.0031102775696454
+      ],
+      "peak_memory_bytes": 2990706688,
+      "frontier_peak_memory_bytes": 2979418112,
+      "github_login": "rukafe0x",
+      "model": "claude-opus-5-5",
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794636347602
+    },
+    {
+      "result_digest": "859d397e9df7bb6f801f70f05d6c8697cc6e7cb6fa4c4af60e7be45a28882da4",
+      "status": "VALID_NOT_FASTER",
+      "reason_code": "STOPPED_NOT_FASTER",
+      "ratio": 0.8662582097756765,
+      "ratio_ci95": [
+        0.8541179222294338,
+        0.8785710573137768
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 1.004624527167802,
+      "measured_ratio_ci95": [
+        0.9905450869983594,
+        1.0189040901161943
+      ],
+      "peak_memory_bytes": 2969075712,
+      "frontier_peak_memory_bytes": 2983776256,
+      "github_login": "hero570",
+      "model": null,
+      "harness": null,
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794630797459
+    },
+    {
+      "result_digest": "900d75c723dd1ac40c48d04645a0467ba5c968bb44b343b1b4b5b28350f716f1",
+      "status": "MEASURED_IMPROVEMENT",
+      "reason_code": "FASTER_IN_EVERY_SESSION",
+      "ratio": 0.8418114584618948,
+      "ratio_ci95": [
+        0.837132836046609,
+        0.8465162290662877
+      ],
+      "measured_against": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+      "measured_ratio": 0.9762729274920463,
+      "measured_ratio_ci95": [
+        0.9708469946942836,
+        0.9817291850957638
+      ],
+      "peak_memory_bytes": 2978459648,
+      "frontier_peak_memory_bytes": 2983555072,
+      "github_login": "binharold",
+      "model": null,
+      "harness": "claude-code",
+      "model_authority": "SELF_REPORTED",
+      "evaluated_at": 1794570731919
+    }
+  ],
+  "memory_boards": []
+}

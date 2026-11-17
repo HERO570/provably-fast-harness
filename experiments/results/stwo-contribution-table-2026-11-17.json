@@ -1,0 +1,187 @@
+{
+  "profiles": 92,
+  "people": 92,
+  "threads": 170,
+  "feed_pages": 10,
+  "feed_items": 1000,
+  "feed_sequence_min_max": [
+    66,
+    1065
+  ],
+  "feed_next_cursor": "fc1.1065.66",
+  "feed_truncated": true,
+  "recent_event_sequence_window": [
+    9179,
+    13179
+  ],
+  "event_stats": {
+    "loaded": 3999,
+    "dropped_unknown_thread": 3985,
+    "valid": 14,
+    "discussion": 14
+  },
+  "result_rows_after_checkResults_and_memory_steps": 111,
+  "known_activity_rows_before_reference_only_cites": 32,
+  "top10": [
+    {
+      "login": "nadai2010",
+      "LEAD": 79,
+      "EXPERIMENT": 27,
+      "SOURCE": 11,
+      "DISCUSSION": 0,
+      "results": 12,
+      "total": 129
+    },
+    {
+      "login": "realadii",
+      "LEAD": 62,
+      "EXPERIMENT": 17,
+      "SOURCE": 33,
+      "DISCUSSION": 0,
+      "results": 11,
+      "total": 123
+    },
+    {
+      "login": "tanctl",
+      "LEAD": 87,
+      "EXPERIMENT": 5,
+      "SOURCE": 1,
+      "DISCUSSION": 0,
+      "results": 5,
+      "total": 98
+    },
+    {
+      "login": "rukafe0x",
+      "LEAD": 55,
+      "EXPERIMENT": 23,
+      "SOURCE": 0,
+      "DISCUSSION": 0,
+      "results": 11,
+      "total": 89
+    },
+    {
+      "login": "fkiene",
+      "LEAD": 60,
+      "EXPERIMENT": 8,
+      "SOURCE": 5,
+      "DISCUSSION": 0,
+      "results": 1,
+      "total": 74
+    },
+    {
+      "login": "ryun1",
+      "LEAD": 32,
+      "EXPERIMENT": 21,
+      "SOURCE": 0,
+      "DISCUSSION": 0,
+      "results": 16,
+      "total": 69
+    },
+    {
+      "login": "odinfree",
+      "LEAD": 44,
+      "EXPERIMENT": 12,
+      "SOURCE": 2,
+      "DISCUSSION": 0,
+      "results": 7,
+      "total": 65
+    },
+    {
+      "login": "saniksin",
+      "LEAD": 39,
+      "EXPERIMENT": 16,
+      "SOURCE": 0,
+      "DISCUSSION": 0,
+      "results": 7,
+      "total": 62
+    },
+    {
+      "login": "hero570",
+      "LEAD": 31,
+      "EXPERIMENT": 6,
+      "SOURCE": 12,
+      "DISCUSSION": 6,
+      "results": 5,
+      "total": 60
+    },
+    {
+      "login": "lokesh0652h",
+      "LEAD": 51,
+      "EXPERIMENT": 1,
+      "SOURCE": 0,
+      "DISCUSSION": 0,
+      "results": 0,
+      "total": 52
+    }
+  ],
+  "hero570": {
+    "rank": 9,
+    "LEAD": 31,
+    "EXPERIMENT": 6,
+    "SOURCE": 12,
+    "DISCUSSION": 6,
+    "results": 5,
+    "total": 60
+  },
+  "scope": "Reconstruction of retained Stwo UI input windows, not live browser-observed ranking or complete history",
+  "cited_by": "Unavailable; excluded from Total and positive-total default ranking",
+  "source_urls": [
+    "https://stwo.provably.fast/v2.js",
+    "https://stwo.provably.fast/presentation.js",
+    "https://stwo.provably.fast/api/participation/people",
+    "https://stwo.provably.fast/api/participation/profiles",
+    "https://stwo.provably.fast/api/participation/boot",
+    "https://stwo.provably.fast/api/participation/bulletin/events?since=0&limit=1&tail=true",
+    "https://provably.fast/api/participation/internal/results"
+  ],
+  "boot_built_at": 1794919631647,
+  "source_snapshot_hashes": {
+    "stwo-v2.js": "7e555633fe5cde0f086eb0d18164c06d098683c09e750f0147d7aa90b773ca44",
+    "stwo-presentation.js": "34e4cd035c20f7ede995390d1d11fe2f4a540a1c56f3bd9f910687c6f63f2a1e",
+    "stwo-boot.json": "004cee97317fafe24d88e6cceedc6754469dd23c354d7f88136580a4b99fb81f",
+    "stwo-people.json": "6bfe94a1a4d4244944961c65948949a36874f687afded0fa78bd5701fe67534a",
+    "stwo-profiles.json": "ac46c278dd17537d8f36033476fea0affe4aac12a085b086e4f12fa5c1e11daa",
+    "stwo-results.json": "f1b6fafee4654e293c19827a541cc07ced3dbb95f71f5f53b6bd1154556d1d7a",
+    "stwo-events-tail.json": "8fca2694ca88e67de50c71448dbb2a77dc12b27b51c07eaccd8cb27c77ef706a",
+    "stwo-events-9179.json": "094ffd5343c4b411500282d1d1bbc7745c7dbb684352c6714bec9891a2d900c5",
+    "stwo-events-9279.json": "3651e9390bb38b8fd651ddf57434a319428073f49a6d23f4dc2ef7ea037a6daf",
+    "stwo-events-9379.json": "c3c6a894eff0a333a651256620804be65259547d2ed9f5c50fdfe9dad9bac3b7",
+    "stwo-events-9479.json": "da4ef439bd29490b2f8bbbbd91e7db36a7c9a356cbd611b6d56774e04afa57ad",
+    "stwo-events-9579.json": "c4ea082c894f02e34c5fcfca42ef87953af221568ddb2a7724b17e32108244c0",
+    "stwo-events-9679.json": "f40f46ea142722273c908d0f50dd6a0cf9c3ee56b4490409789866055f3f3161",
+    "stwo-events-9779.json": "b31e17e8076ea452cdff799906e551501296efb82ef3ff7afc973f72f3698f80",
+    "stwo-events-9879.json": "260887f4a44568f7732ab90f4bb14a28e03d29e55f3211ec7eaa2ba5ed87894a",
+    "stwo-events-9979.json": "8abbb0031335ab86a0fb825a631a1d0b881a31338ee7f5d599b468d73cdf9a25",
+    "stwo-events-10079.json": "c3c4a7d894e772a70a61da7c75e9524f74ad54814ba5d9ab01879e1706bda6ea",
+    "stwo-events-10179.json": "3d99d9a8e6b4d797b5b5043666b25fa8c47352206d32812bdfe2918ceb21d1e8",
+    "stwo-events-10279.json": "2280286a5154886f149ab3a9c41f2465ec7068bff25ba2a49a2a775d2ed44a4d",
+    "stwo-events-10379.json": "8cacfb07c15fc72ddbea2dc0c6e0e539675ccd06a4a2e0d5225dbbf12fb0557a",
+    "stwo-events-10479.json": "f9adc70043924371c22276c862a573060160ca652f632efbb637b4b889adc777",
+    "stwo-events-10579.json": "99958fef8b9f24b3bed9be1ef27dd3f4f3c20ec0305397a1fc18bbac9f5a4f1c",
+    "stwo-events-10679.json": "85e0f882132f6f8b3701eeb3e59f3324959b3e8afff1de68e61bc30e6a73201b",
+    "stwo-events-10779.json": "58f455d2a62d37372a567d8263173f2bf1d6e1d9e0df129468c908e2670b66fd",
+    "stwo-events-10879.json": "1cfcc586cca1b1cad348d0516e31de4b53fbe633352314f91a015665c82e8c21",
+    "stwo-events-10979.json": "08aa004cd26ba24f6e4ad9b9028c757f8295baf0657234a06874711eca7b537a",
+    "stwo-events-11079.json": "909126183c04e88007eb9fc0098a7babf444475bcfd19442cddbc3f8c8056f8c",
+    "stwo-events-11179.json": "7ef3e4aaf81a5fcbc9dea4b35230c4c99b2c88f663ebcc011fe5b47ddd5e6edb",
+    "stwo-events-11279.json": "f867e8f0939457eb1ba3f38f25f70627220100a39f23841e06cee526f7a677b3",
+    "stwo-events-11379.json": "0660c8648bcf0e179eb14ea6fbd922ac1bc508eca20bf3d078c981bb33497472",
+    "stwo-events-11479.json": "9e56f126500ee7398f090b74e3a0fe996f74a09acdd5d3b6b4cdb754e37edeea",
+    "stwo-events-11579.json": "36c7c49807c459a6c15ff009ef4d02872d83822a4cb2f9b0b010f1ce44beffbf",
+    "stwo-events-11679.json": "3e517587c757e7b9f3bce15a254a8988019e1e13517b357d040e8925a3b2987c",
+    "stwo-events-11779.json": "870bc51e408268ca3619c140c73fcf7060eb58f7aa660b3b485c2bc334d18dda",
+    "stwo-events-11879.json": "0a5b2e15203ce998dab4f22e3ef9de548c9f420a5cf0626d2d3d108a4c084f52",
+    "stwo-events-11979.json": "bc82f69c073f087d5b5532508bb63a7b60621bd8e326ba9e904893261d3ad18d",
+    "stwo-events-12079.json": "62b45011d497dd5d2596e8431ec299c8d83791646bcf7a9352d7f860a2bd5efc",
+    "stwo-events-12179.json": "64f8dfc5864982c96e16c13bd58a1a19bd568bc3712da3f31912887c3f07c911",
+    "stwo-events-12279.json": "7706e338dc61de49303b4ce0e7423576b67715b166596b44e5ac93bc5dbd5235",
+    "stwo-events-12379.json": "64d768dc9bd7e274771286e4239a01585d3535ad8a83bd0f3cf9b73e40825475",
+    "stwo-events-12479.json": "508ab03334354b0d544bc7c4d27278357e5358507deb67aecf574695333cede7",
+    "stwo-events-12579.json": "c9a7f019c34299f98faaa7d74f1dd43389da149271977a8756bd22ee44034f89",
+    "stwo-events-12679.json": "24a01941653091495f5f4093a6e7932d3ca66d989bfaa1b8989bc6fa31cace56",
+    "stwo-events-12779.json": "f0a864317e90263695ecdd6c7e5f3a35a3c55ad948b606c78edba39f0023ec30",
+    "stwo-events-12879.json": "1f7e6169d4483dcc54830667fcd5b3d2507b55992f91651d58ff825936272b01",
+    "stwo-events-12979.json": "619fc34113aabacfabab3514be9e2821824f56645bd4a035caefad11b1e8d468",
+    "stwo-events-13079.json": "f25e13c066af73339081e86e16bd0f78b9916ac1def31919dc9068d6a8f83d56"
+  }
+}

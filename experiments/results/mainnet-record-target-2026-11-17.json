@@ -1,0 +1,22 @@
+{
+  "all_time_best_guaranteed": false,
+  "attribution": "known",
+  "best_published_qualifying": {
+    "author": "binharold",
+    "ratio": 0.8383761455505968,
+    "result_digest": "a273aff79b9f7e52d7eee2669888825938bbf7b4e27f8103a97701c5d6799b53"
+  },
+  "campaign_id": "stwo-privacy-mainnet-whole-proof-v1",
+  "eligible_measured_improvements": 11,
+  "fractional_gain_needed_from_frontier": 0.027711103562712558,
+  "frontier": {
+    "commit": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+    "ratio": 0.8622706158865119
+  },
+  "gain_interpretation": "candidate must be strictly faster than the best qualifying ratio; equality does not advance the record",
+  "note": "This is a score threshold calculation only; it makes no points, promotion, or award prediction. The captured source window does not guarantee an all-time best. A threshold alone is not validation.",
+  "source_window_limited": true,
+  "strict_candidate_frontier_ratio_target": 0.9722888964372874,
+  "threshold_state": "existing_eligible_record",
+  "unique_digests_seen": 26
+}
