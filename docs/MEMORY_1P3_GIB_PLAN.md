@@ -26,3 +26,5 @@ No current phase-by-phase live-memory peak or rigorous 1.3 GiB feasibility bound
 5. Only a subsequent complete fresh-input alternating run with the challenge's correctness, memory, timing and policy checks can qualify a patch. Publish the diagnostic even if the target is missed or time regresses. A one-pair attribution run is not a performance acceptance gate.
 
 This plan adds the user's memory target to the research queue. No allocator/source change, build, proof run, new memory record or time gain has been made by this source-only assessment.
+
+Published as an explicitly unrun proposal in the [Provably research thread](https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0), reply `bp1_c834865344c94e977305368f`. The attached plan is the pre-publication version of this document; this paragraph records the returned publication identifier.
