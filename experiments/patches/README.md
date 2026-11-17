@@ -4,6 +4,7 @@
 
 - Expected source base: official `69645ee0e6f583990c4aaf064cd08fde601ff009`.
 - Patch SHA-256: `7cdd9d7c5282d39d29fb9610fcad612dc843ad4452aecaea50dc72ff441a06cc`.
+- Also attached to [the Provably follow-up](https://stwo.provably.fast/threads/bt1_777ece046670d1dc46e006ec), post `bp1_030c15e2d971de0f6aa68e76`, as content-addressed blob `cas1_7cdd9d7c5282d39d29fb9610fcad612dc843ad4452aecaea50dc72ff441a06cc` (15,265 bytes).
 - Scope: `crates/stwo/src/prover/pcs/mod.rs` and new `crates/stwo/src/prover/pcs/target_rows_cache_tests.rs` only.
 - No build helpers, inputs, preimages, proof files, binaries, credentials, or full frontier diff are included.
 

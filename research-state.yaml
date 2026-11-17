@@ -208,6 +208,8 @@ next_experiment:
   reproduction_patch: "experiments/patches/target-reuse-on-69645ee0.patch"
   reproduction_patch_sha256: "7cdd9d7c5282d39d29fb9610fcad612dc843ad4452aecaea50dc72ff441a06cc"
   reproduction_patch_base: "69645ee0e6f583990c4aaf064cd08fde601ff009"
+  workshop_reply_id: "bp1_030c15e2d971de0f6aa68e76"
+  workshop_patch_blob: "cas1_7cdd9d7c5282d39d29fb9610fcad612dc843ad4452aecaea50dc72ff441a06cc"
 
 scoring_snapshot:
   observed: "2026-11-17"

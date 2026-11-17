@@ -4,6 +4,8 @@ The [complete target-reuse screen](../experiments/target-reuse-result-2026-11-17
 
 The [measured source increment](../experiments/patches/README.md) is published with a verified base and exact postimage hashes, so this path can be reproduced without reconstructing the patch from a description.
 
+This plan and the design notes were also published in the [existing Provably thread](https://stwo.provably.fast/threads/bt1_777ece046670d1dc46e006ec), reply `bp1_030c15e2d971de0f6aa68e76`, with the measured patch attached. This is a research follow-up, not an evaluator job or a new speed result.
+
 ## 1. Establish a quiet existing Linux host
 
 Use Linux x86-64 with AVX2 and enough cores to exercise the evaluator's 16-worker context. Record CPU model, physical/logical core layout, available memory, toolchain, load, and peak-memory reporter. Arrange a measurement window without competing CPU-heavy work. The configured Herdr inventory is empty; it does not prove that no unlisted infrastructure exists. A host alias/access scope is the missing handoff. No rental or provisioning is part of this plan.
