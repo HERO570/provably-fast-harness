@@ -10,6 +10,8 @@ The old quotient diagnostic remains preserved separately. Its join/lift call-gra
 
 ## Next steps
 
+The [operational experiment plan](NEXT_EXPERIMENT.md) and [untested inverse-scatter design](INVERSE_SCATTER_HYPOTHESIS.md) expand the steps below for independent reproduction and review.
+
 1. Identify an existing quiet Linux x86-64 AVX2 host suitable for profiling and paired measurement. The bounded Herdr machine inventory is empty; this does not rule out unlisted infrastructure. No new host provisioning or spending is authorized.
 2. Refresh the official frontier and inspect actual decommit target-construction/index-search costs on that host before another patch build. Mixed coarse phase medians on loaded ARM do not identify recoverable savings.
 3. Keep inverse scatter-map reuse as one explicit source-level hypothesis. Review actual workload counts, combined metadata capacity and resident-suffix invariants before selecting an implementation. It has no measured benefit or transferred support.

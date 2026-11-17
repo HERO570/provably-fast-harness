@@ -1,0 +1,375 @@
+diff --git a/crates/stwo/src/prover/pcs/mod.rs b/crates/stwo/src/prover/pcs/mod.rs
+--- a/crates/stwo/src/prover/pcs/mod.rs
++++ b/crates/stwo/src/prover/pcs/mod.rs
+@@ -1,4 +1,5 @@
+ use std::array;
++use std::borrow::Cow;
+ 
+ use hashbrown::HashMap;
+ use itertools::Itertools;
+@@ -34,7 +35,139 @@
+ use crate::prover::vcs_lifted::prover::MerkleProverLifted;
+ 
+ mod patch_tests;
++mod target_rows_cache_tests;
+ pub mod quotient_ops;
++
++const DECOMMIT_TARGET_CACHE_BUDGET: usize = 64 * 1024;
++type DecommitTargetList = Vec<(usize, Vec<usize>)>;
++type DecommitTargetCache = Vec<(u32, DecommitTargetList)>;
++const DECOMMIT_TARGET_CACHE_STACK_BYTES: usize =
++    std::mem::size_of::<[bool; usize::BITS as usize]>()
++        + std::mem::size_of::<DecommitTargetCache>()
++        + std::mem::size_of::<Option<DecommitTargetCache>>();
++
++fn mark_decommit_target_size(
++    used_sizes: &mut [bool; usize::BITS as usize],
++    log_size: u32,
++) -> bool {
++    let Ok(index) = usize::try_from(log_size) else {
++        return false;
++    };
++    let Some(used) = used_sizes.get_mut(index) else {
++        return false;
++    };
++    *used = true;
++    true
++}
++
++fn decommit_target_cache_estimate(
++    n_sizes: usize,
++    n_positions: usize,
++    n_stripes: usize,
++) -> Option<usize> {
++    if n_sizes == 0 || n_positions == 0 || n_stripes == 0 {
++        return None;
++    }
++    let row_slots = n_sizes
++        .checked_mul(n_stripes)?
++        .checked_mul(n_positions)?
++        .checked_mul(std::mem::size_of::<usize>())?;
++    let target_slots = n_sizes
++        .checked_mul(n_stripes)?
++        .checked_mul(std::mem::size_of::<(usize, Vec<usize>)>())?;
++    let size_entries = n_sizes.checked_mul(std::mem::size_of::<(u32, DecommitTargetList)>())?;
++    row_slots
++        .checked_add(target_slots)?
++        .checked_add(size_entries)?
++        .checked_add(DECOMMIT_TARGET_CACHE_STACK_BYTES)
++}
++
++fn decommit_target_cache_capacity_bytes(cache: &DecommitTargetCache) -> Option<usize> {
++    let mut bytes = cache
++        .capacity()
++        .checked_mul(std::mem::size_of::<(u32, DecommitTargetList)>())?;
++    for (_, targets) in cache {
++        bytes = bytes.checked_add(
++            targets.capacity().checked_mul(std::mem::size_of::<(usize, Vec<usize>)>())?,
++        )?;
++        for (_, rows) in targets {
++            bytes = bytes.checked_add(rows.capacity().checked_mul(std::mem::size_of::<usize>())?)?;
++        }
++    }
++    Some(bytes)
++}
++
++fn decommit_target_cache_within_budget(cache: &DecommitTargetCache) -> bool {
++    decommit_target_cache_capacity_bytes(cache)
++        .and_then(|bytes| bytes.checked_add(DECOMMIT_TARGET_CACHE_STACK_BYTES))
++        .is_some_and(|bytes| bytes <= DECOMMIT_TARGET_CACHE_BUDGET)
++}
++
++fn decommit_target_cache_estimate_within_budget(estimate: Option<usize>) -> bool {
++    estimate.is_some_and(|bytes| bytes <= DECOMMIT_TARGET_CACHE_BUDGET)
++}
++
++fn build_decommit_target_cache(
++    used_sizes: &[bool; usize::BITS as usize],
++    n_positions: usize,
++    stripes: &[usize],
++    rows_of: impl Fn(u32, usize) -> Vec<usize>,
++) -> Option<DecommitTargetCache> {
++    let n_sizes = used_sizes.iter().filter(|&&used| used).count();
++    if !decommit_target_cache_estimate_within_budget(decommit_target_cache_estimate(
++        n_sizes,
++        n_positions,
++        stripes.len(),
++    )) {
++        return None;
++    }
++
++    let mut cache = Vec::new();
++    cache.try_reserve_exact(n_sizes).ok()?;
++    for (log_size, &used) in used_sizes.iter().enumerate() {
++        if !used {
++            continue;
++        }
++        let Ok(log_size) = u32::try_from(log_size) else {
++            return None;
++        };
++        let targets = stripes
++            .iter()
++            .map(|&stripe| (stripe, rows_of(log_size, stripe)))
++            .collect_vec();
++        cache.push((log_size, targets));
++        if !decommit_target_cache_within_budget(&cache) {
++            return None;
++        }
++    }
++    decommit_target_cache_within_budget(&cache).then_some(cache)
++}
++
++fn decommit_targets<'a>(
++    cache: &'a Option<DecommitTargetCache>,
++    stripes: &[usize],
++    log_size: u32,
++    first_stripe: Option<usize>,
++    rows_of: impl Fn(u32, usize) -> Vec<usize>,
++) -> Cow<'a, [(usize, Vec<usize>)]> {
++    if let Some((_, targets)) = cache
++        .as_ref()
++        .and_then(|cache| cache.binary_search_by_key(&log_size, |(size, _)| *size).ok().map(|i| &cache[i]))
++    {
++        let start = first_stripe.map_or(0, |first| {
++            targets.partition_point(|(stripe, _)| *stripe < first)
++        });
++        return Cow::Borrowed(&targets[start..]);
++    }
++    Cow::Owned(
++        stripes
++            .iter()
++            .copied()
++            .filter(|&stripe| first_stripe.map_or(true, |first| stripe >= first))
++            .map(|stripe| (stripe, rows_of(log_size, stripe)))
++            .collect(),
++    )
++}
+ 
+ /// The prover side of a FRI polynomial commitment scheme. See [super].
+ pub struct CommitmentSchemeProver<'a, B: BackendForChannel<MC>, MC: MerkleChannel> {
+@@ -1358,6 +1491,35 @@
+                 .dedup()
+                 .collect_vec()
+         };
++        let mut used_target_log_sizes = [false; usize::BITS as usize];
++        for poly in &self.polynomials {
++            if poly.coeffs.is_none()
++                && !poly.is_sourced()
++                && poly.evals.values.len() < poly.evals.domain.size()
++            {
++                mark_decommit_target_size(
++                    &mut used_target_log_sizes,
++                    poly.evals.domain.log_size() - log_blowup_factor,
++                );
++            }
++            if poly.evals.values.is_empty() {
++                if let Some(coeffs) = poly.coeffs.as_ref() {
++                    mark_decommit_target_size(&mut used_target_log_sizes, coeffs.log_size());
++                }
++            }
++            if poly.is_sourced() {
++                mark_decommit_target_size(
++                    &mut used_target_log_sizes,
++                    poly.source.as_ref().unwrap().log_size(),
++                );
++            }
++        }
++        let target_cache = build_decommit_target_cache(
++            &used_target_log_sizes,
++            positions.len(),
++            &stripes,
++            &rows_of,
++        );
+         // TILE evaluates a striped column's non-resident rows straight from its
+         // stripe 0 (TILE, with the Q722 weighted-sum tail), without regrowing its coefficients.
+         // The rows of `positions` in one column, read from its stripes as the tree lifts them.
+@@ -1368,11 +1530,13 @@
+             {
+                 let log_size = poly.evals.domain.log_size() - log_blowup_factor;
+                 let resident = poly.evals.values.len() >> log_size;
+-                let targets = stripes
+-                    .iter()
+-                    .filter(|&&stripe| stripe >= resident)
+-                    .map(|&stripe| (stripe, rows_of(log_size, stripe)))
+-                    .collect_vec();
++                let targets = decommit_targets(
++                    &target_cache,
++                    &stripes,
++                    log_size,
++                    Some(resident),
++                    &rows_of,
++                );
+                 let mut scratch = base_column_pool.take_or_alloc(log_size);
+                 let values = B::evaluate_from_prefix(
+                     &poly.evals.values,
+@@ -1417,7 +1581,7 @@
+                 let coeffs = poly.coeffs.as_ref().or(regrown.as_ref()).unwrap();
+                 let log_size = coeffs.log_size();
+                 let targets =
+-                    stripes.iter().map(|&stripe| (stripe, rows_of(log_size, stripe))).collect_vec();
++                    decommit_targets(&target_cache, &stripes, log_size, None, &rows_of);
+                 if let Some(values) =
+                     B::evaluate_rows_from_coefficients(coeffs, poly.evals.domain, &targets)
+                 {
+@@ -1439,7 +1603,7 @@
+             if let Some(coeffs) = poly.coeffs.as_ref().filter(|_| poly.evals.values.is_empty()) {
+                 let log_size = coeffs.log_size();
+                 let targets =
+-                    stripes.iter().map(|&stripe| (stripe, rows_of(log_size, stripe))).collect_vec();
++                    decommit_targets(&target_cache, &stripes, log_size, None, &rows_of);
+                 // The coefficients are read in place: the scratch is not written.
+                 let mut scratch = Col::<B, BaseField>::zeros(0);
+                 if let Some(values) =
+@@ -1463,7 +1627,7 @@
+             if let Some(source) = poly.source.as_deref().filter(|_| poly.is_sourced()) {
+                 let log_size = source.log_size();
+                 let targets =
+-                    stripes.iter().map(|&stripe| (stripe, rows_of(log_size, stripe))).collect_vec();
++                    decommit_targets(&target_cache, &stripes, log_size, None, &rows_of);
+                 let mut scratch = base_column_pool.take_or_alloc(log_size);
+                 let values =
+                     B::evaluate_from_source(source, poly.evals.domain, &targets, &mut scratch);
+@@ -1539,8 +1703,7 @@
+             })
+             .collect_vec();
+         let prepare_source_plan = |&(log_size, domain): &(u32, CircleDomain)| {
+-            let targets =
+-                stripes.iter().map(|&stripe| (stripe, rows_of(log_size, stripe))).collect_vec();
++            let targets = decommit_targets(&target_cache, &stripes, log_size, None, &rows_of);
+             B::prepare_source_reads(log_size, domain, &targets);
+         };
+         // So is the plan of the columns that keep their coefficients and no stripe.
+@@ -1555,8 +1718,7 @@
+             })
+             .collect_vec();
+         let prepare_coefficient_plan = |&(log_size, domain): &(u32, CircleDomain)| {
+-            let targets =
+-                stripes.iter().map(|&stripe| (stripe, rows_of(log_size, stripe))).collect_vec();
++            let targets = decommit_targets(&target_cache, &stripes, log_size, None, &rows_of);
+             B::prepare_coefficient_reads(log_size, domain, &targets);
+         };
+         #[cfg(feature = "parallel")]
+diff --git a/crates/stwo/src/prover/pcs/target_rows_cache_tests.rs b/crates/stwo/src/prover/pcs/target_rows_cache_tests.rs
+new file mode 100644
+--- /dev/null
++++ b/crates/stwo/src/prover/pcs/target_rows_cache_tests.rs
+@@ -0,0 +1,119 @@
++#[test]
++fn cached_and_owned_targets_preserve_rows_and_suffixes() {
++    use super::*;
++    use itertools::Itertools;
++
++    // Queries plus omitted-leaf positions can be out of order and can repeat a row.
++    let positions = [9usize, 2, 2, 8, 3, 15];
++    let stripe_log_size = 2;
++    let stripes = positions
++        .iter()
++        .map(|position| position >> stripe_log_size)
++        .sorted()
++        .dedup()
++        .collect_vec();
++    let rows_of = |log_size: u32, stripe: usize| {
++        let shift = stripe_log_size - log_size;
++        positions
++            .iter()
++            .filter(|&&position| position >> stripe_log_size == stripe)
++            .map(|&position| {
++                let local = position - (stripe << stripe_log_size);
++                (local >> (shift + 1) << 1) + (local & 1)
++            })
++            .sorted()
++            .dedup()
++            .collect_vec()
++    };
++    let cache: DecommitTargetCache = [0, 1, 2]
++        .into_iter()
++        .map(|log_size| {
++            (log_size, stripes.iter().map(|&stripe| (stripe, rows_of(log_size, stripe))).collect())
++        })
++        .collect();
++
++    for log_size in 0..=2 {
++        let expected: DecommitTargetList =
++            stripes.iter().map(|&stripe| (stripe, rows_of(log_size, stripe))).collect();
++        assert_eq!(
++            decommit_targets(&Some(cache.clone()), &stripes, log_size, None, &rows_of).as_ref(),
++            expected
++        );
++        assert_eq!(decommit_targets(&None, &stripes, log_size, None, &rows_of).as_ref(), expected);
++        for first_stripe in [0, 1, 2, 3, 4] {
++            let suffix: DecommitTargetList = expected
++                .iter()
++                .filter(|(stripe, _)| *stripe >= first_stripe)
++                .cloned()
++                .collect();
++            assert_eq!(
++                decommit_targets(
++                    &Some(cache.clone()),
++                    &stripes,
++                    log_size,
++                    Some(first_stripe),
++                    &rows_of
++                )
++                .as_ref(),
++                suffix
++            );
++            assert_eq!(
++                decommit_targets(&None, &stripes, log_size, Some(first_stripe), &rows_of).as_ref(),
++                suffix
++            );
++        }
++    }
++}
++
++#[test]
++fn target_cache_budget_checks_empty_overflow_and_actual_capacities() {
++    use super::*;
++
++    assert_eq!(decommit_target_cache_estimate(1, 0, 1), None);
++    assert_eq!(decommit_target_cache_estimate(1, 1, 0), None);
++    assert_eq!(decommit_target_cache_estimate(usize::MAX, usize::MAX, usize::MAX), None);
++    assert!(!decommit_target_cache_estimate_within_budget(None));
++    assert!(decommit_target_cache_estimate_within_budget(Some(DECOMMIT_TARGET_CACHE_BUDGET)));
++    assert!(!decommit_target_cache_estimate_within_budget(Some(DECOMMIT_TARGET_CACHE_BUDGET + 1)));
++
++    let small = decommit_target_cache_estimate(1, 1, 1).unwrap();
++    assert!(small <= DECOMMIT_TARGET_CACHE_BUDGET);
++    let over_budget = decommit_target_cache_estimate(1, 1024, 1024).unwrap();
++    assert!(over_budget > DECOMMIT_TARGET_CACHE_BUDGET);
++
++    let rows_of = |log_size: u32, stripe: usize| vec![log_size as usize + stripe];
++    let mut used_sizes = [false; usize::BITS as usize];
++    used_sizes[0] = true;
++    let stripes = [0usize, 1];
++    let small_cache = build_decommit_target_cache(&used_sizes, 2, &stripes, rows_of).unwrap();
++    assert!(decommit_target_cache_within_budget(&small_cache));
++    assert_eq!(small_cache, vec![(0, vec![(0, vec![0]), (1, vec![1])])]);
++    assert!(build_decommit_target_cache(&used_sizes, 0, &stripes, rows_of).is_none());
++    assert!(build_decommit_target_cache(&used_sizes, usize::MAX, &stripes, rows_of).is_none());
++    assert!(build_decommit_target_cache(&used_sizes, 1024, &vec![0; 1024], rows_of).is_none());
++
++    let empty: DecommitTargetCache = Vec::new();
++    assert!(decommit_target_cache_within_budget(&empty));
++    let oversized: DecommitTargetCache = vec![(0, vec![(0, vec![0; DECOMMIT_TARGET_CACHE_BUDGET])])];
++    assert!(!decommit_target_cache_within_budget(&oversized));
++}
++
++#[test]
++fn over_budget_cache_falls_back_to_the_canonical_owned_builder() {
++    use super::*;
++
++    let stripes: Vec<usize> = (0..1024).collect();
++    let used_sizes = [true; usize::BITS as usize];
++    let rows_of = |log_size: u32, stripe: usize| vec![log_size as usize + stripe];
++    let cache = build_decommit_target_cache(&used_sizes, 1024, &stripes, &rows_of);
++    assert!(cache.is_none());
++
++    let fallback = decommit_targets(&cache, &stripes, 3, Some(1018), &rows_of);
++    let expected: DecommitTargetList = stripes
++        .iter()
++        .copied()
++        .filter(|&stripe| stripe >= 1018)
++        .map(|stripe| (stripe, rows_of(3, stripe)))
++        .collect();
++    assert_eq!(fallback.as_ref(), expected);
++}

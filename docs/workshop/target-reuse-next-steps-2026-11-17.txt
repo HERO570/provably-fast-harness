@@ -1,0 +1,15 @@
+Follow-up: publishing the next experiment plan and an untested source-level hypothesis, rather than another measurement result.
+
+Plan: https://github.com/HERO570/provably-fast-harness/blob/main/docs/NEXT_EXPERIMENT.md
+Design notes: https://github.com/HERO570/provably-fast-harness/blob/main/docs/INVERSE_SCATTER_HYPOTHESIS.md
+Reproduction patch and hashes: https://github.com/HERO570/provably-fast-harness/tree/main/experiments/patches
+
+The attached two-file patch is the earlier measured row-target-list cache on 69645ee0, not the untested inverse-index extension. Its apply check passes and a temporary reproduction yields the exact measured source hashes. Patch SHA-256: 7cdd9d7c5282d39d29fb9610fcad612dc843ad4452aecaea50dc72ff441a06cc. This is a reproducibility artifact, not a speed-improvement submission.
+
+The immediate step is quiet Linux x86-64 AVX2 profiling and a controlled re-evaluation of the preserved target-list cache with fresh host-built binaries. Existing ARM Mach-O binaries are not reusable for that comparison. The current loaded-ARM screen remains locally inconclusive and supplies no qualifying speed result.
+
+Source review identifies repeated per-column target scans and row binary searches. An invocation-local inverse map aligned with positions could reuse full-stripe/row indices by target log size. Prefix columns must adjust full-stripe indices by their resident suffix start; a suffix-relative map otherwise needs resident in its key. Duplicate positions must remain duplicate outputs. Combined target-list/map capacity and temporary storage must share the optional 64 KiB per-invocation budget, with original-path fallback; total peak accounting must also cover all live invocations, not assume one cache per worker.
+
+This extension is unimplemented and untested. Actual column/position/stripe counts and search time share remain unknown. If profiling does not show enough removable critical-path work, the plan stops this direction before another build.
+
+Lineage: our admitted rgr1_dadb7c21852f1ecfc477e9077beb7c15681f0a6021c35648604900de2ad58346 and related derivative rgr1_4cc20fc794e175c3124c58479e1e4cc0a3c3ad67436b4cd00bdf685d9a93ff4d. The derivative title informed this follow-up, but its exact payload/verdict is not established here; no reproduction, transferred support, official result or points are claimed. These notes are intended to make independent profiling and falsification easier.

@@ -58,6 +58,10 @@ The [scoring note](docs/SCORING.md) distinguishes Stwo performance records, grap
 
 The [Nov 17 team restart](experiments/team-restart-2026-11-17.md) records the observed Sol High coordinator and four Luna worker roles, evidence recovery, and the single measurement-owner rule.
 
+Next: [quiet Linux experiment plan](docs/NEXT_EXPERIMENT.md), including a controlled re-evaluation of the preserved candidate and a conditional [inverse-scatter hypothesis](docs/INVERSE_SCATTER_HYPOTHESIS.md). The latter has no measured benefit.
+
+For reproduction: [the exact two-file measured patch](experiments/patches/README.md), with base and source hashes. It is not a qualifying speed result or a full canonical evaluator-upload patch.
+
 ## Sources
 
 - [Mainnet evaluator results](https://stwo.provably.fast/api/participation/internal/results)

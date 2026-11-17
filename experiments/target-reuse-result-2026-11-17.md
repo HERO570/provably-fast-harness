@@ -4,6 +4,8 @@ The per-invocation striped-decommit row-target cache passed ten fresh alternatin
 
 Published workshop account: [Local target-plan reuse: correct proofs, no resolved speed gain](https://stwo.provably.fast/threads/bt1_777ece046670d1dc46e006ec), post `bp1_9d6a4dc1877ba35c2560f142`. The thread is pinned to our admitted lead; the creation receipt did not include a new graph discussion-record ID. This is a workshop publication, not an evaluator submission or points award.
 
+The [exact measured two-file increment and postimage hashes](patches/README.md) are available for reproduction. The patch passes an applicability check against the stated frontier and reconstructs the measured source bytes in a temporary copy. This publication adds no new timing evidence.
+
 | Check | Complete replacement run |
 |---|---|
 | Measured pairs | 10, fresh inputs, alternating order |

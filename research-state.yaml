@@ -197,6 +197,18 @@ active_team:
   workers: "three GPT-6-Luna Medium and one GPT-6-Luna Low, observed in live panes"
   protocol: "single benchmark owner; frozen source; independent evidence review; parent owns public docs"
 
+next_experiment:
+  plan: "docs/NEXT_EXPERIMENT.md"
+  hypothesis: "docs/INVERSE_SCATTER_HYPOTHESIS.md"
+  state: "conditional plan; existing suitable host access not provided"
+  first_step: "quiet Linux AVX2 profiling and controlled re-evaluation of preserved candidate with fresh Linux binaries"
+  extension_implemented: false
+  extension_measured: false
+  extension_gain_claimed: false
+  reproduction_patch: "experiments/patches/target-reuse-on-69645ee0.patch"
+  reproduction_patch_sha256: "7cdd9d7c5282d39d29fb9610fcad612dc843ad4452aecaea50dc72ff441a06cc"
+  reproduction_patch_base: "69645ee0e6f583990c4aaf064cd08fde601ff009"
+
 scoring_snapshot:
   observed: "2026-11-17"
   handle: "hero570"
