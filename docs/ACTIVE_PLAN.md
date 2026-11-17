@@ -4,13 +4,13 @@ Last updated 2026-11-17. Frontier: branch `mainnet-season` at commit `69645ee0e6
 
 ## Current work
 
-An isolated pure-frontier candidate reuses row-target metadata within each striped decommit call. Independent source review cleared the bounded cache and fallback; three focused tests passed on Nov 17 with unchanged source hashes. One native release build is running, followed conditionally by ten fresh alternating proof pairs using the unchanged client. See the [experiment record](EXPERIMENT_PER_DECOMMIT_TARGETS.md) for graph identifiers, bounds, and evidence limits.
+An isolated pure-frontier candidate reuses row-target metadata within each striped decommit call. Independent actual-diff and static policy review cleared the corrected source; three focused tests passed on Nov 17 with unchanged hashes. The corrected native release build succeeded in 15m52s. The first measurement started after permission cleared, but its recovered record contains only four exact, verified pairs and no complete result or exit status. The restarted team reviewed that incomplete evidence and prepared one replacement ten-pair run with corrected logging. See the [experiment record](EXPERIMENT_PER_DECOMMIT_TARGETS.md) for graph identifiers, bounds, and evidence limits.
 
 The old quotient diagnostic remains preserved separately. Its join/lift call-graph review found no supported redundant computation; its patch size and profiling results do not describe the new candidate.
 
 ## Next steps
 
-1. Finish the existing source-bound release build and ten-pair measurement pipeline. Stop on build/test failure, mismatched proofs, verifier failure, source drift, or unavailable memory evidence.
+1. Finish the replacement run's bounded host/hash/timer precheck, using normal execution approval where required, then run ten fresh alternating pairs with the attributable corrected binary and a verified live log. Preserve the earlier partial record separately. Stop on mismatched proofs, verifier failure, source drift, or unavailable memory evidence.
 2. Review the complete local result: exact bytes, independent verification, time ratio and confidence interval, median peak memory, and phase timings. ARM timing remains advisory for the Linux AVX2 evaluator.
 3. If the evidence passes, exclude the hash-verified temporary helper, run canonical policy preflight, and submit using proposal `20583edf-7fdc-435a-93ff-c31eb1ae458e`. Read the evaluator result back into the graph. Otherwise record the negative or unresolved result without an unchanged rerun.
 4. Keep one build owner and freeze source during measurements. Preserve the separate old diagnostic and failed candidates. The derivative inverse-scatter-map lead is untested; do not stack it into this experiment before measuring the isolated change.

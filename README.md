@@ -50,9 +50,13 @@ Read `docs/RESEARCH_PLAYBOOK.md` before changing the prover. New ideas belong in
 
 ## Current status
 
-Last checked 2026-11-17. The active frontier is branch `mainnet-season` at commit `69645ee0e6f583990c4aaf064cd08fde601ff009` (tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`); pinned HEAD is `9df00f2249b61849be69cc14942742d0c1f81ad2`. No speed points or promotion are confirmed. The new [per-decommit row-target reuse experiment](docs/EXPERIMENT_PER_DECOMMIT_TARGETS.md) has an admitted graph lead, independent source review, and three passing focused tests. Its release build and whole-proof measurement pipeline are in progress; no performance result is claimed yet.
+Last checked 2026-11-17. The active frontier is branch `mainnet-season` at commit `69645ee0e6f583990c4aaf064cd08fde601ff009` (tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`); pinned HEAD is `9df00f2249b61849be69cc14942742d0c1f81ad2`. No speed points or promotion are confirmed. The new [per-decommit row-target reuse experiment](docs/EXPERIMENT_PER_DECOMMIT_TARGETS.md) has an admitted graph lead, clear static policy review, three passing corrected focused tests, and a successful corrected release build. The first measurement's recovered evidence contains four exact, verified pairs and lacks a complete result. A replacement ten-pair run is prepared with corrected logging; no performance gain is claimed yet.
 
 Previous official trace-writer batching was inconclusive; combined four-writer batching plus one-pass Pedersen was valid but not faster. Several local mechanisms were NO-GO or statistically unresolved. The quotient diagnostic passed one fresh shared-input exact-proof comparison and independent verification, but its follow-up review identified no supported redundant work. See the [2026-11-16 research ledger](experiments/research-update-2026-11-16.md) and [active plan](docs/ACTIVE_PLAN.md).
+
+The [scoring note](docs/SCORING.md) distinguishes Stwo performance records, graph admission, and cross-site mathematics points. Publishing research context does not by itself establish a Stwo points award.
+
+The [Nov 17 team restart](experiments/team-restart-2026-11-17.md) records the observed Sol High coordinator and four Luna worker roles, evidence recovery, and the single measurement-owner rule.
 
 ## Sources
 

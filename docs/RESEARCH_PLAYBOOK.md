@@ -47,6 +47,8 @@ For every pair:
 
 Do not trust a fast kernel benchmark unless the complete proof becomes faster.
 
+Pipe the benchmark invocation itself into the live log with pipefail enabled; piping only a final exit command loses the measurement output. Verify the log exists early, preserve the command exit status, and record source/binary identities separately. Treat a lost process and missing summary as incomplete evidence. A replacement run for lost evidence must preserve the partial record and use a separate fresh-input sequence, rather than selecting or combining favorable pairs.
+
 ## 5. Memory-lifetime accounting
 
 For every retained object write down allocation time, last read, release time, size, and whether it replaces recomputation. The useful question is not “can this be cached?” but “does this cache occupy memory during the frontier peak?”

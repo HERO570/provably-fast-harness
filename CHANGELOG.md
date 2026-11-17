@@ -6,6 +6,8 @@
 - Documented the isolated pure-frontier baseline, independently reviewed 64 KiB metadata bound, fixed bitmap correction, and three passing focused tests.
 - Updated the active plan to the single release-build and ten-pair pipeline. No whole-proof performance result, evaluator submission, points, or promotion is claimed for this candidate yet.
 - Recorded the test-module policy correction, zero-violation static review, corrected 3/3 test run, patch headroom, and preserved first-build artifact. Moved complete static policy checks before the first build in the research playbook.
+- Recorded the successful corrected release build, the first measurement's incomplete recovered capture, and the prepared replacement run. Added the current official scoring rules and dated account snapshot, separating Stwo performance credit from mathematics points.
+- Restarted and verified a Sol High coordinator and four Luna worker processes; documented their roles, frozen-source discipline, and improved live-log capture rule.
 
 ## 2026-11-16
 

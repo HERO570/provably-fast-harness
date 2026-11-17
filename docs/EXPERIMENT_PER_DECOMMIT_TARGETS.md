@@ -35,7 +35,7 @@ Coverage includes cached/fallback target equivalence, duplicate and out-of-order
 | `pcs/mod.rs` | `3498174c5c12be54837060520faaa3c1b3cbdeada708521d0a4cbc4fd2397c2b` |
 | `pcs/target_rows_cache_tests.rs` | `30874fe7e525fa8d3d203f97b97e05900fd97661709a7464ffd4e12e0e0d6909` |
 
-The authorized remaining stages are an attributable corrected native release prover build, then the unchanged client's ten fresh alternating pairs against the preserved frontier binaries. Require byte-identical proofs, independent verification, valid peak-memory measurements, and a clear whole-proof time gain. ARM local results are advisory for the Linux x86-64 AVX2 evaluator. Final policy preflight and parent review precede evaluator submission using the existing proposal ID.
+The remaining stage is the unchanged client's ten fresh alternating pairs against the preserved frontier binaries. Require byte-identical proofs, independent verification, valid peak-memory measurements, and a clear whole-proof time gain. ARM local results are advisory for the Linux x86-64 AVX2 evaluator. Final policy preflight and parent review precede evaluator submission using the existing proposal ID.
 
 ## Current execution state
 
@@ -45,6 +45,19 @@ The static source checker initially flagged the added `#[cfg(test)]` module decl
 
 The corrected read-only canonical serializer reports **1,536,778 bytes across 42 candidate paths**, excluding the known temporary helper, leaving **36,086 bytes** below the 1,572,864-byte limit. Canonical patch digest: `e5a3aae5f43763b77d035c1575c22bef8042a918d881fb97d95c74800507b43c`. Editable paths, base blobs, protected tests, manifests, compile inputs, tokens, and promotion checks pass. This excludes the helper and remains distinct from final full preflight. Full source-policy checks now belong before the first build in the [playbook](RESEARCH_PLAYBOOK.md).
 
-One corrected same-flags release build is running. Measurement will use that attributable binary, not the preserved pre-correction artifact.
+The corrected same-flags release build succeeded in **15m52s**. The binary SHA-256 is `dbf583dd7ecb580b152c881eff314424d9c69bd4674da2a9963a313b12a1b83f`; the retained build-log SHA-256 is `fe3ba6af683576b8c56b6f6af7c869b9e737b2efdb4c9e00a7403228d349680b`. Post-build source hashes still match the corrected hashes above. Measurement will use this binary, not the preserved pre-correction artifact.
 
-No full-proof result or evaluator submission is recorded yet. The temporary build helper is outside the permitted submission surface and must be excluded from the final patch. Keep inputs, preimages, proofs, binaries, credentials, and private raw logs out of this public repository.
+Normal outside-sandbox execution approval cleared and the first measurement started. Its intended live file was not written because tee was attached to the final exit command rather than to the benchmark invocation. Later the worker panes returned to shells and no benchmark process remained. Recovery retained 24 original execution-output chunks, SHA-256 `7230364aa56b2e9044be3573375d30e64d00aa73c82f8f1b9c9fca012b9c091a`. The retained evidence contains the warm-up and measured pairs 1–4, followed by empty poll results; it contains no pairs 5–10, aggregate interval, median-memory summary, or exit status. A lost execution-process ID does not establish completion.
+
+| Measured pair | Frontier seconds | Candidate seconds | Candidate/frontier | Frontier peak GiB | Candidate peak GiB |
+|---|---:|---:|---:|---:|---:|
+| 1 | 15.63 | 15.75 | 1.0073 | 2.89 | 2.88 |
+| 2 | 21.94 | 18.95 | 0.8636 | 2.84 | 2.87 |
+| 3 | 40.38 | 63.05 | 1.5613 | 2.71 | 2.74 |
+| 4 | 107.37 | 70.25 | 0.6543 | 2.69 | 2.85 |
+
+All four captured measured pairs were byte-identical and independently verified. The warm-up was also exact and verified and is excluded from measured conclusions. This incomplete, mixed evidence establishes neither a speedup nor a refutation. There is no complete ten-pair verdict.
+
+One replacement ten-pair run is authorized with the same reviewed source, attributable binaries, flags, client, and tools. It will use fresh inputs and direct unbuffered client-output logging with pipefail. Its results will remain separate from the partial run; prior pairs will not be selected or combined into it. At the latest observation, its owner is awaiting normal execution permission for a bounded host/hash/timer precheck. No rebuild or candidate change is planned. The macOS system timer needs access denied inside the sandbox.
+
+No complete performance result or evaluator submission is recorded yet. The temporary build helper is outside the permitted submission surface and must be excluded from the final patch. Keep inputs, preimages, proofs, binaries, credentials, and private raw logs out of this public repository.

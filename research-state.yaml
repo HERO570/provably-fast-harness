@@ -165,11 +165,38 @@ active_experiment:
   canonical_patch_bytes_excluding_helper: 1536778
   patch_headroom_bytes: 36086
   first_build: "success in 15m50s; preserved and not measured due to test-module policy issue"
-  pipeline: "corrected same-flags release build, then ten fresh alternating proof pairs"
-  full_proof_result: null
+  corrected_build: "success in 15m52s; source hashes unchanged"
+  candidate_binary_sha256: "dbf583dd7ecb580b152c881eff314424d9c69bd4674da2a9963a313b12a1b83f"
+  pipeline: "one replacement ten-pair run prepared; bounded host/hash/timer precheck awaits normal execution approval"
+  full_proof_result:
+    state: "first capture incomplete; complete performance conclusion unknown"
+    measured_pairs_captured: 4
+    captured_pairs_exact_and_verified: true
+    aggregate_ratio: null
+    confidence_interval: null
+    median_peak_memory: null
+    exit_status: null
+    recovered_chunk_sha256: "7230364aa56b2e9044be3573375d30e64d00aa73c82f8f1b9c9fca012b9c091a"
   evaluator_job: null
   points_confirmed: false
   record: "docs/EXPERIMENT_PER_DECOMMIT_TARGETS.md"
+
+active_team:
+  restarted: "2026-11-17"
+  coordinator: "GPT-6.1-Sol High, observed in live pane"
+  workers: "three GPT-6-Luna Medium and one GPT-6-Luna Low, observed in live panes"
+  protocol: "single benchmark owner; frozen source; independent evidence review; parent owns public docs"
+
+scoring_snapshot:
+  observed: "2026-11-17"
+  handle: "hero570"
+  place: 19
+  earned_last_13_weeks: 96
+  earned_this_week: 26
+  pending: 84
+  credited_sites: ["starks"]
+  stwo_points_confirmed_for_active_experiment: false
+  source: "https://provably.fast/api/checks/standings?who=hero570"
 
 workspace:
   findings: "findings.md"
