@@ -150,6 +150,24 @@ outer_loop:
   last_direction: "diagnostic-first"
   last_reflection: "The official combined writer/Pedersen result was valid but not faster, and writer batching remained unresolved. One Nov 16 ARM quotient diagnostic passed exact-byte comparison and independent verification with retained timing and memory fields. Inspect its dominant join/lift buckets for actual repeated work before proposing a new patch. No speed points or promotion are confirmed."
 
+active_experiment:
+  updated: "2026-11-17"
+  mechanism: "per-invocation striped-decommit row-target metadata reuse"
+  frontier_commit: "69645ee0e6f583990c4aaf064cd08fde601ff009"
+  proposal_id: "20583edf-7fdc-435a-93ff-c31eb1ae458e"
+  lead_id: "rgr1_dadb7c21852f1ecfc477e9077beb7c15681f0a6021c35648604900de2ad58346"
+  lead_state: "ADMITTED"
+  parent_id: "rgr1_ea084ee5484191ae60a9dbde8c6074879eaef5f3fb8ebe2e7966191b025ac420"
+  parent_edge: "DERIVED_FROM"
+  source_review: "cleared controlled compilation and focused tests"
+  cache_budget_bytes: 65536
+  focused_tests: "3 passed, 0 failed; reviewed source hashes unchanged"
+  pipeline: "one native release build, then ten fresh alternating proof pairs"
+  full_proof_result: null
+  evaluator_job: null
+  points_confirmed: false
+  record: "docs/EXPERIMENT_PER_DECOMMIT_TARGETS.md"
+
 workspace:
   findings: "findings.md"
   log: "research-log.md"

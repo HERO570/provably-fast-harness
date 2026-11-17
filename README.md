@@ -50,7 +50,9 @@ Read `docs/RESEARCH_PLAYBOOK.md` before changing the prover. New ideas belong in
 
 ## Current status
 
-Last checked 2026-11-16. The active frontier is branch `mainnet-season` at commit `69645ee0e6f583990c4aaf064cd08fde601ff009` (tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`); pinned HEAD is `9df00f2249b61849be69cc14942742d0c1f81ad2`. No speed points or promotion are confirmed. The official trace-writer batching result was inconclusive; combined four-writer batching plus one-pass Pedersen was valid but not faster. Several local mechanisms were NO-GO or statistically unresolved. A quotient diagnostic built successfully and completed one fresh shared-input comparison: proofs matched byte for byte, the independent verifier accepted, and memory/timing summaries were retained. This is ARM profiling evidence, not a speed or median-memory acceptance result. See the [2026-11-16 research ledger](experiments/research-update-2026-11-16.md) and [active plan](docs/ACTIVE_PLAN.md).
+Last checked 2026-11-17. The active frontier is branch `mainnet-season` at commit `69645ee0e6f583990c4aaf064cd08fde601ff009` (tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`); pinned HEAD is `9df00f2249b61849be69cc14942742d0c1f81ad2`. No speed points or promotion are confirmed. The new [per-decommit row-target reuse experiment](docs/EXPERIMENT_PER_DECOMMIT_TARGETS.md) has an admitted graph lead, independent source review, and three passing focused tests. Its release build and whole-proof measurement pipeline are in progress; no performance result is claimed yet.
+
+Previous official trace-writer batching was inconclusive; combined four-writer batching plus one-pass Pedersen was valid but not faster. Several local mechanisms were NO-GO or statistically unresolved. The quotient diagnostic passed one fresh shared-input exact-proof comparison and independent verification, but its follow-up review identified no supported redundant work. See the [2026-11-16 research ledger](experiments/research-update-2026-11-16.md) and [active plan](docs/ACTIVE_PLAN.md).
 
 ## Sources
 

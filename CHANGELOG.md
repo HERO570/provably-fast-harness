@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-11-17
+
+- Recorded the admitted per-decommit row-target reuse lead and its typed parent; corrected the earlier failed-request-only proposal status.
+- Documented the isolated pure-frontier baseline, independently reviewed 64 KiB metadata bound, fixed bitmap correction, and three passing focused tests.
+- Updated the active plan to the single release-build and ten-pair pipeline. No whole-proof performance result, evaluator submission, points, or promotion is claimed for this candidate yet.
+
 ## 2026-11-16
 
 - Updated the documented frontier, tree, pinned HEAD, and public graph campaign digest.
