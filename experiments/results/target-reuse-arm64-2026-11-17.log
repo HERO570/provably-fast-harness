@@ -1,0 +1,37 @@
+caution: this host is Darwin arm64; the evaluator is Linux x86-64 with AVX2 and 16 cores, and ratios do not carry over between them: screen on an x86-64 Linux host before you spend a job
+warning: load average 17 on 8 CPUs; times and peaks will be noisy
+warm-up   frontier   9.76 s  2.84 GiB  yours   9.80 s  2.87 GiB  ratio 1.0044  identical, verified
+pair 1    frontier   9.50 s  2.84 GiB  yours   9.02 s  2.88 GiB  ratio 0.9492  identical, verified
+pair 2    frontier   9.83 s  2.85 GiB  yours  10.48 s  2.87 GiB  ratio 1.0655  identical, verified
+pair 3    frontier   8.14 s  2.84 GiB  yours   8.34 s  2.83 GiB  ratio 1.0251  identical, verified
+pair 4    frontier   9.72 s  2.84 GiB  yours   9.70 s  2.84 GiB  ratio 0.9989  identical, verified
+pair 5    frontier   9.37 s  2.86 GiB  yours   9.25 s  2.85 GiB  ratio 0.9871  identical, verified
+pair 6    frontier   9.89 s  2.83 GiB  yours   9.26 s  2.83 GiB  ratio 0.9355  identical, verified
+pair 7    frontier   9.48 s  2.84 GiB  yours   9.25 s  2.88 GiB  ratio 0.9752  identical, verified
+pair 8    frontier  10.11 s  2.88 GiB  yours  10.31 s  2.88 GiB  ratio 1.0194  identical, verified
+pair 9    frontier  10.78 s  2.87 GiB  yours  11.90 s  2.84 GiB  ratio 1.1036  identical, verified
+pair 10   frontier   9.64 s  2.84 GiB  yours  10.02 s  2.89 GiB  ratio 1.0397  identical, verified
+
+time ratio 1.0087 (95% interval 0.9726 to 1.0462) over 10 pairs
+caution: this host is Darwin arm64; the evaluator is Linux x86-64 with AVX2 and 16 cores, and ratios do not carry over between them: screen on an x86-64 Linux host before you spend a job
+phases (median seconds from each `pvfast-phase` marker to the next):
+  cairo_leg            frontier   0.20 s  yours   0.20 s  +1.2%
+  cairo_base_commit    frontier   1.32 s  yours   1.24 s  -6.0%
+  cairo_interaction    frontier   0.34 s  yours   0.33 s  -2.8%
+  cairo_int_commit     frontier   1.32 s  yours   1.38 s  +4.2%
+  cairo_composition    frontier   0.34 s  yours   0.36 s  +5.2%
+  cairo_comp_commit    frontier   0.27 s  yours   0.27 s  +0.2%
+  cairo_tail           frontier   1.52 s  yours   1.55 s  +1.7%
+  cairo_to_circuit     frontier   0.00 s  yours   0.00 s  -6.0%
+  verifier_fill        frontier   0.14 s  yours   0.14 s  +3.7%
+  validity_check       frontier   0.01 s  yours   0.01 s  +14.7%
+  blinding_padding     frontier   0.00 s  yours   0.00 s  -0.3%
+  circuit_leg          frontier   0.15 s  yours   0.15 s  -0.3%
+  circuit_base_commit  frontier   0.92 s  yours   0.96 s  +5.0%
+  circuit_interaction  frontier   0.33 s  yours   0.33 s  +0.2%
+  circuit_int_commit   frontier   0.97 s  yours   1.00 s  +3.4%
+  circuit_composition  frontier   0.41 s  yours   0.41 s  +0.6%
+  circuit_comp_commit  frontier   0.27 s  yours   0.28 s  +5.4%
+  circuit_tail         frontier   0.86 s  yours   0.85 s  -2.0%
+  serialize            frontier   0.04 s  yours   0.04 s  -3.6%
+median peak: frontier 2.84 GiB (range 2.83 to 2.88), yours 2.86 GiB (range 2.83 to 2.89), +0.6%; fits: 10 GiB, 8 GiB, 6 GiB, 4 GiB

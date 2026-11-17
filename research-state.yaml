@@ -167,19 +167,27 @@ active_experiment:
   first_build: "success in 15m50s; preserved and not measured due to test-module policy issue"
   corrected_build: "success in 15m52s; source hashes unchanged"
   candidate_binary_sha256: "dbf583dd7ecb580b152c881eff314424d9c69bd4674da2a9963a313b12a1b83f"
-  pipeline: "one replacement ten-pair run prepared; bounded host/hash/timer precheck awaits normal execution approval"
+  pipeline: "complete local screen; no qualifying speed gain; preserve candidate and seek suitable Linux AVX2 profiling host"
   full_proof_result:
-    state: "first capture incomplete; complete performance conclusion unknown"
+    state: "completed local inconclusive; no qualifying speed clearance"
+    measured_pairs: 10
+    exact_and_verified: true
+    aggregate_ratio: 1.0087
+    confidence_interval: [0.9726, 1.0462]
+    median_peak_gib: {frontier: 2.84, candidate: 2.86}
+    reported_peak_delta_percent: 0.6
+    exit_status: 0
+    host: "Darwin arm64, 8 CPUs, load average 17"
+    raw_log_sha256: "6893c3b65776c6d5d0fae7b36d9b2724115aa42eff153463e0772dffae43cf55"
+  prior_partial_capture:
     measured_pairs_captured: 4
-    captured_pairs_exact_and_verified: true
-    aggregate_ratio: null
-    confidence_interval: null
-    median_peak_memory: null
-    exit_status: null
+    completion_unknown: true
+    combined_with_replacement: false
     recovered_chunk_sha256: "7230364aa56b2e9044be3573375d30e64d00aa73c82f8f1b9c9fca012b9c091a"
   evaluator_job: null
   points_confirmed: false
   record: "docs/EXPERIMENT_PER_DECOMMIT_TARGETS.md"
+  result: "experiments/target-reuse-result-2026-11-17.md"
 
 active_team:
   restarted: "2026-11-17"

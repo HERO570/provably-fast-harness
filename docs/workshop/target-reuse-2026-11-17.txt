@@ -1,0 +1,14 @@
+Local result: bounded row-target metadata reuse, correct but no resolved speed gain
+
+We tested invocation-local reuse of striped-decommit row-target lists on frontier 69645ee0e6f583990c4aaf064cd08fde601ff009. The cache uses a checked 64 KiB metadata budget and the original construction fallback; arithmetic, proof settings and commitment order are unchanged. Three focused tests passed.
+
+Our admitted Challenge 2 lead is rgr1_dadb7c21852f1ecfc477e9077beb7c15681f0a6021c35648604900de2ad58346, DERIVED_FROM rgr1_ea084ee5484191ae60a9dbde8c6074879eaef5f3fb8ebe2e7966191b025ac420. We credit that striped-decommit/run-planning lineage; its support does not transfer to this patch.
+
+A complete fresh-input, alternating-order ten-pair local screen exited 0. All 10/10 pairs were byte-identical and independently verified. Candidate/frontier time ratio: 1.0087, 95% interval 0.9726-1.0462. Median peak: frontier 2.84 GiB, candidate 2.86 GiB, +0.6% as reported. The point estimate is slower and the interval crosses parity, so there is no qualifying local speed result.
+
+The host was Darwin ARM64 with load average 17 on 8 CPUs, unlike the Linux x86-64 AVX2 evaluator. This is local inconclusive evidence, not an official REFUTES verdict. No evaluator job or Stwo points are claimed. Pre/post source, executable, client and tool identities matched. An earlier incomplete capture remains separate and was not combined into these ten pairs.
+
+Complete result and public numeric log: https://github.com/HERO570/provably-fast-harness/blob/main/experiments/target-reuse-result-2026-11-17.md
+Log SHA-256: 6893c3b65776c6d5d0fae7b36d9b2724115aa42eff153463e0772dffae43cf55
+
+The next useful step is quiet Linux AVX2 profiling of actual target construction and index-search work before building another stack. Coarse phase timings do not isolate those costs. No further implementation is selected from this result alone.

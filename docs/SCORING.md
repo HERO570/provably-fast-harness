@@ -18,4 +18,4 @@ Our operational route is therefore: isolate a new improvement against the curren
 
 The Nov 17 API response showed hero570 at **place 19**, with **96 earned points** in the last 13 weeks and all time, **26 this week**, and **84 pending**. Its `sites` field listed only `starks`; this snapshot provides no Stwo points attribution. These points must not be attributed to this Stwo experiment. Pending points are not earned points.
 
-No Stwo points or promotion are confirmed for the [per-decommit target-reuse experiment](EXPERIMENT_PER_DECOMMIT_TARGETS.md). Its graph lead is admitted and its focused tests pass; the whole-proof performance result is pending.
+No Stwo points or promotion are confirmed for the [per-decommit target-reuse experiment](EXPERIMENT_PER_DECOMMIT_TARGETS.md). Its complete local ten-pair screen passed exact proofs and verification but established no qualifying speed gain; no evaluator job was submitted.

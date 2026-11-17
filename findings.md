@@ -59,3 +59,9 @@ The newest public near-miss is about 0.64% faster than frontier `69645ee0`, with
 ## Historical Optimization Trajectory (as of 2026-11-13)
 
 Pinned base → cumulative frontier 0.86227. At that date, the recorded experiments had not improved that frontier; the next milestone was a qualifying current-frontier local result before evaluator time. Subsequent official and local results, including their limits, are in the [2026-11-16 ledger](experiments/research-update-2026-11-16.md).
+
+## Target metadata reuse — 2026-11-17
+
+The complete ten-pair screen preserved exact proofs and independent verification, but did not establish a speed gain: ratio 1.0087, 95% interval 0.9726–1.0462, reported median peak +0.6%. This busy ARM64 result is locally inconclusive, not an official refutation. The coordinator and independent reviewer withheld submission clearance. [Full evidence](experiments/target-reuse-result-2026-11-17.md).
+
+Source inspection confirms repeated per-column inverse-index searches, but does not establish that they occupy enough whole-proof time to justify another build. The next research bottleneck is quiet evaluator-like Linux AVX2 profiling. The configured-machine inventory was empty; no resources were provisioned. Graph admission, source posts, and citations do not directly mint Stwo performance points in the inspected scoring engine.

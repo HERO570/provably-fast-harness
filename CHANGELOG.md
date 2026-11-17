@@ -8,6 +8,7 @@
 - Recorded the test-module policy correction, zero-violation static review, corrected 3/3 test run, patch headroom, and preserved first-build artifact. Moved complete static policy checks before the first build in the research playbook.
 - Recorded the successful corrected release build, the first measurement's incomplete recovered capture, and the prepared replacement run. Added the current official scoring rules and dated account snapshot, separating Stwo performance credit from mathematics points.
 - Restarted and verified a Sol High coordinator and four Luna worker processes; documented their roles, frozen-source discipline, and improved live-log capture rule.
+- Published the complete replacement screen and checked numeric log: 10/10 exact/verified, exit 0, ratio 1.0087 (95% interval 0.9726–1.0462), median peak +0.6%. Independent review withheld submission clearance; next step is quiet Linux AVX2 profiling, with no Stwo points or promotion claimed.
 
 ## 2026-11-16
 

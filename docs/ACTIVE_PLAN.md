@@ -4,16 +4,16 @@ Last updated 2026-11-17. Frontier: branch `mainnet-season` at commit `69645ee0e6
 
 ## Current work
 
-An isolated pure-frontier candidate reuses row-target metadata within each striped decommit call. Independent actual-diff and static policy review cleared the corrected source; three focused tests passed on Nov 17 with unchanged hashes. The corrected native release build succeeded in 15m52s. The first measurement started after permission cleared, but its recovered record contains only four exact, verified pairs and no complete result or exit status. The restarted team reviewed that incomplete evidence and prepared one replacement ten-pair run with corrected logging. See the [experiment record](EXPERIMENT_PER_DECOMMIT_TARGETS.md) for graph identifiers, bounds, and evidence limits.
+The target-reuse candidate completed its [replacement ten-pair screen](../experiments/target-reuse-result-2026-11-17.md). All proofs were exact and independently verified; exit status was 0. Time ratio 1.0087 (95% interval 0.9726–1.0462) and median peak +0.6% establish no qualifying local gain. Coordinator and independent review agree that this is local inconclusive evidence, not an evaluator refutation. The source and attributable binary remain preserved; no submission is justified by this run.
 
 The old quotient diagnostic remains preserved separately. Its join/lift call-graph review found no supported redundant computation; its patch size and profiling results do not describe the new candidate.
 
 ## Next steps
 
-1. Finish the replacement run's bounded host/hash/timer precheck, using normal execution approval where required, then run ten fresh alternating pairs with the attributable corrected binary and a verified live log. Preserve the earlier partial record separately. Stop on mismatched proofs, verifier failure, source drift, or unavailable memory evidence.
-2. Review the complete local result: exact bytes, independent verification, time ratio and confidence interval, median peak memory, and phase timings. ARM timing remains advisory for the Linux AVX2 evaluator.
-3. If the evidence passes, exclude the hash-verified temporary helper, run canonical policy preflight, and submit using proposal `20583edf-7fdc-435a-93ff-c31eb1ae458e`. Read the evaluator result back into the graph. Otherwise record the negative or unresolved result without an unchanged rerun.
-4. Keep one build owner and freeze source during measurements. Preserve the separate old diagnostic and failed candidates. The derivative inverse-scatter-map lead is untested; do not stack it into this experiment before measuring the isolated change.
+1. Identify an existing quiet Linux x86-64 AVX2 host suitable for profiling and paired measurement. The bounded Herdr machine inventory is empty; this does not rule out unlisted infrastructure. No new host provisioning or spending is authorized.
+2. Refresh the official frontier and inspect actual decommit target-construction/index-search costs on that host before another patch build. Mixed coarse phase medians on loaded ARM do not identify recoverable savings.
+3. Keep inverse scatter-map reuse as one explicit source-level hypothesis. Review actual workload counts, combined metadata capacity and resident-suffix invariants before selecting an implementation. It has no measured benefit or transferred support.
+4. Keep the current candidate, full log, earlier partial capture, old diagnostic and failed candidates separate. No unchanged ARM rerun or evaluator submission follows from this screen. A future qualifying patch must pass the full proof, memory, timing and final policy gates before submission.
 5. After each material experiment or evaluator result, update the dated ledger, findings, research state, and append-only research log in GitHub with identifiers, evidence limits, and the next decision. Review the diff before committing; keep proof inputs/artifacts, credentials, binaries, and large snapshots out of the public repository.
 
 ## Guardrails
