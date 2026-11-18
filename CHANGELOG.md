@@ -2,6 +2,8 @@
 
 ## 2026-11-18
 
+- Added a third, twenty-reference catalog after a complete 115-source duplicate check. All twenty are admitted; superseded paper versions are not counted separately. Recorded primary/DOI verification and concrete Stwo applications without claiming a performance result.
+
 - Added a second, 21-reference source batch checked against all 94 existing SOURCE records. Recorded primary-page or DOI verification scope, source hashes, relevance, URL rejections and supported DOI submissions; no prover experiment or performance points claim.
 
 - Collected and submitted twenty distinct primary sources after checking the existing 74-source graph catalog. Published concrete Stwo relevance, interpretation limits and retrieval hashes; recorded actual proposal/admission states without claiming a speed result or points.

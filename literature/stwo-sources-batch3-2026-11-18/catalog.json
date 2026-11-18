@@ -1,0 +1,619 @@
+{
+  "schema_version": 1,
+  "challenge": 2,
+  "batch": 3,
+  "date": "2026-11-18",
+  "campaign_digest": "b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b",
+  "deduplication": {
+    "preexisting_count": 115,
+    "all_current_feed_ids_reconciled": true,
+    "pagination_terminal": true,
+    "candidate_count": 20,
+    "identifier_duplicates": [],
+    "title_duplicates": [],
+    "semantic_review": "Distinct primary works/documents, not alternate mirrors. Earlier 2024/524 and papers 2025/1117, 2024/1046, 2024/1210 incorporated into newer selected works are not separately counted."
+  },
+  "summary": {
+    "ADMITTED": 20
+  },
+  "sources": [
+    {
+      "key": "sumcheck-tradeoffs",
+      "title": "Time-Space Trade-Offs for Sumcheck",
+      "url": "https://eprint.iacr.org/2025/1473",
+      "topic": "Bounded sumcheck memory/work tradeoffs",
+      "supports": "Primary streaming sumcheck algorithms and time-space bounds for multilinear claims and products.",
+      "covered_prior_work": [
+        "2024/524"
+      ],
+      "relevance": "Provides a framework for pricing retained tables versus recomputation in Stwo GKR/sumcheck work. Confirm the actual polynomial form and available enumeration before transferring any algorithm. Reduced space can cost time, so neither the paper's asymptotics nor memory reductions establish a mainnet speed win. Protocol changes and reordered transcript messages remain disallowed; preserve exact round outputs and the whole-proof memory/time gates. The earlier 2024/524 family is not counted as another source here.",
+      "action": "Count actual retained entries and repeated round work before proposing a bounded tradeoff.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:30.433412+00:00",
+        "bytes": 18533,
+        "sha256": "ec188484d46140305c0d9baf03d6e117d7a4d6dcc06bc79519b5be84dffd4949",
+        "transport": [
+          "200",
+          "https://eprint.iacr.org/2025/1473",
+          "text/html; charset=utf-8"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "084d5695-a686-42e0-867f-ad1451894f28",
+        "state": "ADMITTED",
+        "record_id": "rgr1_1608f3fea805198f682495d8f04b56107bfb0ef9e3d6360cea187ac80fb91b1b",
+        "admitted_at": "2026-11-18T08:03:09.851556Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "speeding-sumcheck",
+      "title": "Speeding Up Sum-Check Proving (Extended Version)",
+      "url": "https://eprint.iacr.org/2026/587",
+      "topic": "Small-value and structured-factor arithmetic",
+      "supports": "Primary algorithms for sumcheck products, small-value inputs, streaming and equality-polynomial structure.",
+      "covered_prior_work": [
+        "2025/1117",
+        "2024/1046",
+        "2024/1210"
+      ],
+      "relevance": "A useful comparison for the external witness-dot prototype: determine whether actual Stwo factors lie in a small subfield or have reusable structure before replacing repeated extension-field arithmetic. The paper's Jolt results do not transfer to Stwo, and small-value assumptions must hold for every accepted input. Preserve the current protocol, all terms, raw/canonical representations and verifier checks. This extended work is counted once, not once per incorporated precursor.",
+      "action": "Identify and prove any applicable value/range invariant before timing a separate arithmetic kernel.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:30.433720+00:00",
+        "bytes": 18356,
+        "sha256": "17d8d64918b990b40109284a4649b3484f54468caa36e3d66a60872ab77a35d9",
+        "transport": [
+          "200",
+          "https://eprint.iacr.org/2026/587",
+          "text/html; charset=utf-8"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "de465a14-9934-4f78-9816-c44d7d2cb5da",
+        "state": "ADMITTED",
+        "record_id": "rgr1_5bffd59984e76cb40c8a169bf9e84941aa41a2d9e232261734187dd6acf32c10",
+        "admitted_at": "2026-11-18T08:03:12.241172Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "barycentric",
+      "title": "Barycentric Lagrange Interpolation",
+      "url": "https://people.maths.ox.ac.uk/trefethen/barycentric.pdf",
+      "topic": "Opening evaluation and denominator reuse",
+      "supports": "Primary barycentric interpolation formulas and precomputed-weight organization.",
+      "relevance": "Mathematical background for repeated evaluation at opening/sample points in Stwo PCS. Standard polynomial barycentric formulas are not automatically the circle-basis formulas; derive the exact field/domain identity and handle evaluation at nodes before considering reused weights or inverse denominators. Floating-point stability and reported numerical performance are not finite-field speed evidence. Cache keys must include the full relevant domain/sample context and obey the memory bound.",
+      "action": "Compare exact evaluation identities and repeated denominator work on the actual opening path.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:30.433837+00:00",
+        "bytes": 504683,
+        "sha256": "974274c78d91455334a01c670fc27f236fb7e47ec68dc85424d48d35d773522e",
+        "transport": [
+          "200",
+          "https://people.maths.ox.ac.uk/trefethen/barycentric.pdf",
+          "application/pdf"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "f6c33cc3-ba99-4caf-b4cd-10c32b843c24",
+        "state": "ADMITTED",
+        "record_id": "rgr1_4fc3a78987a1c076890c01f401b589e0fff961706a755c72f97aabcf4e7936e9",
+        "admitted_at": "2026-11-18T08:03:13.796414Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "harvey-ntt",
+      "title": "Faster arithmetic for number-theoretic transforms",
+      "url": "https://arxiv.org/abs/1205.2926",
+      "topic": "Lazy modular reduction invariants",
+      "supports": "Primary use of redundant modular representations to reduce transform arithmetic cost.",
+      "relevance": "Relevant prior art for reducing normalization work in M31/QM31 SIMD and transform kernels. Stwo uses circle transforms and specific packed/raw representations, so ordinary NTT formulas and the paper's timing are not drop-in results. Prove every intermediate-width bound, reduction point and final representation, retain the portable path and compare exact outputs. No new intrinsic path or parameter change follows from the reference alone.",
+      "action": "Write range/canonicalization proofs before testing a delayed-reduction rewrite.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:30.435292+00:00",
+        "bytes": 41513,
+        "sha256": "f43eb7309bd031f3515aae074adf845bef5520770c4621a246df90b170d73d96",
+        "transport": [
+          "200",
+          "https://arxiv.org/abs/1205.2926",
+          "text/html; charset=utf-8"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "cb7b87dd-467f-4c71-8d46-1b64120eda76",
+        "state": "ADMITTED",
+        "record_id": "rgr1_41b011e29655b0dd4ac515dd3002911d90aec9b36e04c423f3caea4dfe330328",
+        "admitted_at": "2026-11-18T08:03:14.854029Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "prefix-sums",
+      "title": "Prefix Sums and Their Applications",
+      "url": "https://www.cs.cmu.edu/~scandal/papers/CMU-CS-90-190.html",
+      "topic": "Parallel scan work and dependencies",
+      "supports": "Author-hosted prefix-sum report and associative scan as a parallel building block.",
+      "relevance": "Useful for studying LogUp accumulations and cumulative-product chains, where apparent serial dependencies may admit a bounded scan organization. The operator must satisfy the necessary algebraic conditions and raw packed output conventions must still match the existing implementation. Preserve segmented/column boundaries and account for all scratch and concurrent scans. It does not prove a current Stwo bottleneck or authorize a different runtime or new threads outside Rayon.",
+      "action": "Measure the exposed chain and derive an exact-output scan with explicit scratch accounting.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:30.818193+00:00",
+        "bytes": 1466,
+        "sha256": "acb1ddb597a222b85dad2601eae80b89ef29ace18c63f92b2aa3c711c62c866c",
+        "transport": [
+          "200",
+          "https://www.cs.cmu.edu/~scandal/papers/CMU-CS-90-190.html",
+          "text/html"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "f821013c-ef91-45fc-b307-571f40ab8362",
+        "state": "ADMITTED",
+        "record_id": "rgr1_747b97b40914e5b50dd2747a2a71e48421c37ef1b22c73ef64bfd259468d968f",
+        "admitted_at": "2026-11-18T08:03:16.804588Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "cilk5",
+      "title": "The Implementation of the Cilk-5 Multithreaded Language",
+      "url": "https://doi.org/10.1145/277650.277725",
+      "source_id": {
+        "scheme": "DOI",
+        "value": "10.1145/277650.277725"
+      },
+      "topic": "Work-first scheduling overhead",
+      "supports": "Primary implementation study of the work-first principle and work/critical-path overhead.",
+      "relevance": "Complements the already-recorded work-stealing theorem with a concrete implementation lesson for bounded Cairo writer/interpolation scheduling: additional parallel tasks can increase common-path work even when they expose more concurrency. Evaluate actual Rayon task granularity and critical completion, without replacing Rayon with Cilk or transferring historical spawn-cost constants. Maintain lookup dependencies, indexed commitment order and the frontier memory cap.",
+      "action": "Count added task/setup overhead and the actually shortened dependency path together.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:31.240334+00:00",
+        "bytes": 8137,
+        "sha256": "38561beaa34ac44921ab5bf5cbf3e2abcaa9582324594098ff578b6b9bb851a0",
+        "transport": [
+          "200",
+          "https://api.crossref.org/works/10.1145/277650.277725",
+          "application/json"
+        ],
+        "retrieval_kind": "registered DOI metadata",
+        "reference_retrieval": "PASS",
+        "review_scope": "Registered DOI title/author metadata and original-paper abstract reviewed. No full runtime implementation audit or full-paper snapshot claim."
+      },
+      "submission": {
+        "proposal_id": "8a13b9f9-af18-447c-bfc7-650eb5701bec",
+        "state": "ADMITTED",
+        "record_id": "rgr1_7ff5344ef1bef1dbcfa60f3464504b1c81a589b5e3d9bb7b9e41e60e478046bf",
+        "admitted_at": "2026-11-18T08:03:18.277637Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "mimalloc",
+      "title": "Mimalloc: Free List Sharding in Action",
+      "url": "https://www.microsoft.com/en-us/research/publication/mimalloc-free-list-sharding-in-action/",
+      "topic": "Locality and bounded free-list design",
+      "supports": "Primary allocator design using page-local sharded free lists and maintenance cadence.",
+      "relevance": "Design context for Stwo's existing column/large-block pools: distinguish fast reuse, maintenance work and retained-page costs before changing pool organization. This is not a proposal to link mimalloc, add a crate or replace the evaluator allocator. A pool variant must account for total live and idle capacity across tasks and measure the complete proof; the paper's allocator results do not predict Stwo time or peak.",
+      "action": "Check whether a proposed reuse fast path adds maintenance or retained-memory costs elsewhere.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:31.244244+00:00",
+        "bytes": 173199,
+        "sha256": "62381fd3e2338a1288f63214bc512da9ba5d2fa32f436756a58952cf63a0af90",
+        "transport": [
+          "200",
+          "https://www.microsoft.com/en-us/research/publication/mimalloc-free-list-sharding-in-action/",
+          "text/html; charset=UTF-8"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "5e032bcf-eac6-4ed6-bef7-348fc6829f23",
+        "state": "ADMITTED",
+        "record_id": "rgr1_481cad2cc164a2f274dccf0bd17b2c09fcda66d244358b96bc74319ef0e2801b",
+        "admitted_at": "2026-11-18T08:03:20.028692Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "snmalloc",
+      "title": "snmalloc: A Message Passing Allocator",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2020/04/snmalloc.pdf",
+      "topic": "Cross-thread buffer ownership and frees",
+      "supports": "Primary batched return-to-origin allocator design for producer/consumer workloads.",
+      "relevance": "Relevant to buffers allocated by one Rayon worker and released by another during writer/FFT/commit phases. It motivates attributing cross-thread return traffic and contention before changing the existing pool, not adding snmalloc or a new runtime. Batched returns may extend idle-buffer lifetime; quantify total retained capacity and all concurrent owners against the frontier guard. No current cross-thread-free hotspot or improvement is established.",
+      "action": "Trace allocation, last use and return ownership before evaluating bounded return batching.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:31.775713+00:00",
+        "bytes": 1491365,
+        "sha256": "0566cbf80f43a4690c3d5f4ae5b5cab4fd49b6ceae83ba43374a826ea3c30f54",
+        "transport": [
+          "200",
+          "https://www.microsoft.com/en-us/research/wp-content/uploads/2020/04/snmalloc.pdf",
+          "application/pdf"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "251f5974-b548-4a18-8828-475edb9bd8e0",
+        "state": "ADMITTED",
+        "record_id": "rgr1_025e385b500cdd5712176e60f573b9923a43571b3f1d45bfe20bdf9e5f9161c6",
+        "admitted_at": "2026-11-18T08:03:21.311501Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "jemalloc",
+      "title": "A Scalable Concurrent malloc(3) Implementation for FreeBSD",
+      "url": "https://people.freebsd.org/~jasone/jemalloc/bsdcan2006/jemalloc.pdf",
+      "topic": "Fragmentation, locality and application-wide allocator cost",
+      "supports": "Primary jemalloc design discussion and its application-level measurement rationale.",
+      "relevance": "A contrasting allocator design reference for analyzing Stwo pool retention, arenas, cache locality and fragmentation. It emphasizes application behavior rather than allocator-call microbenchmarks, matching the whole-proof objective. This does not authorize adding jemalloc or changing the package set. Historical FreeBSD results and arena counts are not Linux-mainnet constants; measure any change's full proof time and actual peak, including scratch and idle memory.",
+      "action": "Separate internal/external waste from reuse benefits before changing pool policy.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:32.011700+00:00",
+        "bytes": 395461,
+        "sha256": "a544f5df0cb863e5b1eb8d9a877619eb755c73e4adab0d24e80358f30a91a51c",
+        "transport": [
+          "200",
+          "https://people.freebsd.org/~jasone/jemalloc/bsdcan2006/jemalloc.pdf",
+          "application/pdf"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "3bb8746f-f35e-48db-a071-2def62c737b1",
+        "state": "ADMITTED",
+        "record_id": "rgr1_bd2439b778c0552b071883a958c16298d21571235c030012aaa9e024a55a19c2",
+        "admitted_at": "2026-11-18T08:03:23.718376Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "perf-sched",
+      "title": "perf-sched Linux manual: scheduling latency and timehist",
+      "url": "https://man7.org/linux/man-pages/man1/perf-sched.1.html",
+      "topic": "Runnable versus blocked worker time",
+      "supports": "Primary tool manual for scheduler tracing, latency and per-task timeline reports.",
+      "relevance": "Can help distinguish an idle Rayon window caused by dependency/blocking from runnable work delayed by host contention. Use only an available supported Linux host and keep tracing separate from acceptance pairs. Kernel scheduler events do not by themselves identify the prover's task DAG, so correlate source/phase context before changing writer scheduling. No system policy, evaluator harness or prover file access is changed in this source task.",
+      "action": "Attribute an observed idle window before adding tasks or overlap.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:32.432303+00:00",
+        "bytes": 38717,
+        "sha256": "545b3f01a34d3f00e27421f9f5d9ef17c656a68724fd57f87f7f9c40ad095268",
+        "transport": [
+          "200",
+          "https://man7.org/linux/man-pages/man1/perf-sched.1.html",
+          "text/html"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "7ebed374-d334-43b1-983e-061403260a60",
+        "state": "ADMITTED",
+        "record_id": "rgr1_396dd871c2efc52d3fe53e8ae1ff75a23fdc28e3dd8be539257990b94c9e2a01",
+        "admitted_at": "2026-11-18T08:03:24.826588Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "flamegraphs",
+      "title": "Flame Graphs: visualization and interpretation of profiled stacks",
+      "url": "https://www.brendangregg.com/flamegraphs.html",
+      "topic": "Attributable sampled hot paths",
+      "supports": "Originator's guidance on stack-sample visualization, variants and interpretation.",
+      "relevance": "A method for retaining readable per-leg CPU profiles and checking whether a proposed optimization touches meaningful executing work. Flame width represents the profiled quantity, not automatically wall-clock latency or a critical-path saving. Separate on-CPU, off-CPU and differential views, preserve binary/source identity and use sampling as advisory evidence. Do not infer a mainnet speedup from a wide frame or replace the exact-proof measurement gate.",
+      "action": "Build a phase-scoped profile packet that names the cost and its measurement unit.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:33.166582+00:00",
+        "bytes": 64420,
+        "sha256": "e7f485d4245cfaab40f61d4b3786b41e92876707b09f84425d8f5c933219e839",
+        "transport": [
+          "200",
+          "https://www.brendangregg.com/flamegraphs.html",
+          "text/html"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "18ee9525-55e3-489b-bb6b-6ddf1817c988",
+        "state": "ADMITTED",
+        "record_id": "rgr1_1b1da4f8e0621e153afb279a602a22199be11038904b8ddf446b0d746f94be92",
+        "admitted_at": "2026-11-18T08:03:26.981877Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "offcpu",
+      "title": "Off-CPU Analysis",
+      "url": "https://www.brendangregg.com/offcpuanalysis.html",
+      "topic": "Blocked-time attribution",
+      "supports": "Author's methodology for analyzing time blocked off CPU and its context.",
+      "relevance": "Complements CPU profiles when a Stwo proof's wall time contains waiting on allocation, joins, locks or host resources. Off-CPU stacks alone do not prove removable work, and runnable scheduler delay is a different question; correlate with the actual task and phase boundaries. Collect diagnostic data outside the submitted code and do not mix tracing overhead into acceptance timing. No current lock or wait is asserted from the guide alone.",
+      "action": "Separate blocking, runnable delay and true compute before choosing an overlap experiment.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:33.248538+00:00",
+        "bytes": 48742,
+        "sha256": "766e0b85728ba199f20b151f1825c33008983ae2f3cbf701c10585fbd2fc96be",
+        "transport": [
+          "200",
+          "https://www.brendangregg.com/offcpuanalysis.html",
+          "text/html"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "98d30089-01ef-4a4f-8c79-ba87080d90ab",
+        "state": "ADMITTED",
+        "record_id": "rgr1_a22b690414f93a7264ec23d57400e118a1c0e479939a2c6c4d2a73de1ad9be49",
+        "admitted_at": "2026-11-18T08:03:29.164233Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "psi",
+      "title": "Linux Pressure Stall Information",
+      "url": "https://docs.kernel.org/accounting/psi.html",
+      "topic": "Host contention evidence",
+      "supports": "Kernel definitions of CPU, memory and I/O pressure and stall reporting.",
+      "relevance": "Useful for documenting whether an available Linux benchmark host experiences resource pressure during a diagnostic session, rather than interpreting load average alone. Host-wide/cgroup pressure does not identify which prover operation caused a stall or excuse selecting favorable pairs. Keep collection outside the patch, retain the prescribed estimator and complete ordered pairs, and do not pause other workloads or alter host policy without authorization.",
+      "action": "Record contention context separately from candidate/frontier timing conclusions.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:33.268513+00:00",
+        "bytes": 19730,
+        "sha256": "77b4a9d6dc0822b031bb392d8fd63cb4ba8347b991b97823aec41dad542eb72f",
+        "transport": [
+          "200",
+          "https://docs.kernel.org/accounting/psi.html",
+          "text/html; charset=utf-8"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "19e37684-09e4-4b8d-a750-942a743519c9",
+        "state": "ADMITTED",
+        "record_id": "rgr1_1c95dd1c96849ebf664d6f86c9e08bc59c79555b19f314d903b65ae64fc19769",
+        "admitted_at": "2026-11-18T08:03:30.269138Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "cpufreq",
+      "title": "Linux CPU Performance Scaling",
+      "url": "https://docs.kernel.org/admin-guide/pm/cpufreq.html",
+      "topic": "Frequency-policy context for measurement",
+      "supports": "Kernel explanation of performance states, scaling policies and governors.",
+      "relevance": "Helps interpret build/kernel timing differences across runs and hosts when CPU frequency behavior may differ. The source is context for reporting the actual environment, not a plan to force a governor, disable turbo or change evaluator configuration. Frequency observations do not prove a code change faster; preserve matched binaries, alternating proof order and confidence/memory checks. No host setting is changed in this task.",
+      "action": "Document frequency-policy context when diagnosing unexpected timing variation.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:33.606086+00:00",
+        "bytes": 60800,
+        "sha256": "f327b89b7bbabeeec71f78c529ec8880c199ae81d2548922d61f95f2c58ee8ef",
+        "transport": [
+          "200",
+          "https://docs.kernel.org/admin-guide/pm/cpufreq.html",
+          "text/html; charset=utf-8"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "c6dd8cb2-6e0c-49c1-93e1-49083181ae44",
+        "state": "ADMITTED",
+        "record_id": "rgr1_6b936d1a4d9c19172cf01a21ba9a1b9e948062bd929d509faff3ce2e32b5abbb",
+        "admitted_at": "2026-11-18T08:03:31.407959Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "bounds-checks",
+      "title": "Rust Performance Book: Bounds Checks",
+      "url": "https://nnethercote.github.io/perf-book/bounds-checks.html",
+      "topic": "Safe hot-loop representation",
+      "supports": "Author's guidance on safe iteration and range information that can help eliminate bounds checks.",
+      "relevance": "Relevant to repeated row, lane and coefficient indexing in Stwo witness, opening and verifier-fill loops. Establish actual compiled check overhead before replacing indexing with safe slices/iterators and preserve padding, lengths and failure behavior. The chapter's unsafe fallback is not permission for new unsafe outside the allowed SIMD surface. Changes must remain exact and pass full proof timing; source-level elegance is not a measured saving.",
+      "action": "Inspect generated hot loops, then test one safe bounds-information rewrite if justified.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:33.708527+00:00",
+        "bytes": 24547,
+        "sha256": "18db46bb6b19db98df689bfa7beaaa181805cee6812391c931e20fb9645b3ac3",
+        "transport": [
+          "200",
+          "https://nnethercote.github.io/perf-book/bounds-checks.html",
+          "text/html; charset=utf-8"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "04e12779-c605-43e9-8502-f63379690b2a",
+        "state": "ADMITTED",
+        "record_id": "rgr1_b0b75d54fb87525d8e208b282e32837673827e9db813e3c231d57899bf68bb5a",
+        "admitted_at": "2026-11-18T08:03:32.746217Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "exegesis",
+      "title": "llvm-exegesis: LLVM Machine Instruction Benchmark",
+      "url": "https://llvm.org/docs/CommandGuide/llvm-exegesis.html",
+      "topic": "Measured instruction-cost calibration",
+      "supports": "Primary tool documentation for measuring instruction scheduling properties on supported targets.",
+      "relevance": "Complements llvm-mca's model with possible same-host latency/throughput measurements for exact x86 forms used in M31/QM31 or shuffle kernels. CPU and tool support, measurement noise and instruction setup matter. This is a separate diagnostic, not an evaluator-host result or whole-proof prediction, and no generated benchmark/runtime code enters the candidate. Do not provision hardware or change the evaluator build to use it.",
+      "action": "Validate a suspected instruction-model discrepancy before designing another SIMD rewrite.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:34.031901+00:00",
+        "bytes": 103487,
+        "sha256": "c7e18403f66da99d4e39c312271fd093e72fa442d2e5f761eeb80f37adbb4a32",
+        "transport": [
+          "200",
+          "https://llvm.org/docs/CommandGuide/llvm-exegesis.html",
+          "text/html"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "7a35ab59-985b-4a6f-9ee8-b4254c7191dc",
+        "state": "ADMITTED",
+        "record_id": "rgr1_e6f57e368e949d5db3e53d0bb109a911277aabf214ea65f8e2b61a4505d271c1",
+        "admitted_at": "2026-11-18T08:03:34.989678Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "sanitizers",
+      "title": "Rust Unstable Book: sanitizer instrumentation and supported targets",
+      "url": "https://doc.rust-lang.org/unstable-book/compiler-flags/sanitizer.html",
+      "topic": "Native memory/race diagnostics",
+      "supports": "Official sanitizer options, support constraints and runtime-overhead warnings.",
+      "relevance": "Potential offline diagnostics for pooled trace buffers and permitted SIMD unsafe paths where a portable interpreter may not cover native behavior. Verify pinned-toolchain and target support; a clean instrumented run is neither a proof of soundness nor complete race/UB coverage. Sanitizer binaries and their timings differ from release acceptance builds. No new dependency, flags in the evaluator build, protected-test edit or diagnostic run occurs here.",
+      "action": "Choose a supported bounded native safety check before performance measurement.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:34.455984+00:00",
+        "bytes": 74397,
+        "sha256": "b707051b859753ae2bf0bc46ed8b0999b491683640cf5bc3922d04ddab4718d9",
+        "transport": [
+          "200",
+          "https://doc.rust-lang.org/unstable-book/compiler-flags/sanitizer.html",
+          "text/html"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "f2dd116f-f4d9-4b8a-88e4-7fcd3bfd3690",
+        "state": "ADMITTED",
+        "record_id": "rgr1_9283409676142b814c8b1b0281f7c6382567824dc895115de08dd5262a5dea54",
+        "admitted_at": "2026-11-18T08:03:36.512998Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "csmith",
+      "title": "Finding and Understanding Bugs in C Compilers",
+      "url": "https://doi.org/10.1145/1993498.1993532",
+      "source_id": {
+        "scheme": "DOI",
+        "value": "10.1145/1993498.1993532"
+      },
+      "topic": "Defined-input differential testing methodology",
+      "supports": "Primary Csmith research on differential compiler testing with generated well-defined programs.",
+      "relevance": "Methodological reference for ensuring raw-field, denominator and portable/SIMD differential cases satisfy stated preconditions and use an independent original/oracle. C programs and Csmith are not a drop-in Rust or proof generator, and compiler diversity is not independent proof verification. Apply the validity/oracle discipline without adding a package or replacing the challenge's fresh-input byte-equality/verifier checks. No Csmith run or newly found compiler bug is claimed.",
+      "action": "Reject invalid fixtures and preserve minimized, independently checked differential cases.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:35.042953+00:00",
+        "bytes": 9038,
+        "sha256": "fc70c2aed174d0465b526fdcbf8de24cbf465571a594f6b133b1d3a42a40e2f4",
+        "transport": [
+          "200",
+          "https://api.crossref.org/works/10.1145/1993498.1993532",
+          "application/json"
+        ],
+        "retrieval_kind": "registered DOI metadata",
+        "reference_retrieval": "PASS",
+        "review_scope": "Registered DOI metadata and the primary author research-group abstract reviewed. No full generator audit or new test run."
+      },
+      "submission": {
+        "proposal_id": "d11c7ac7-4401-4e4e-b5c6-b6c221eaf824",
+        "state": "ADMITTED",
+        "record_id": "rgr1_f07057e8a321b39a5bd29508211b24b225013f87ddb64ad32e052f6bc63b622c",
+        "admitted_at": "2026-11-18T08:03:37.939876Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "sorted-intersection",
+      "title": "SIMD Compression and the Intersection of Sorted Integers",
+      "url": "https://arxiv.org/abs/1401.6399",
+      "topic": "Sorted target-index search work",
+      "supports": "Primary SIMD list-intersection and galloping algorithms with evaluation of end-to-end list processing.",
+      "relevance": "Prior art for repeated sorted row/target searches in decommit_striped and an unimplemented inverse-scatter extension. Stwo lists may be much shorter than retrieval posting lists, so setup and extra metadata can erase any kernel benefit. Preserve original query duplicates/order, sorted target identity and resident-prefix mapping; do not introduce a compression format or assume the paper's gains transfer. Respect portable-path and memory limits.",
+      "action": "Count actual list lengths/searches and compare a bounded identical mapping before implementation.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:35.045276+00:00",
+        "bytes": 44201,
+        "sha256": "2158a5fbb359026b1fc8e8c5e94f770efa3c0517b75f1081df43f04cac147738",
+        "transport": [
+          "200",
+          "https://arxiv.org/abs/1401.6399",
+          "text/html; charset=utf-8"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "7c39e236-219d-46c9-b8bf-5416afe28b23",
+        "state": "ADMITTED",
+        "record_id": "rgr1_a491db6db95066f7f4930eae52bb52db3ff3220657b37712b51d3e1c338bb610",
+        "admitted_at": "2026-11-18T08:03:38.984623Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "hash-consing",
+      "title": "Type-Safe Modular Hash-Consing",
+      "url": "https://usr.lmf.cnrs.fr/~jcf/publis/hash-consing2.pdf",
+      "topic": "Exact cache-key equivalence and sharing",
+      "supports": "Primary hash-consing design using explicit equality to share structurally equivalent values.",
+      "relevance": "Useful correctness context for preprocessing and target-plan caches: distinguish a hash used to find a candidate from the full equivalence relation that authorizes reuse. A sampled fingerprint must not be assumed to prove all relevant inputs equal; define complete statement/domain/configuration keys and adversarial mutation tests. OCaml weak tables and the paper's library are not a Rust implementation plan. No accepted-invalid-proof finding or cache speedup is established by this reference.",
+      "action": "State and independently test the exact equality required for every cache-hit path.",
+      "verification": {
+        "checked_at": "2026-11-18T07:57:35.062493+00:00",
+        "bytes": 119611,
+        "sha256": "24297567e617c7769d838d706a84c00694ed0e3d4d942490218713f66c931ef5",
+        "transport": [
+          "200",
+          "https://usr.lmf.cnrs.fr/~jcf/publis/hash-consing2.pdf",
+          "application/pdf"
+        ],
+        "retrieval_kind": "primary URL",
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary abstract/manual and selected relevant passages reviewed; not a complete-paper audit, implementation reproduction or performance validation."
+      },
+      "submission": {
+        "proposal_id": "3c568228-3e26-4cd8-8a42-38534e897c86",
+        "state": "ADMITTED",
+        "record_id": "rgr1_af91e7a4445865631a718cc44b21876b86f2624466a47b05e84d70d384132ed1",
+        "admitted_at": "2026-11-18T08:03:40.280498Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    }
+  ],
+  "evaluator_job": null,
+  "performance_points_claimed": false
+}

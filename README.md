@@ -2,6 +2,8 @@
 
 A reproducible, evidence-first harness for whole-proof Stwo optimization.
 
+[Third Nov 18 source catalog](literature/stwo-sources-batch3-2026-11-18/README.md): twenty additional admitted references on sumcheck, reductions/scans, allocator ownership, profiling, sorted targets and cache equality. Exact IDs and limited verification scope are recorded.
+
 [Second Nov 18 source catalog](literature/stwo-sources-batch2-2026-11-18/README.md): twenty-one additional references on memory/work attribution, GKR, compiler/build integrity and adversarial correctness testing, with explicit verification scope and actual admission receipts.
 
 [Nov 18 primary-source catalog](literature/stwo-sources-2026-11-18/README.md): twenty verified references with specific Stwo applications, limitations, content hashes and Provably submission receipts. Source publication is separate from performance points.

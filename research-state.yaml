@@ -274,3 +274,14 @@ source_collection_batch2_2026_11_18:
   exception: "two original URLs rejected; rejections preserved, supported DOI references proposed"
   evaluator_job: null
   performance_points_claimed: false
+
+source_collection_batch3_2026_11_18:
+  catalog: "literature/stwo-sources-batch3-2026-11-18/README.md"
+  receipts: "literature/stwo-sources-batch3-2026-11-18/catalog.json"
+  distinct_references: 20
+  admitted_source_records: 20
+  preexisting_sources_checked: 115
+  verification: "18 retrieved primary URLs and two DOI metadata records with primary abstracts; selected passages only"
+  cumulative_admitted_in_three_batches: 61
+  evaluator_job: null
+  performance_points_claimed: false

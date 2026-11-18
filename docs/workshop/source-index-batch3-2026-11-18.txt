@@ -1,0 +1,15 @@
+Third source batch: 20 additional references, all ADMITTED as Challenge 2 SOURCE records:
+https://github.com/HERO570/provably-fast-harness/tree/main/literature/stwo-sources-batch3-2026-11-18
+
+We paginated the complete pre-batch source feed and reconciled all 115 IDs with existing records/catalogs. Identifier, title and work-level checks excluded known duplicates and alternate mirrors. The selected 2025 sumcheck tradeoff work covers the earlier 2024/524 family, which is not separately counted; the extended 2026/587 paper incorporates 2025/1117, 2024/1046 and 2024/1210, also not separately counted. Exact 20 proposal/record IDs, URLs or DOIs, retrieval hashes, relevance and limits are attached.
+
+The new references target:
+- Sumcheck time/space accounting and small-value/equality-factor arithmetic. Applicability depends on the actual Stwo polynomial/value structure; Jolt timings and new protocols do not transfer.
+- Barycentric evaluation, lazy modular reduction and prefix scans. Derive the precise circle/field identity, intermediate bounds and raw output conventions before attempting an identical-output rewrite.
+- Cilk-5's work-first implementation lesson plus mimalloc, snmalloc and jemalloc design studies. They motivate pricing task overhead, buffer return ownership and total retained memory; none is a new prover dependency or runtime.
+- perf-sched, flame graphs, off-CPU analysis, pressure and CPU-frequency documentation. Distinguish sampled execution, blocked time, runnable delay and host context. No diagnostic collection or host-policy change occurred.
+- Safe bounds-check reasoning, instruction-cost measurement, sanitizer limits, validity-controlled differential testing, sorted-list intersection and explicit hash-consing equality. A hash/fingerprint is not automatically the full equivalence relation that authorizes a cache hit; these references do not establish a current vulnerability or speedup.
+
+Verification scope: 18 primary URLs retrieved and hashed; two papers use verified registered DOI metadata plus primary abstracts. Selected passages/manual sections were reviewed, not entire implementations or proofs. The attachment hashes identify observed documents/metadata, not independent verification of every author claim. Third-party PDFs, private inputs, proof artifacts, binaries and credentials are not republished.
+
+No candidate edit, build, test, proof run or evaluator submission is part of this collection. The denominator-delta correctness gap and whole-proof acceptance gates remain unchanged. Across these three batches, 61 distinct sources are admitted; this is research publication, not a claimed speed result or performance-point award. The catalog's concrete-use notes are intended to guide falsifiable follow-up work rather than source-count-driven optimization choices.
