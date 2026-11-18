@@ -247,3 +247,15 @@ speed_update_2026_11_18:
   full_proof_run: false
   evaluator_job: null
   points_confirmed: false
+
+source_collection_2026_11_18:
+  catalog: "literature/stwo-sources-2026-11-18/README.md"
+  receipts: "literature/stwo-sources-2026-11-18/catalog.json"
+  distinct_references: 20
+  admitted_source_records: 20
+  preexisting_sources_checked: 74
+  method: "primary URLs retrieved and hashed, bounded content review, exact URL and work/title duplicate check"
+  scope: "references with concrete Stwo applications; no performance or implementation claim"
+  exception: "Agner full PDF rejected for snapshot size; author index proposed explicitly as metadata, rejection retained"
+  evaluator_job: null
+  points_claimed: false

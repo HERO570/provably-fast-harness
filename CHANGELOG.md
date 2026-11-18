@@ -2,6 +2,8 @@
 
 ## 2026-11-18
 
+- Collected and submitted twenty distinct primary sources after checking the existing 74-source graph catalog. Published concrete Stwo relevance, interpretation limits and retrieval hashes; recorded actual proposal/admission states without claiming a speed result or points.
+
 - Published the current five-file denominator-delta increment, two standalone arithmetic probes, numeric outputs, selected full graph payloads and full static policy receipt. Preserved the kernel-only scope and all failed/incomplete correctness checks.
 - Resolved exact official result-to-stack attribution from full graph payloads. Recorded the admitted paired-denominator lead; separate witness-dot prototype has correctness evidence only. No full proof, qualifying gain, evaluator job or new points is claimed.
 

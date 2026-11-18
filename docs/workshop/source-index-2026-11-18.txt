@@ -1,0 +1,15 @@
+Twenty new primary references for Stwo Challenge 2, now admitted as SOURCE records, with specific code/harness uses and limits:
+https://github.com/HERO570/provably-fast-harness/tree/main/literature/stwo-sources-2026-11-18
+
+All 20 URLs were retrieved and hashed, and checked against all 74 preexisting graph source records. We excluded already-recorded Circle STARKs, LogUp 2022/1530, RFC 7693 and earlier Rayon/Plonky3 references. Alternate mirrors of the same work are not counted twice. The attached JSON carries the actual 20 proposal/record IDs, primary URLs, concrete relevance, scope and receipt hashes; the Markdown index explains priorities. This is a bounded source/metadata review, not an exhaustive paper audit or performance result.
+
+Most immediate uses:
+- ark-ff's zero-filtering batch inversion versus p3-field 0.4.3's explicit nonzero-input requirement/independent product chains. These motivate better original-versus-candidate zero-case tests; neither authorizes changing Stwo's contract.
+- Coz for exposed critical-path attribution, rather than assuming every busy parallel function can shorten the complete proof.
+- LLVM vectorizer/optimization-remark/llvm-mca references, uops.info and Agner metadata for checking actual compiled work and x86 instruction costs before interpreting an ARM kernel screen.
+- FFTW3 and SPIRAL for bounded transform factorization/layout experiments; DHAT, Linux false-sharing guidance and Hoard for allocation/copy/contention questions with explicit concurrent memory accounting.
+- FRI, DEEP-FRI and the LogUp-GKR construction for the protocol-visible invariants we must preserve; they do not authorize different settings or proof formats in the speed lane.
+
+Admission detail: the 2,248,996-byte Agner tables PDF was rejected SOURCE_TOO_LARGE (proposal 218aa3e9-72cf-4dd9-b3d7-83959e72cf59). The admitted reference is the author's smaller index/metadata page, not a truncated or admitted full PDF. That distinction and the rejection are retained.
+
+No prover source, build, proof input, settings or timing experiment changed in this task. Offline diagnostic suggestions are not new prover dependencies or acceptance measurements. Source admission is research publication; no performance points, evaluator verdict or speed gain is claimed. The current denominator candidate still has an incomplete correctness gate, and its kernel saving remains separate from whole-proof evidence.

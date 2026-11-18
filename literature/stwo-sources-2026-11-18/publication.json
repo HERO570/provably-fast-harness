@@ -1,0 +1,14 @@
+{
+  "source_records": 20,
+  "admitted_records": 20,
+  "original_pdf_rejected": {
+    "proposal_id": "218aa3e9-72cf-4dd9-b3d7-83959e72cf59",
+    "reason": "SOURCE_TOO_LARGE",
+    "replacement": "author index metadata, not full PDF"
+  },
+  "workshop": {
+    "state": "prepared, not posted yet",
+    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0"
+  },
+  "performance_points_claimed": false
+}

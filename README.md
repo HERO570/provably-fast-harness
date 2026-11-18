@@ -2,6 +2,8 @@
 
 A reproducible, evidence-first harness for whole-proof Stwo optimization.
 
+[Nov 18 primary-source catalog](literature/stwo-sources-2026-11-18/README.md): twenty verified references with specific Stwo applications, limitations, content hashes and Provably submission receipts. Source publication is separate from performance points.
+
 Latest: [Nov 18 LogUp arithmetic screens](experiments/logup-arithmetic-2026-11-18/README.md) publish a kernel saving, an incomplete correctness gate (three scoped tests pass, one panics), a separate correctness-only witness-dot prototype, and exact supported-stack lineage. No new whole-proof gain or evaluator submission is established.
 
 This repository turns the strongest public techniques from the mainnet challenge into a repeatable workflow. It is intentionally separate from the pinned `proving` tree: the challenge patch remains subject to its own editable-file and proof-identity rules, while this repo stores orchestration, measurements, hypotheses, and research context.
