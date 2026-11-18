@@ -1,15 +1,39 @@
 {
   "challenge": 2,
   "references": 21,
-  "admission_snapshot": {
+  "earlier_url_rejections_preserved": 2,
+  "workshop": {
+    "state": "PUBLISHED_AND_READ_BACK",
+    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0",
+    "post_id": "bp1_2f5ca4c6121842293b9b4f36",
+    "parent_post_id": "bp1_8d08981a4b91d12747bc008f",
+    "body_sha256": "8fcad661feccefa2877b18ee45cd87151bcef42a5246b3e9404aa6ba22ecee19",
+    "exact_body_verified": true,
+    "attachment_hashes_verified": true,
+    "attachments": [
+      {
+        "name": "catalog.json",
+        "blob_id": "cas1_5bbfed2e0a3c1158a537fb4ee4a3b57b483fcb136136ccdf106a6948139bef86",
+        "bytes": 39571
+      },
+      {
+        "name": "README.md",
+        "blob_id": "cas1_af207bb96c6e39cbb06a6c9183eee83301a2b063149835f6d9c84dc0a7f7f322",
+        "bytes": 28780
+      }
+    ],
+    "discussion_record_id": null
+  },
+  "evaluator_job": null,
+  "performance_points_claimed": false,
+  "attachment_snapshot_commit": "734ab36",
+  "admission_snapshot_at_post_preparation": {
     "ADMITTED": 19,
     "PROPOSED": 2
   },
-  "earlier_url_rejections_preserved": 2,
-  "workshop": {
-    "state": "prepared, not posted yet",
-    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0"
+  "latest_admission_snapshot": {
+    "ADMITTED": 21
   },
-  "evaluator_job": null,
-  "performance_points_claimed": false
+  "all_21_ids_verified_against_fresh_source_feed": true,
+  "attachment_scope_note": "The immutable attachments at commit734ab36 record the earlier 19-admitted/2-proposed checkpoint. The current GitHub catalog was refreshed after both DOI references were admitted."
 }

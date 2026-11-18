@@ -2,7 +2,7 @@
 
 This batch contains 21 distinct primary references, checked against all 94 preexisting Challenge 2 SOURCE records, including the [previous twenty](../stwo-sources-2026-11-18/README.md). The complete pre-submission source feed had no next page; its 94 IDs were reconciled against retained full records and the previous catalog. Both URL/title checks and work-level review excluded duplicates and alternate mirrors.
 
-Current receipt summary: 19 ADMITTED, 2 PROPOSED. Exact proposal IDs, decisions and admitted record IDs are in [catalog.json](catalog.json). Submission, admission, local correctness and evaluator performance are separate evidence classes. No performance points are claimed.
+Current receipt summary: 21 ADMITTED. Exact proposal IDs, decisions and admitted record IDs are in [catalog.json](catalog.json). Submission, admission, local correctness and evaluator performance are separate evidence classes. No performance points are claimed.
 
 All 21 reference identities were verified: 19 through retrieved primary URLs and two through registered DOI metadata. Hashes identify the actual retrieved page, document or metadata response, not necessarily a DOI landing page. Review scope is bounded: primary abstracts/manual sections and relevant passages were read; the scanned transpose paper’s first page was rendered and visually inspected. The Merkle author preprint host failed TLS verification; certificate validation was not disabled. The submitted reference instead uses the verified publisher abstract/metadata page and registered DOI. Roofline is cited through its institutional metadata page, with its linked paper consulted separately. No third-party PDFs, page images, proof inputs, binaries or credentials are republished.
 
@@ -75,7 +75,7 @@ Primary source: [https://doi.org/10.1109/ispass.2014.6844459](https://doi.org/10
 
 **Concrete use:** Classify the exposed hot phase with supported same-host counters before a rewrite.
 
-**Receipt:** PROPOSED; proposal `12df0dcd-6de6-423b-92b1-6a52489e123c`; record `None`.
+**Receipt:** ADMITTED; proposal `12df0dcd-6de6-423b-92b1-6a52489e123c`; record `rgr1_b8510ea8c1e359b684d58aa46aa30629136a3c34b5b9ad7399427a25e6c5f53e`.
 
 ## 4. Cache-Efficient Matrix Transposition
 
@@ -87,7 +87,7 @@ Primary source: [https://doi.org/10.1109/hpca.2000.824350](https://doi.org/10.11
 
 **Concrete use:** Compare exact permutation outputs and memory traffic for one profiled transpose site.
 
-**Receipt:** PROPOSED; proposal `875e62f3-a820-407a-978f-53ebc481b04b`; record `None`.
+**Receipt:** ADMITTED; proposal `875e62f3-a820-407a-978f-53ebc481b04b`; record `rgr1_cfd779e6a45817e441efa5bd55bf10614709494db59aa8dfb7b263fea1aae690`.
 
 ## 5. Time-Optimal Interactive Proofs for Circuit Evaluation
 
@@ -298,3 +298,5 @@ Primary source: [https://valgrind.org/docs/manual/cg-manual.html](https://valgri
 The existing [Stwo workshop thread](https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0) is the destination for one linked index, with receipt in publication.json. Catalog/source hashes identify the bytes observed, not a claim that every paper statement was independently proved; mutable documentation may change.
 
 Next, apply the testing references to a valid original-versus-candidate zero-case comparison, then use attributable compiler/work evidence to select a material optimization. Any future patch still needs portable correctness, fresh alternating exact/independently verified whole-proof pairs, timing, memory and final policy checks. This source count is not a speed result or point award.
+
+Publication verified: workshop reply `bp1_2f5ca4c6121842293b9b4f36` in the linked thread. Its immutable attachments preserve the earlier 19-admitted/2-proposed checkpoint at commit `734ab36`; this GitHub catalog now records all 21 as admitted. [Publication receipt](publication.json) binds both attachment hashes and the final status check.

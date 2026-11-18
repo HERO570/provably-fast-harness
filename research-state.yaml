@@ -266,6 +266,9 @@ source_collection_batch2_2026_11_18:
   catalog: "literature/stwo-sources-batch2-2026-11-18/README.md"
   receipts: "literature/stwo-sources-batch2-2026-11-18/catalog.json"
   distinct_references: 21
+  admitted_source_records: 21
+  workshop_post: "bp1_2f5ca4c6121842293b9b4f36"
+  publication_receipt: "literature/stwo-sources-batch2-2026-11-18/publication.json"
   preexisting_sources_checked: 94
   verification: "bounded primary-page/section review, scanned-paper first-page visual review, and explicit DOI metadata scope"
   exception: "two original URLs rejected; rejections preserved, supported DOI references proposed"

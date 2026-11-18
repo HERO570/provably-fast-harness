@@ -14,8 +14,7 @@
     "semantic_review": "Different primary works or substantive documents, not mirrors of the first 94. Excluded prior Circle/LogUp/FRI/FFTW/SPIRAL/uops/Agner/LLVM-vectorizer/remarks/MCA and heap-profile references."
   },
   "summary": {
-    "ADMITTED": 19,
-    "PROPOSED": 2
+    "ADMITTED": 21
   },
   "sources": [
     {
@@ -108,7 +107,10 @@
       },
       "submission": {
         "proposal_id": "12df0dcd-6de6-423b-92b1-6a52489e123c",
-        "state": "PROPOSED"
+        "state": "ADMITTED",
+        "record_id": "rgr1_b8510ea8c1e359b684d58aa46aa30629136a3c34b5b9ad7399427a25e6c5f53e",
+        "admitted_at": "2026-11-18T07:37:16.261299Z",
+        "verification": "fresh Challenge 2 source feed"
       }
     },
     {
@@ -145,7 +147,10 @@
       },
       "submission": {
         "proposal_id": "875e62f3-a820-407a-978f-53ebc481b04b",
-        "state": "PROPOSED"
+        "state": "ADMITTED",
+        "record_id": "rgr1_cfd779e6a45817e441efa5bd55bf10614709494db59aa8dfb7b263fea1aae690",
+        "admitted_at": "2026-11-18T07:37:17.761560Z",
+        "verification": "fresh Challenge 2 source feed"
       }
     },
     {
