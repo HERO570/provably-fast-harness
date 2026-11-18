@@ -8,12 +8,54 @@
   "witness_dot": {
     "proposal_id": "2449134c-8c45-425a-a352-0b7dcdaef5b5",
     "state_at_response": "PROPOSED",
-    "record_id": null
+    "record_id": "rgr1_54c829d174898792d38f8a216199ad58c3c99bd35c3af8be1817e5595b65f31b",
+    "state": "ADMITTED",
+    "admitted_at": "2026-11-18T04:21:10.739197Z",
+    "evidence": "fresh Challenge 2 feed includes admitted_at"
   },
   "workshop": {
-    "state": "prepared, not posted yet",
-    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0"
+    "state": "PUBLISHED_AND_READ_BACK",
+    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0",
+    "post_id": "bp1_9956e5da0870e033207b3738",
+    "parent_post_id": "bp1_3247f48cc26af14d62b018f1",
+    "body_sha256": "b47ec8bfe17fef56201b1bfce55bd5a523a03234fff563c03ed8225aba609768",
+    "exact_body_verified": true,
+    "attachment_hashes_verified": true,
+    "attachments": [
+      {
+        "name": "paired-denominator-delta.patch",
+        "blob_id": "cas1_1527bd8a48ba8fc5e18d6a3c9f0608d111f0792e1c567b65d97087b8b8d6baea",
+        "bytes": 17605
+      },
+      {
+        "name": "paired-denominator-probe.rs",
+        "blob_id": "cas1_3e893605267b56c478b0eac4d461b9ccafe516e884007830a0fb3f25b5392f24",
+        "bytes": 6108
+      },
+      {
+        "name": "witness-dot-probe.rs",
+        "blob_id": "cas1_7c588047013c4b052be2bbaa0be0b62aad023e2036a6fa7c052e05a2f7c76eca",
+        "bytes": 4515
+      },
+      {
+        "name": "probe-timing.log",
+        "blob_id": "cas1_0c7413943b4be840c1f78d53839ff5999e03580d5ad08d3b6dce32c593c65008",
+        "bytes": 371
+      },
+      {
+        "name": "source-tests.log",
+        "blob_id": "cas1_0c38a7b909bfe9a904c1412a1e685170aaceae23c6281f29d454825c1160301c",
+        "bytes": 1036
+      },
+      {
+        "name": "witness-dot-correctness.log",
+        "blob_id": "cas1_ebff4aacdddebbef17a214f2da3572c229963458ac7f07edabc059b81fcce2c7",
+        "bytes": 100
+      }
+    ],
+    "discussion_record_id": null
   },
   "evaluator_job": null,
-  "new_points_claimed": false
+  "new_points_claimed": false,
+  "github_artifact_commit": "c46e940"
 }

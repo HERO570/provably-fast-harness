@@ -14,7 +14,7 @@
     "adaptation": "Only test module path directive changed in an external harness copy; production function bodies and test file unchanged. Not a complete Cargo crate test."
   },
   "files": {
-    "README.md": "c82a0d0e47d4d443a43b8db37efba569492ad33bcad15926fbbc7e4bff2f586f",
+    "README.md": "755876da9e89a5dcd63507216346de870e78f3eaeb96472c691b7544aa99ebc8",
     "paired-denominator-delta.patch": "1527bd8a48ba8fc5e18d6a3c9f0608d111f0792e1c567b65d97087b8b8d6baea",
     "paired-denominator-probe.rs": "3e893605267b56c478b0eac4d461b9ccafe516e884007830a0fb3f25b5392f24",
     "probe-timing.log": "0c7413943b4be840c1f78d53839ff5999e03580d5ad08d3b6dce32c593c65008",

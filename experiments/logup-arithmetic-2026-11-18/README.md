@@ -2,6 +2,8 @@
 
 Published 2026-11-18. Source frontier: `69645ee0e6f583990c4aaf064cd08fde601ff009`, tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`. Candidate HEAD remains pinned at `9df00f2249b61849be69cc14942742d0c1f81ad2`, with frontier and experimental edits unstaged and new files untracked. Toolchain: `nightly-2026-01-15`. All new measurements below are Darwin arm64 native screens, not Linux AVX2 evaluator results.
 
+Publication complete: [Stwo workshop thread](https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0), reply `bp1_9956e5da0870e033207b3738`, with six content-addressed code/data attachments. Exact body and all attachment hashes were verified by public readback. Both research leads are now admitted; the witness prototype is `rgr1_54c829d174898792d38f8a216199ad58c3c99bd35c3af8be1817e5595b65f31b`. No official experiment or points award follows from admission. [Receipts](publication.json) preserve IDs and evidence.
+
 The user selected one verified whole-proof speed improvement as the priority. These screens have not achieved it. Publishing the code, failures and limits now lets others reproduce the arithmetic and avoid mistaking a kernel saving for a proof record. The earlier target-list cache screen remains separate: 10/10 exact/verified, ratio 1.0087, 95% interval 0.9726–1.0462, no qualifying gain.
 
 ## What was tested
