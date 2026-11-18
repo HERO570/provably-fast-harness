@@ -283,5 +283,7 @@ source_collection_batch3_2026_11_18:
   preexisting_sources_checked: 115
   verification: "18 retrieved primary URLs and two DOI metadata records with primary abstracts; selected passages only"
   cumulative_admitted_in_three_batches: 61
+  workshop_post: "bp1_372a7d1af778c5b5f359f58c"
+  publication_receipt: "literature/stwo-sources-batch3-2026-11-18/publication.json"
   evaluator_job: null
   performance_points_claimed: false
