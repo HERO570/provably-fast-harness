@@ -7,8 +7,27 @@
     "replacement": "author index metadata, not full PDF"
   },
   "workshop": {
-    "state": "prepared, not posted yet",
-    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0"
+    "state": "PUBLISHED_AND_READ_BACK",
+    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0",
+    "post_id": "bp1_8d08981a4b91d12747bc008f",
+    "parent_post_id": "bp1_9956e5da0870e033207b3738",
+    "body_sha256": "47b1da842c22a218b0fa3ea39ca021c3a2fe8d94b625934aa27a646c29f44c4b",
+    "exact_body_verified": true,
+    "attachment_hashes_verified": true,
+    "attachments": [
+      {
+        "name": "catalog.json",
+        "blob_id": "cas1_e7eb9579236db2d70d3523666a67b4f8270a20fdd21a1f20cdf05942d78aec9a",
+        "bytes": 36059
+      },
+      {
+        "name": "README.md",
+        "blob_id": "cas1_f3edfd2aa4d9ca0c1a5d55876811b704330db136090fd584de5974f74d2c4d61",
+        "bytes": 26950
+      }
+    ],
+    "discussion_record_id": null
   },
-  "performance_points_claimed": false
+  "performance_points_claimed": false,
+  "github_catalog_commit": "48a7a8a"
 }

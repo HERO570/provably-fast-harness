@@ -253,6 +253,8 @@ source_collection_2026_11_18:
   receipts: "literature/stwo-sources-2026-11-18/catalog.json"
   distinct_references: 20
   admitted_source_records: 20
+  workshop_post: "bp1_8d08981a4b91d12747bc008f"
+  publication_receipt: "literature/stwo-sources-2026-11-18/publication.json"
   preexisting_sources_checked: 74
   method: "primary URLs retrieved and hashed, bounded content review, exact URL and work/title duplicate check"
   scope: "references with concrete Stwo applications; no performance or implementation claim"
