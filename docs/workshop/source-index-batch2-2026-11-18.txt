@@ -1,0 +1,17 @@
+Second Stwo source batch: 21 additional primary references, checked against all 94 sources present before this batch:
+https://github.com/HERO570/provably-fast-harness/tree/main/literature/stwo-sources-batch2-2026-11-18
+
+All 21 have submission receipts. At the publication-preparation checkpoint, 19 were ADMITTED and two DOI references were still PROPOSED. The attached catalog contains exact current-at-capture proposal/record IDs, verification scope, source hashes, rejection history, specific Stwo uses and limitations. This is a source collection, not a new experiment or performance result.
+
+The additions cover:
+- Roofline and STREAM for distinguishing a plausible compute/bandwidth ceiling from actual Stwo traffic and exposed work; finite-field costs need independent accounting.
+- Cache-efficient matrix transposition and memory-hierarchy guidance for coefficient/layout walks; old machine timings are not evaluator constants.
+- Time-optimal GKR, Libra, Merkle traversal and modular-arithmetic implementation references for invariants and work organization. They do not authorize protocol replacements, changed transcript order or different security settings.
+- Google Benchmark and Rust black_box/build-cache/codegen references for auditing isolated probes and source-to-binary attribution; none replaces the challenge's proof measurement harness.
+- Loop fusion/alias analysis, atomics, initialization safety, Miri, structured fuzzing, generated/shrunk tests and Cachegrind for better dependence reasoning and adversarial differential tests. Optional diagnostic tools remain outside the submitted prover; no new package or instrumented acceptance run is implied.
+
+Two source-URL attempts were rejected: Intel's vendor page returned HTTP403 to the service; the transpose author URL was deemed unrequestable. Both rejections remain in the catalog. We instead submitted the original Top-Down paper and transpose paper through the supported registered-DOI scheme after verifying DOI title/author metadata. Those are proposals 12df0dcd-6de6-423b-92b1-6a52489e123c and 875e62f3-a820-407a-978f-53ebc481b04b. They are not assumed admitted here. This is not a claim that full PDFs were snapshotted. A separate Merkle author-host certificate failure was not bypassed; its publisher abstract/metadata page was verified instead.
+
+Review scope is bounded: selected abstracts/manual sections, relevant passages, and the scanned transpose paper's first-page visual inspection. Copyrighted PDFs, page images, private inputs, binaries and credentials are not attached. No prover edit, build, test or proof run occurred in this task. The existing denominator-delta correctness gap remains open, and source admission does not establish a speedup or performance points.
+
+Most useful next application: define valid original/candidate zero and initialization tests, then check actual compiled work and exposed whole-proof cost before implementing another optimization. The JSON catalog and Markdown cards are shared so others can cite the sources and reproduce the reasoning without inheriting an unsupported performance claim.

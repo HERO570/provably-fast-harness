@@ -1,0 +1,631 @@
+{
+  "schema_version": 1,
+  "challenge": 2,
+  "batch": 2,
+  "date": "2026-11-18",
+  "campaign_digest": "b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b",
+  "deduplication": {
+    "challenge": 2,
+    "preexisting_count": 94,
+    "all_current_feed_record_ids_covered": true,
+    "candidate_count": 21,
+    "normalized_url_duplicates": [],
+    "exact_title_duplicates": [],
+    "semantic_review": "Different primary works or substantive documents, not mirrors of the first 94. Excluded prior Circle/LogUp/FRI/FFTW/SPIRAL/uops/Agner/LLVM-vectorizer/remarks/MCA and heap-profile references."
+  },
+  "summary": {
+    "ADMITTED": 19,
+    "PROPOSED": 2
+  },
+  "sources": [
+    {
+      "key": "roofline",
+      "title": "Roofline: An Insightful Visual Performance Model for Floating-Point Programs and Multicore Architectures",
+      "url": "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-134.html",
+      "topic": "Compute versus bandwidth attribution",
+      "supports": "Original operational-intensity and compute/bandwidth ceiling model.",
+      "relevance": "Helps classify Stwo's FFT, coefficient fold and Merkle passes before choosing arithmetic versus memory-traffic optimizations. The paper models floating-point kernels; finite-field operation costs and actual bytes moved must be measured separately, so its numerical ceilings do not transfer to M31/QM31. Apply only as a diagnostic framework on the actual host, not as proof that the current prover is bandwidth-bound or that a kernel gain shortens the complete proof.",
+      "action": "Estimate actual bytes and field work per profiled pass before selecting a patch.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:57.869134+00:00",
+        "bytes": 95500,
+        "sha256": "2a34aefb4dc62289a8f4af962be9cb514e229a71828c9481f375b0b51f54cb5b",
+        "transport": [
+          "200",
+          "https://www2.eecs.berkeley.edu/Pubs/TechRpts/2008/EECS-2008-134.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary author/institution metadata plus targeted operational-intensity discussion in the linked paper read; admitted URL is metadata page."
+      },
+      "submission": {
+        "proposal_id": "d8a45762-ea18-4341-8ab3-463992e371fb",
+        "state": "ADMITTED",
+        "record_id": "rgr1_4c7e1fca0780cdf51c90c91f614649683232efdca9d46dd128e60576154c4d3e",
+        "admitted_at": "2026-11-18T07:30:29.182321Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "stream",
+      "title": "STREAM Benchmark Reference Information: sustainable bandwidth and run rules",
+      "url": "https://www.cs.virginia.edu/stream/ref.html",
+      "topic": "Host memory-bandwidth calibration",
+      "supports": "Author-maintained bandwidth benchmark definition, byte accounting and run rules.",
+      "relevance": "Provides a way to calibrate sustainable memory bandwidth on an existing matched Linux host before interpreting large Stwo column sweeps. Array size, cache residency and byte-count conventions matter; STREAM numbers are not Stwo throughput or a process peak-memory metric. Do not run a calibration concurrently with proof pairs, provision new infrastructure, add a prover dependency, or substitute this benchmark for the unchanged fresh-input proof harness.",
+      "action": "Use a separate host calibration to test the plausibility of a bandwidth ceiling.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:57.830954+00:00",
+        "bytes": 25756,
+        "sha256": "389dec0efed8af1da5c3a4fff7c35689cebf5c1f682a6cb44e7ec13a1eeb22a1",
+        "transport": [
+          "200",
+          "https://www.cs.virginia.edu/stream/ref.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "677e891b-8c1d-47b8-8779-39fef0f123b5",
+        "state": "ADMITTED",
+        "record_id": "rgr1_b51a1e5fd83d2d9894c0e1cdf235d73b5b2bf7874b23ed8a1369325ba124f9d7",
+        "admitted_at": "2026-11-18T07:30:31.296606Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "top-down",
+      "title": "A Top-Down method for performance analysis and counters architecture",
+      "url": "https://doi.org/10.1109/ispass.2014.6844459",
+      "topic": "Dominant CPU bottleneck classification",
+      "supports": "Original structured performance-counter methodology; DOI identity and author publication listing verified.",
+      "relevance": "Primary paper behind Top-Down analysis, relevant to classifying front-end, speculation and back-end limits in a profiled Stwo hot phase. This reference uses registered DOI metadata and the author publication listing; it is not a claim of a complete paper audit or a current Stwo bottleneck. Events and formulas depend on the actual processor, so an ARM kernel result cannot establish Intel categories. Keep diagnostic counter runs separate from proof acceptance timing and preserve the pinned build.",
+      "action": "Classify the exposed hot phase with supported same-host counters before a rewrite.",
+      "superseded_submission": {
+        "proposal_id": "421a0d2c-6588-4105-9584-7789eeb5782a",
+        "state": "REJECTED",
+        "decision_reason": "SOURCE_UNAVAILABLE: source answered HTTP 403",
+        "url": "https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2024-2/top-down-microarchitecture-analysis-method.html",
+        "title": "Intel VTune cookbook: Top-down Microarchitecture Analysis Method"
+      },
+      "source_id": {
+        "scheme": "DOI",
+        "value": "10.1109/ispass.2014.6844459"
+      },
+      "verification_note": "Registered DOI metadata verified; reference proposed via the supported DOI identifier scheme. This does not claim a full-paper snapshot or bypass the rejected URL.",
+      "verification": {
+        "checked_at": "2026-11-18T07:35:05.973462+00:00",
+        "bytes": 3507,
+        "sha256": "827192acbccc91a99c796e98a3166e28fa2f6098f33b182b1c4d2886626e9162",
+        "transport": [
+          "200",
+          "https://api.crossref.org/works/10.1109/ispass.2014.6844459",
+          "application/json"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "DOI title/author metadata and primary author publication listing verified; vendor method guidance consulted separately. Full-paper algorithm not independently audited."
+      },
+      "submission": {
+        "proposal_id": "12df0dcd-6de6-423b-92b1-6a52489e123c",
+        "state": "PROPOSED"
+      }
+    },
+    {
+      "key": "matrix-transpose",
+      "title": "Cache-Efficient Matrix Transposition",
+      "url": "https://doi.org/10.1109/hpca.2000.824350",
+      "topic": "FFT and commitment data-layout locality",
+      "supports": "Primary study of transpose algorithms under cache organization and associativity.",
+      "relevance": "Relevant to coefficient-layout transposes, bit-reversal-related memory walks and Blake2s packing in Stwo. It motivates testing bounded tiles against actual cache conflicts rather than assuming a theoretically optimal transpose wins. Preserve the exact row/column/lane permutation and both portable and SIMD outputs; count temporary buffers and concurrent tiles. The paper's matrix workloads and machines do not establish a current mainnet gain.",
+      "action": "Compare exact permutation outputs and memory traffic for one profiled transpose site.",
+      "superseded_submission": {
+        "proposal_id": "63cc7c31-c041-4c83-9548-a7fc9cb67e11",
+        "state": "REJECTED",
+        "decision_reason": "SOURCE_URL_INVALID: source URL cannot be requested",
+        "url": "https://www.cse.iitd.ac.in/~ssen/conf/hpca.pdf",
+        "title": "Cache-Efficient Matrix Transposition"
+      },
+      "source_id": {
+        "scheme": "DOI",
+        "value": "10.1109/hpca.2000.824350"
+      },
+      "verification_note": "Registered DOI metadata verified; reference proposed via the supported DOI identifier scheme. This does not claim a full-paper snapshot or bypass the rejected URL.",
+      "verification": {
+        "checked_at": "2026-11-18T07:35:05.974067+00:00",
+        "bytes": 5693,
+        "sha256": "bc31bd1743116e808e44f6488c00c4e752c1d5aeb340214fbbb6ba5adfe22323",
+        "transport": [
+          "200",
+          "https://api.crossref.org/works/10.1109/hpca.2000.824350",
+          "application/json"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Scanned primary PDF: first page title, authors, abstract and introduction visually inspected via pdftoppm; no complete-paper audit. DOI registry metadata verified after the service rejected the author-host URL; graph reference uses the registered DOI."
+      },
+      "submission": {
+        "proposal_id": "875e62f3-a820-407a-978f-53ebc481b04b",
+        "state": "PROPOSED"
+      }
+    },
+    {
+      "key": "time-optimal-gkr",
+      "title": "Time-Optimal Interactive Proofs for Circuit Evaluation",
+      "url": "https://arxiv.org/abs/1304.3812",
+      "topic": "Structured GKR prover work",
+      "supports": "Linear-time GKR refinements for sufficiently regular circuit wiring.",
+      "relevance": "Primary algorithmic background for examining repeated wiring/sumcheck work in Stwo's existing GKR prover. First establish whether the local circuit and round computations have the required regularity; the paper's asymptotic or reported speedups are not transferred. Only algebraically equivalent work removal within the existing transcript could fit the byte-identical speed lane; do not replace its protocol, verifier or security settings.",
+      "action": "Map repeated GKR calculations to the actual round schedule before proposing reuse.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:56.845889+00:00",
+        "bytes": 43509,
+        "sha256": "2474b81f7b29f42f3806ba86e23a41af94b581466032c2bf703a5f3973204dc0",
+        "transport": [
+          "200",
+          "https://arxiv.org/abs/1304.3812",
+          "text/html; charset=utf-8"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "f8b0f864-e7d1-4b90-817d-23d9a5123e31",
+        "state": "ADMITTED",
+        "record_id": "rgr1_07dc61a4ff0751ed7797580bfde74b7069578bef1b19c37df014a3243a7753d5",
+        "admitted_at": "2026-11-18T07:30:37.526668Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "libra",
+      "title": "Libra: Succinct Zero-Knowledge Proofs with Optimal Prover Computation",
+      "url": "https://www.cs.yale.edu/homes/cpap/published/libra-crypto19.pdf",
+      "topic": "General-circuit sumcheck organization",
+      "supports": "Primary linear-time GKR prover and zero-knowledge construction.",
+      "relevance": "Offers a different general-circuit work organization to study alongside the regular-wiring GKR reference when auditing Stwo sumcheck passes. This is algorithmic context only: Libra uses a different proof system and setup, so its commitments, masking or protocol cannot replace the accepted Stwo proof. Any transferable calculation must preserve every existing challenge, round polynomial and verifier check, with direct differential and whole-proof validation.",
+      "action": "Identify whether a local repeated sumcheck pass admits an identical-output calculation.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:59.094457+00:00",
+        "bytes": 748018,
+        "sha256": "531e943cf217ac6665a79870caf3fce8f0fca038d4097b030a9787b59205acc9",
+        "transport": [
+          "200",
+          "https://www.cs.yale.edu/homes/cpap/published/libra-crypto19.pdf",
+          "application/pdf"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "95e85955-d139-42cc-9c98-3268a17e8570",
+        "state": "ADMITTED",
+        "record_id": "rgr1_88f19a43421448405a802f35a2a6193471cb1ff9cbc5491651a4b0f0a1b4bdc1",
+        "admitted_at": "2026-11-18T07:30:39.548020Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "merkle-traversal",
+      "title": "Merkle Tree Traversal in Log Space and Time",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-540-24676-3_32",
+      "topic": "Authentication-path memory and recomputation",
+      "supports": "Primary Merkle traversal time/space tradeoff algorithm.",
+      "relevance": "A reference for reasoning about retained nodes versus recomputation in Stwo Merkle decommitment. The paper's traversal workload differs from the prover's sampled multiquery openings; analyze the actual query order and shared nodes before adapting any schedule. Preserve tree shape, hashes, authentication paths and serialized order. No logarithmic-memory claim for the complete prover follows, and extra recomputation may fail the time guard.",
+      "action": "Price a bounded node-lifetime plan against the actual multiquery opening workload.",
+      "verification_note": "Publisher abstract/metadata and DOI registration verified. Author-hosted preprint has an invalid TLS certificate; it was not bypassed. Full paper not retrieved from that host.",
+      "verification": {
+        "checked_at": "2026-11-18T07:28:28.504834+00:00",
+        "bytes": 237866,
+        "sha256": "d7fec0da77755c7749ddc7eac68c07ebf2ea00b13524e0a0c5a2a7b26f1de558",
+        "transport": [
+          "200",
+          "https://link.springer.com/chapter/10.1007/978-3-540-24676-3_32",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Publisher abstract/metadata and DOI registration verified. Author-hosted preprint has an invalid TLS certificate; it was not bypassed. Full paper not retrieved from that host."
+      },
+      "submission": {
+        "proposal_id": "53d182f3-f5fd-4c60-a95e-fbddae4e6501",
+        "state": "ADMITTED",
+        "record_id": "rgr1_02d6a6819a9b30e0cc96ae757c1a80a895af8214b065e0ac79dba8f52c6ba2a0",
+        "admitted_at": "2026-11-18T07:30:41.282784Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "hac-implementation",
+      "title": "Handbook of Applied Cryptography, Chapter 14: Efficient Implementation",
+      "url": "https://cacr.uwaterloo.ca/hac/about/chap14.pdf",
+      "topic": "Modular arithmetic bounds and cost accounting",
+      "supports": "Author-hosted modular arithmetic, reduction, inversion and exponentiation algorithms.",
+      "relevance": "Background for checking intermediate-width bounds and operation counts in proposed M31/QM31 deferred reductions and inverses. General multiple-precision or Montgomery algorithms are not automatically appropriate for the Mersenne31 representation. Derive the exact lane bounds and preserve raw/canonical zero conventions; this chapter provides no Stwo speed evidence. Reference the original URL only; do not republish its chapter text or add an arithmetic package to the patch.",
+      "action": "Write explicit range and representation invariants before any reduction rewrite.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:00.240798+00:00",
+        "bytes": 371115,
+        "sha256": "0f64049b53e41e8399b526bb9d8b6d169e6c36bcc0090833a7e467fcedbf8cf2",
+        "transport": [
+          "200",
+          "https://cacr.uwaterloo.ca/hac/about/chap14.pdf",
+          "application/pdf"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "f09371e6-2186-4340-b713-53d36da4e069",
+        "state": "ADMITTED",
+        "record_id": "rgr1_5ad6522d99f8d226c9e155702e70fb87b2b709da0f9a558a1bbeb042c92be3d1",
+        "admitted_at": "2026-11-18T07:30:43.887838Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "drepper-memory",
+      "title": "What Every Programmer Should Know About Memory",
+      "url": "https://www.akkadia.org/drepper/cpumemory.pdf",
+      "topic": "Cache, TLB and memory-access patterns",
+      "supports": "Author's explanation of memory hierarchy, locality and software access patterns.",
+      "relevance": "Informs hypotheses about strided column reads, retained stripes, first touch and scratch-buffer reuse in the Stwo proof. Its historical hardware timings are not current evaluator constants; confirm cache/TLB behavior on the matched host. A local memory model is not a measured critical path or peak-memory bound. Share only a citation and original notes, not the copyrighted PDF, and retain the existing proof and memory gates.",
+      "action": "Connect an actual memory-walk profile to one bounded locality experiment.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:59.722170+00:00",
+        "bytes": 934051,
+        "sha256": "2902dddcadb1ec97eeabd338bfaabf80f1fa2ff4e4d769b4052da88bfbb20387",
+        "transport": [
+          "200",
+          "https://www.akkadia.org/drepper/cpumemory.pdf",
+          "application/pdf"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "ef3801a3-3437-47aa-97ac-30f478079cc6",
+        "state": "ADMITTED",
+        "record_id": "rgr1_ab2b79e7a3b162f4a8c98fd5e4849016a0a68d0196666116622022034931207c",
+        "admitted_at": "2026-11-18T07:30:45.191399Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "google-benchmark",
+      "title": "Google Benchmark User Guide: preventing optimization and interpreting benchmark runs",
+      "url": "https://github.com/google/benchmark/blob/main/docs/user_guide.md",
+      "topic": "Standalone kernel experiment design",
+      "supports": "Benchmark fixtures, optimization barriers, repetitions and timing controls.",
+      "relevance": "Useful for reviewing our standalone arithmetic probes for constant folding, invariant hoisting, setup inclusion and checksum overhead. The guide's C++ barriers are not identical to Rust black_box semantics, and a microbenchmark never substitutes for full Stwo proof timings. Adopt experimental questions only: do not add Google Benchmark or alter the evaluator harness/build. Preserve the complete paired result rather than selecting favorable iterations.",
+      "action": "Audit the probe so baseline and candidate consume equivalent inputs and timed work.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:59.718962+00:00",
+        "bytes": 786182,
+        "sha256": "0bbea2e4e611fc6bca9163a89ed3fe804299dc32252f6cdc14bab2f0a3c23752",
+        "transport": [
+          "200",
+          "https://github.com/google/benchmark/blob/main/docs/user_guide.md",
+          "text/html; charset=utf-8"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "9307e46c-7ab5-45f9-9459-6120ca14d8fd",
+        "state": "ADMITTED",
+        "record_id": "rgr1_8d4f18b7165d109a3b3db19f00ea8cc9a56721848897748f3f09b50edc29248d",
+        "admitted_at": "2026-11-18T07:30:46.708161Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "black-box",
+      "title": "Rust std::hint::black_box: best-effort optimization barrier and its limits",
+      "url": "https://doc.rust-lang.org/std/hint/fn.black_box.html",
+      "topic": "Rust kernel benchmark validity",
+      "supports": "Official optimization-barrier contract, examples and limitations.",
+      "relevance": "Directly relevant to our paired-denominator and witness-dot probes, which use black_box. It helps distinguish prevented dead-code elimination from an actual guarantee that the compiler preserves an intended instruction sequence; inspect generated code as well. It is not a constant-time or security primitive. Keep pinned compiler/build identities, and do not use this reference to claim the synthetic loop represents whole-proof scheduling or a speed win.",
+      "action": "Check barrier placement and assembly when interpreting an isolated arithmetic saving.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:59.629669+00:00",
+        "bytes": 17997,
+        "sha256": "b3ba8d50d40bd3fff57bd27b83963c00db15a9f9033e3b37f1b85bb526fd284f",
+        "transport": [
+          "200",
+          "https://doc.rust-lang.org/std/hint/fn.black_box.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "630a6b8a-b483-4def-afab-b2482f2c4fef",
+        "state": "ADMITTED",
+        "record_id": "rgr1_6fbdc735839d61ed49d5081913b370adbe71d865ec191249d1375e5ac5d4a1b0",
+        "admitted_at": "2026-11-18T07:30:47.857393Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "cargo-cache",
+      "title": "Cargo Build Cache: target directories, artifacts and dependency tracking",
+      "url": "https://doc.rust-lang.org/cargo/reference/build-cache.html",
+      "topic": "Build freshness and artifact attribution",
+      "supports": "Official Cargo build-cache structure and tracking behavior.",
+      "relevance": "Addresses this project's prior stale-binary and incompatible cached-library problems. Use the documented target/dependency boundaries when attributing a benchmark executable to source, toolchain, flags and dependencies; do not assume a filename or timestamp proves compatibility. It does not guarantee our E0463 cause or a specific cache layout across versions. No cache clearing, artifact reuse, build or candidate mutation is performed in this source task.",
+      "action": "Bind each future measurement to a successful build and explicit binary/source hashes.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:59.766763+00:00",
+        "bytes": 32199,
+        "sha256": "8c5b07caf57f90355d48b5a2ef0aa65d533eb1d500a955d6c148a88bfa8285d8",
+        "transport": [
+          "200",
+          "https://doc.rust-lang.org/cargo/reference/build-cache.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "6a0b56b2-ce82-4745-917e-be57a18cacc8",
+        "state": "ADMITTED",
+        "record_id": "rgr1_085802e6050b2b732e15fd16b64ec88374ca06284af02445845cc916ed7ebf1c",
+        "admitted_at": "2026-11-18T07:30:48.920191Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "rustc-codegen",
+      "title": "rustc Codegen Options: codegen-units, optimization, LTO and target CPU",
+      "url": "https://doc.rust-lang.org/rustc/codegen-options/index.html",
+      "topic": "Comparable compiler settings",
+      "supports": "Official code-generation option semantics and exact-compiler help guidance.",
+      "relevance": "Supports checking that baseline and candidate use the pinned nightly and the same native flags, especially codegen-units, optimization and target CPU. Current online documentation may describe a newer compiler; verify options against nightly-2026-01-15. This is provenance guidance, not authorization to change evaluator flags, add target_feature attributes or claim LTO helps. Separate compiler-setting experiments from source-mechanism evidence.",
+      "action": "Record and compare the actual compiler invocations for both proof binaries.",
+      "verification": {
+        "checked_at": "2026-11-18T07:23:59.804332+00:00",
+        "bytes": 68685,
+        "sha256": "e73ebcc6b734f8eaf4125a6a62e282bc54c9793bb0ff4aca3948e59161d699d5",
+        "transport": [
+          "200",
+          "https://doc.rust-lang.org/rustc/codegen-options/index.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "4549c72b-75dc-49c1-88b0-9d706ee551b5",
+        "state": "ADMITTED",
+        "record_id": "rgr1_a3c5ea8c3c94f1c89a2c99509f4e0865cb7431f76ed73dad4de824bcad03b578",
+        "admitted_at": "2026-11-18T07:30:50.013950Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "loop-fusion",
+      "title": "LLVM Loop Fusion: dependence requirements, safety and profitability",
+      "url": "https://llvm.org/docs/LoopFusion.html",
+      "topic": "Removing repeated row passes safely",
+      "supports": "Compiler loop-fusion legality and profitability conditions.",
+      "relevance": "Relevant when considering a fused Stwo witness row pass or adjacent field loops to reduce memory traffic. Establish iteration-space and dependence equivalence, preserve all lookup-state updates and exact output order, and account for register pressure or lost parallelism. The compiler document does not prove a particular manual fusion safe or fast; pinned LLVM support may differ. Do not force evaluator flags or weaken checks to obtain a fused loop.",
+      "action": "List data dependencies and generated-code effects for one proposed row-pass fusion.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:01.288223+00:00",
+        "bytes": 86038,
+        "sha256": "1c4cb66fc065490a2ae914dba71131baeeba99e425352bce7cc3b783474b37e4",
+        "transport": [
+          "200",
+          "https://llvm.org/docs/LoopFusion.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "bb0aada7-24b9-465a-aaf8-44e5c8394324",
+        "state": "ADMITTED",
+        "record_id": "rgr1_f76fd96cd56dd13c43a5b7a917aa07fdb7a81c81c540c17e0653de191aca66ce",
+        "admitted_at": "2026-11-18T07:30:52.254686Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "alias-analysis",
+      "title": "LLVM Alias Analysis Infrastructure: alias and ModRef dependence queries",
+      "url": "https://llvm.org/docs/AliasAnalysis.html",
+      "topic": "Memory-dependence reasoning",
+      "supports": "Compiler alias and read/write-effect analysis concepts.",
+      "relevance": "Helps explain why apparently independent coefficient, target-plan or witness-buffer operations may resist hoisting/fusion. Use it to frame actual ownership/read-write questions and inspect the pinned compiler's output. Do not add false noalias assumptions, reinterpret mutable slices or use new unsafe code outside the allowed SIMD surface. An alias-analysis model does not prove application-level scheduling dependencies or a whole-proof gain.",
+      "action": "Confirm real buffer independence before reordering or sharing work across loops.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:01.553680+00:00",
+        "bytes": 121982,
+        "sha256": "d3468b018696bb524a8a06d94d25de9bf1fad19ec69032c113811e2ab2e11ae0",
+        "transport": [
+          "200",
+          "https://llvm.org/docs/AliasAnalysis.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "37b1860c-09c7-4aec-a120-c5623670e88e",
+        "state": "ADMITTED",
+        "record_id": "rgr1_ec4ed2a797bb9be664adba154c0b5be550ffddeea57c93c0293128aa955b40da",
+        "admitted_at": "2026-11-18T07:30:55.331311Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "atomics",
+      "title": "Rustonomicon Atomics: ordering, synchronization and relaxed operations",
+      "url": "https://doc.rust-lang.org/nomicon/atomics.html",
+      "topic": "Lookup-state concurrency correctness",
+      "supports": "Official Rust memory-ordering and synchronization guidance.",
+      "relevance": "Directly relevant to Cairo writer overlap and shared lookup-state counters. Distinguish commutative arithmetic updates from publication of non-atomic data; a relaxed counter alone does not establish completion or visibility. Preserve all lookup dependencies and deterministic commitment order, using only allowed Rayon execution. This reference neither validates the current code nor authorizes weaker ordering without a complete correctness argument and testing.",
+      "action": "Document the happens-before edges required by any writer handoff experiment.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:00.873710+00:00",
+        "bytes": 34515,
+        "sha256": "495993b545a19f3de94065d02c49ceef816dfd755ab48db1cf51ddcb395be210",
+        "transport": [
+          "200",
+          "https://doc.rust-lang.org/nomicon/atomics.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "9d26ea19-8e51-410d-a165-47b81619188a",
+        "state": "ADMITTED",
+        "record_id": "rgr1_53f03b2159513396053ebee511e34dde14d386586ff0dcfc05a055e5ab1ea756",
+        "admitted_at": "2026-11-18T07:30:56.425510Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "maybe-uninit",
+      "title": "Rust MaybeUninit: initialization, validity and safe construction invariants",
+      "url": "https://doc.rust-lang.org/std/mem/union.MaybeUninit.html",
+      "topic": "Uninitialized trace-buffer safety",
+      "supports": "Official rules for uninitialized storage and assume-init obligations.",
+      "relevance": "Relevant to Stwo column pools and LogupTraceGenerator::uninitialized: prove every subsequently read lane/element is initialized on every branch, including empty and fallback cases. The type does not make uninitialized reads safe, and zeroing is not valid for every Rust type. Online APIs may exceed the pinned toolchain. This is review guidance, not permission for new unsafe outside the challenge's allowed surface or edits to protected tests.",
+      "action": "Audit write-before-read coverage for each proposed pooled-buffer path.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:00.774865+00:00",
+        "bytes": 132813,
+        "sha256": "0e4576cb503ece233b0b573174753900d54ad1f1757a7dc172533317eea2a124",
+        "transport": [
+          "200",
+          "https://doc.rust-lang.org/std/mem/union.MaybeUninit.html",
+          "text/html"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "8e1a70a8-3395-4449-b8ce-de5b81879c2c",
+        "state": "ADMITTED",
+        "record_id": "rgr1_dbbd0aabd07f52b93f12fa6c4a6a4bb96e2ca702e5fafa8fa471f6d2e9499b53",
+        "admitted_at": "2026-11-18T07:30:57.796801Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "miri",
+      "title": "Miri: Rust interpreter for detecting undefined behavior and its limitations",
+      "url": "https://github.com/rust-lang/miri",
+      "topic": "Portable helper correctness diagnostics",
+      "supports": "Primary tool documentation for dynamic undefined-behavior checks and unsupported cases.",
+      "relevance": "A possible offline diagnostic for small portable buffer/ownership helpers before performance testing, especially uninitialized reads and invalid aliasing. SIMD intrinsics, foreign calls and concurrency support must be checked; passing a reduced Miri test is not proof of native SIMD correctness or verifier soundness. No installation, test run, new dependency or evaluator instrumentation is part of this source collection.",
+      "action": "Evaluate supported portable helper coverage while retaining native differential and proof tests.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:01.957732+00:00",
+        "bytes": 451637,
+        "sha256": "517f595d32cb9bf159f277e8e4f9ab70045eea0ea5e8b9df08a352465f58fb9b",
+        "transport": [
+          "200",
+          "https://github.com/rust-lang/miri",
+          "text/html; charset=utf-8"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "72c10322-4433-42f3-a6e6-60434e2f272b",
+        "state": "ADMITTED",
+        "record_id": "rgr1_3c9543b120bfa9f1d6e28f5e871b766e8ae6b15f908a22fcf349ec52f7a360ee",
+        "admitted_at": "2026-11-18T07:30:59.611094Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "structured-fuzzing",
+      "title": "Rust Fuzz Book: Structure-Aware Fuzzing",
+      "url": "https://rust-fuzz.github.io/book/cargo-fuzz/structure-aware-fuzzing.html",
+      "topic": "Adversarial cache and parser inputs",
+      "supports": "Primary guidance on generating structured inputs for coverage-guided testing.",
+      "relevance": "Useful for exercising target/scatter plans and preprocessing-cache fingerprints beyond a few valid examples. Generate mutations that reach the intended cache or lookup path, including unsampled changes, duplicates and boundary cases, then compare with the uncached/original implementation. This does not establish a cache bug or authorize accepting invalid proofs. Fuzz tooling stays outside the challenge patch; no new package, test-region edit or run is performed here.",
+      "action": "Design valid structured mutations whose expected behavior is independently checked.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:01.286476+00:00",
+        "bytes": 32629,
+        "sha256": "e9c3f924d28abd83b1341d7015dacfc48d962b62a7b38d4332b7599b7f44ac8e",
+        "transport": [
+          "200",
+          "https://rust-fuzz.github.io/book/cargo-fuzz/structure-aware-fuzzing.html",
+          "text/html; charset=utf-8"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "b57abc65-0009-4851-921c-37deb6c2ed51",
+        "state": "ADMITTED",
+        "record_id": "rgr1_751a4055c7da575682a2c1cc9aa2028ffb9283289ebdf30dd6be96623f9025be",
+        "admitted_at": "2026-11-18T07:31:00.902051Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "proptest-strategies",
+      "title": "Proptest Strategy Basics: generated inputs and shrinking",
+      "url": "https://proptest-rs.github.io/proptest/proptest/tutorial/strategy-basics.html",
+      "topic": "Algebraic and boundary-case test design",
+      "supports": "Primary property-testing strategy and shrinking concepts.",
+      "relevance": "Informs generation of raw zero/P field representations, zero/nonzero denominator cases, duplicated positions and empty/resident suffix boundaries for differential Stwo tests. State each operation's preconditions first, so an invalid fixture panic is not mistaken for a regression; preserve a minimal failing case. Apply the testing method without adding a new crate to the pinned package set, and retain independent originals rather than implementation-mirroring assertions.",
+      "action": "Build a compact table of valid invariants and minimized counterexamples before another patch.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:01.819546+00:00",
+        "bytes": 18488,
+        "sha256": "cb33d7fd6b94134b8f048f015a9d6148dbb585fe0410da21ffac65e2730e7616",
+        "transport": [
+          "200",
+          "https://proptest-rs.github.io/proptest/proptest/tutorial/strategy-basics.html",
+          "text/html; charset=utf-8"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "b0000ed2-cc96-4fd7-a1af-2ae80f88961e",
+        "state": "ADMITTED",
+        "record_id": "rgr1_dba65fb31bec6b8eb037398bfa1d89b6198a9bb7dd5cc7f4951f0d872c218b17",
+        "admitted_at": "2026-11-18T07:31:02.164057Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    },
+    {
+      "key": "cachegrind",
+      "title": "Valgrind Cachegrind manual: instruction tracing, differencing and simulation limits",
+      "url": "https://valgrind.org/docs/manual/cg-manual.html",
+      "topic": "Attributable instruction-work comparison",
+      "supports": "Primary instruction-count, annotation/differencing and optional cache/branch simulation guidance.",
+      "relevance": "Complements DHAT's heap view with a bounded instruction-work comparison for suspected redundant Stwo loops. Validate tool coverage and use a controlled diagnostic workload; simulated caches do not establish real coherence, TLB, parallel scheduling or evaluator behavior. Instrumented wall time and memory are not acceptance metrics. Keep profiling tools outside the submitted code and follow with exact/verified native whole-proof timing and peak checks.",
+      "action": "Compare attributed work counts to verify that a proposed optimization removes actual work.",
+      "verification": {
+        "checked_at": "2026-11-18T07:24:02.655971+00:00",
+        "bytes": 62713,
+        "sha256": "ab36ffaad32d1b45c8bd8afc87a40395293c850a03b1045d096e46e76a204343",
+        "transport": [
+          "200",
+          "https://valgrind.org/docs/manual/cg-manual.html",
+          "text/html; charset=UTF-8"
+        ],
+        "reference_retrieval": "PASS",
+        "review_scope": "Primary page/abstract or relevant manual/code sections read; not a complete-paper audit or independent verification."
+      },
+      "submission": {
+        "proposal_id": "c6159ac4-689b-4959-9e88-18901dc719c1",
+        "state": "ADMITTED",
+        "record_id": "rgr1_7049dbe7ec3d7c8905860252899a3b6cc31a733821bfe43a7c7f001eb2dd7372",
+        "admitted_at": "2026-11-18T07:31:03.819602Z",
+        "verification": "fresh Challenge 2 source feed"
+      }
+    }
+  ],
+  "evaluator_submission": null,
+  "performance_points_claimed": false
+}

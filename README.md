@@ -2,6 +2,8 @@
 
 A reproducible, evidence-first harness for whole-proof Stwo optimization.
 
+[Second Nov 18 source catalog](literature/stwo-sources-batch2-2026-11-18/README.md): twenty-one additional references on memory/work attribution, GKR, compiler/build integrity and adversarial correctness testing, with explicit verification scope and actual admission receipts.
+
 [Nov 18 primary-source catalog](literature/stwo-sources-2026-11-18/README.md): twenty verified references with specific Stwo applications, limitations, content hashes and Provably submission receipts. Source publication is separate from performance points.
 
 Latest: [Nov 18 LogUp arithmetic screens](experiments/logup-arithmetic-2026-11-18/README.md) publish a kernel saving, an incomplete correctness gate (three scoped tests pass, one panics), a separate correctness-only witness-dot prototype, and exact supported-stack lineage. No new whole-proof gain or evaluator submission is established.

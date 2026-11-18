@@ -261,3 +261,13 @@ source_collection_2026_11_18:
   exception: "Agner full PDF rejected for snapshot size; author index proposed explicitly as metadata, rejection retained"
   evaluator_job: null
   points_claimed: false
+
+source_collection_batch2_2026_11_18:
+  catalog: "literature/stwo-sources-batch2-2026-11-18/README.md"
+  receipts: "literature/stwo-sources-batch2-2026-11-18/catalog.json"
+  distinct_references: 21
+  preexisting_sources_checked: 94
+  verification: "bounded primary-page/section review, scanned-paper first-page visual review, and explicit DOI metadata scope"
+  exception: "two original URLs rejected; rejections preserved, supported DOI references proposed"
+  evaluator_job: null
+  performance_points_claimed: false

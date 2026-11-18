@@ -1,0 +1,15 @@
+{
+  "challenge": 2,
+  "references": 21,
+  "admission_snapshot": {
+    "ADMITTED": 19,
+    "PROPOSED": 2
+  },
+  "earlier_url_rejections_preserved": 2,
+  "workshop": {
+    "state": "prepared, not posted yet",
+    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0"
+  },
+  "evaluator_job": null,
+  "performance_points_claimed": false
+}

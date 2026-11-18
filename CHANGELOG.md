@@ -2,6 +2,8 @@
 
 ## 2026-11-18
 
+- Added a second, 21-reference source batch checked against all 94 existing SOURCE records. Recorded primary-page or DOI verification scope, source hashes, relevance, URL rejections and supported DOI submissions; no prover experiment or performance points claim.
+
 - Collected and submitted twenty distinct primary sources after checking the existing 74-source graph catalog. Published concrete Stwo relevance, interpretation limits and retrieval hashes; recorded actual proposal/admission states without claiming a speed result or points.
 
 - Published the current five-file denominator-delta increment, two standalone arithmetic probes, numeric outputs, selected full graph payloads and full static policy receipt. Preserved the kernel-only scope and all failed/incomplete correctness checks.
