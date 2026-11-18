@@ -2,6 +2,8 @@
 
 This audit focuses on [Stwo](https://stwo.provably.fast/). It separates official evaluator rows, graph experiment verdicts, contributor reports, public repository documentation and local inference. Existing coordinator and workers shared one retained snapshot; no new prover build, proof run or evaluator submission was made for this audit.
 
+Nov 18 follow-up: [full graph payloads and arithmetic screens](logup-arithmetic-2026-11-18/README.md) now resolve the previously title-only supported-stack descriptions and map result digest `a273aff7…` to the exact extended zero-multiplicity stack. Historical snapshot counts below remain unchanged. This new attribution does not transfer support to our denominator-delta or witness-dot experiments.
+
 ## What can advance each board
 
 The [People table](https://stwo.provably.fast/#/people?view=table) sorts contribution activity by default. Its Total adds leads, experiments, sources, workshop discussion and visible evaluated results. Cited-by is displayed separately. These are bounded UI windows, not weighted merit or performance points. The source uses at most ten 100-record feed pages; when the initial workshop event walk exhausts forty pages, it switches to the newest 4,000 sequence range. Older activity can leave these windows. Grouped counts from the People API are not the table's exact counts. Source: [Stwo UI](https://stwo.provably.fast/v2.js), [profile/data contracts](https://stwo.provably.fast/presentation.js).

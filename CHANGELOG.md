@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-18
+
+- Published the current five-file denominator-delta increment, two standalone arithmetic probes, numeric outputs, selected full graph payloads and full static policy receipt. Preserved the kernel-only scope and all failed/incomplete correctness checks.
+- Resolved exact official result-to-stack attribution from full graph payloads. Recorded the admitted paired-denominator lead; separate witness-dot prototype has correctness evidence only. No full proof, qualifying gain, evaluator job or new points is claimed.
+
 ## 2026-11-17
 
 - Published the operator audit/calculator to Provably and added the user's sub-1.3 GiB mainnet memory target as a source-reviewed, unexecuted live/idle attribution plan.

@@ -1,0 +1,18 @@
+
+running 4 tests
+test witness::components::paired_lookup_delta::tests::production_denominator_addition_preserves_zero_cases_and_raw_m31_zero ... ok
+test witness::components::paired_lookup_delta::tests::production_logup_trace_bytes_match_original_pair_formula ... ok
+test witness::components::paired_lookup_delta::tests::production_pair_matches_original_for_drawn_challenges_and_real_ids ... ok
+test witness::components::paired_lookup_delta::tests::zero_denominator_lanes_preserve_original_logup_trace_bytes ... 
+thread 'witness::components::paired_lookup_delta::tests::zero_denominator_lanes_preserve_original_logup_trace_bytes' (643205) panicked at crates/stwo/src/prover/backend/simd/m31.rs:400:9:
+0 has no inverse
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    witness::components::paired_lookup_delta::tests::zero_denominator_lanes_preserve_original_logup_trace_bytes
+
+test result: FAILED. 3 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

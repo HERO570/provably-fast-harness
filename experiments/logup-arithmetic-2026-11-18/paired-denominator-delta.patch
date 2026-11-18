@@ -1,0 +1,414 @@
+diff --git a/crates/prover/src/witness/components/mod.rs b/crates/prover/src/witness/components/mod.rs
+index 4e1eb87dfdc072bd8c4a2a9c3a211931df51c02b..6728bf84697aafc2875865d7ce566d3a708b78d8 100644
+--- a/crates/prover/src/witness/components/mod.rs
++++ b/crates/prover/src/witness/components/mod.rs
+@@ -1,5 +1,6 @@
+ pub mod memory_address_to_id;
+ pub mod memory_id_to_big;
++mod paired_lookup_delta;
+ 
+ pub mod add_ap_opcode;
+ pub mod add_mod_builtin;
+diff --git a/crates/prover/src/witness/components/range_check_18.rs b/crates/prover/src/witness/components/range_check_18.rs
+index 8ad28d6fcfa0b4df9883bb8951489903c087a501..8b989bd23973f2d4d1de319cbc111183ea59ff43 100644
+--- a/crates/prover/src/witness/components/range_check_18.rs
++++ b/crates/prover/src/witness/components/range_check_18.rs
+@@ -3,6 +3,7 @@
+ #![allow(unused_parens)]
+ use cairo_air::components::range_check_18::{Claim, InteractionClaim, LOG_SIZE, N_TRACE_COLUMNS};
+ 
++use super::paired_lookup_delta::{denominator_delta, paired_fraction};
+ use crate::witness::prelude::*;
+ 
+ pub type InputType = [M31; 1];
+@@ -100,6 +101,11 @@ impl InteractionClaimGenerator {
+         common_lookup_elements: &relations::CommonLookupElements,
+     ) -> (Vec<CircleEvaluation<SimdBackend, M31, BitReversedOrder>>, InteractionClaim) {
+         let mut logup_gen = unsafe { LogupTraceGenerator::uninitialized(LOG_SIZE) };
++        let relation_delta = denominator_delta(
++            common_lookup_elements,
++            self.lookup_data.range_check_18_0[0][0],
++            self.lookup_data.range_check_18_b_1[0][0],
++        );
+ 
+         // Sum logup terms in pairs.
+         let mut col_gen = logup_gen.new_col();
+@@ -111,10 +117,16 @@ impl InteractionClaimGenerator {
+             &self.lookup_data.mults_1,
+         )
+             .into_par_iter()
+-            .for_each(|(writer, values0, values1, mult0, mult1)| {
+-                let denom0: PackedQM31 = common_lookup_elements.combine(values0);
+-                let denom1: PackedQM31 = common_lookup_elements.combine(values1);
+-                writer.write_frac(-(denom0 * *mult1 + denom1 * *mult0), denom0 * denom1);
++            .for_each(|(writer, values0, _values1, mult0, mult1)| {
++                let (numerator, denominator) = paired_fraction(
++                    common_lookup_elements,
++                    values0[0],
++                    values0[1],
++                    relation_delta,
++                    *mult0,
++                    *mult1,
++                );
++                writer.write_frac(numerator, denominator);
+             });
+         col_gen.finalize_col();
+ 
+diff --git a/crates/prover/src/witness/components/range_check_20.rs b/crates/prover/src/witness/components/range_check_20.rs
+index 22b3a54ed49aef0a74e8045de52e13ba2a46eab3..e4b292b474b05d42275d8faba5dcac25487bfab1 100644
+--- a/crates/prover/src/witness/components/range_check_20.rs
++++ b/crates/prover/src/witness/components/range_check_20.rs
+@@ -3,6 +3,7 @@
+ #![allow(unused_parens)]
+ use cairo_air::components::range_check_20::{Claim, InteractionClaim, LOG_SIZE, N_TRACE_COLUMNS};
+ 
++use super::paired_lookup_delta::{denominator_delta, paired_fraction};
+ use crate::witness::prelude::*;
+ 
+ pub type InputType = [M31; 1];
+@@ -69,10 +70,16 @@ impl InteractionClaimGenerator {
+         // The relation ids of the lookups `range_check_20_0, range_check_20_b_1, ...,
+         // range_check_20_h_7`, each of the values `[relation id, seq_20]`.
+         let relation_ids: [u32; 8] = [
+-            1410849886, 514232941, 531010560, 480677703, 497455322, 447122465, 463900084,
+-            682009131,
++            1410849886, 514232941, 531010560, 480677703, 497455322, 447122465, 463900084, 682009131,
+         ];
+         let relation_ids = relation_ids.map(|id| PackedM31::broadcast(M31::from(id)));
++        let relation_deltas: [PackedQM31; 4] = from_fn(|col| {
++            denominator_delta(
++                common_lookup_elements,
++                relation_ids[2 * col],
++                relation_ids[2 * col + 1],
++            )
++        });
+         let seq_20 =
+             self.preprocessed_trace.get_column(&PreProcessedColumnId { id: "seq_20".to_owned() });
+         let mults = &self.mults;
+@@ -81,11 +88,14 @@ impl InteractionClaimGenerator {
+         // written in one pass over the rows.
+         logup_gen.write_frac_cols(4, |col, row| {
+             let seq_20 = seq_20.packed_at(row);
+-            let denom0: PackedQM31 =
+-                common_lookup_elements.combine(&[relation_ids[2 * col], seq_20]);
+-            let denom1: PackedQM31 =
+-                common_lookup_elements.combine(&[relation_ids[2 * col + 1], seq_20]);
+-            (-(denom0 * mults[2 * col + 1][row] + denom1 * mults[2 * col][row]), denom0 * denom1)
++            paired_fraction(
++                common_lookup_elements,
++                relation_ids[2 * col],
++                seq_20,
++                relation_deltas[col],
++                mults[2 * col][row],
++                mults[2 * col + 1][row],
++            )
+         });
+ 
+         let (trace, claimed_sum) = logup_gen.finalize_last();
+diff --git a/crates/prover/src/witness/components/paired_lookup_delta.rs b/crates/prover/src/witness/components/paired_lookup_delta.rs
+new file mode 100644
+index 0000000000000000000000000000000000000000..56272246db28a330a454806a02d5e7d5e560b6cf
+--- /dev/null
++++ b/crates/prover/src/witness/components/paired_lookup_delta.rs
+@@ -0,0 +1,64 @@
++use crate::witness::prelude::*;
++
++/// Computes the change in the common lookup denominator between two relation IDs.
++///
++/// This uses the relation's actual `combine` implementation rather than assuming that its first
++/// coefficient is one. The common lookup challenge is shared by all rows and this result is
++/// computed once per pair by the caller.
++#[inline(always)]
++pub(crate) fn denominator_delta(
++    common_lookup_elements: &relations::CommonLookupElements,
++    relation_id0: PackedM31,
++    relation_id1: PackedM31,
++) -> PackedQM31 {
++    let zero = PackedM31::zero();
++    let right: PackedQM31 = common_lookup_elements.combine(&[relation_id1, zero]);
++    let left: PackedQM31 = common_lookup_elements.combine(&[relation_id0, zero]);
++    right - left
++}
++
++/// Adds a precomputed pair delta to the first exact denominator.
++#[inline(always)]
++pub(crate) fn add_delta(denominator0: PackedQM31, delta: PackedQM31) -> (PackedQM31, PackedQM31) {
++    (denominator0, denominator0 + delta)
++}
++
++/// Returns both denominators, reusing the first tuple's row-dependent combination.
++#[inline(always)]
++pub(crate) fn paired_denominators(
++    common_lookup_elements: &relations::CommonLookupElements,
++    relation_id0: PackedM31,
++    sequence: PackedM31,
++    delta: PackedQM31,
++) -> (PackedQM31, PackedQM31) {
++    let denominator0: PackedQM31 = common_lookup_elements.combine(&[relation_id0, sequence]);
++    add_delta(denominator0, delta)
++}
++
++/// Computes the unchanged paired LogUp fraction from its exact two denominators.
++#[inline(always)]
++pub(crate) fn paired_fraction_from_denominators(
++    denominator0: PackedQM31,
++    denominator1: PackedQM31,
++    multiplicity0: PackedM31,
++    multiplicity1: PackedM31,
++) -> (PackedQM31, PackedQM31) {
++    (-(denominator0 * multiplicity1 + denominator1 * multiplicity0), denominator0 * denominator1)
++}
++
++/// Production row calculation shared by both paired fixed-table paths.
++#[inline(always)]
++pub(crate) fn paired_fraction(
++    common_lookup_elements: &relations::CommonLookupElements,
++    relation_id0: PackedM31,
++    sequence: PackedM31,
++    delta: PackedQM31,
++    multiplicity0: PackedM31,
++    multiplicity1: PackedM31,
++) -> (PackedQM31, PackedQM31) {
++    let (denominator0, denominator1) =
++        paired_denominators(common_lookup_elements, relation_id0, sequence, delta);
++    paired_fraction_from_denominators(denominator0, denominator1, multiplicity0, multiplicity1)
++}
++
++mod tests;
+diff --git a/crates/prover/src/witness/components/paired_lookup_delta/tests.rs b/crates/prover/src/witness/components/paired_lookup_delta/tests.rs
+new file mode 100644
+index 0000000000000000000000000000000000000000..a0f062e5b94acfff7bf1f6f0fa89693735c06a8d
+--- /dev/null
++++ b/crates/prover/src/witness/components/paired_lookup_delta/tests.rs
+@@ -0,0 +1,231 @@
++use cairo_air::relations::CommonLookupElements;
++use stwo::core::channel::Blake2sChannel;
++use stwo::core::fields::m31::{M31, P};
++use stwo::core::fields::qm31::QM31;
++use stwo::prover::backend::simd::m31::{LOG_N_LANES, N_LANES, PackedM31};
++use stwo::prover::backend::simd::qm31::PackedQM31;
++
++use crate::witness::components::paired_lookup_delta::{
++    add_delta, denominator_delta, paired_denominators, paired_fraction,
++    paired_fraction_from_denominators,
++};
++use crate::witness::prelude::{LogupTraceGenerator, Relation};
++
++fn packed(values: [M31; N_LANES]) -> PackedM31 {
++    PackedM31::from_array(values)
++}
++
++fn original_fraction(
++    denominator0: PackedQM31,
++    denominator1: PackedQM31,
++    multiplicity0: PackedM31,
++    multiplicity1: PackedM31,
++) -> (PackedQM31, PackedQM31) {
++    (-(denominator0 * multiplicity1 + denominator1 * multiplicity0), denominator0 * denominator1)
++}
++
++fn trace_bytes(
++    common: &CommonLookupElements,
++    relation_id0: PackedM31,
++    relation_id1: PackedM31,
++    sequence: PackedM31,
++    multiplicity0: PackedM31,
++    multiplicity1: PackedM31,
++    optimized: bool,
++) -> (Vec<u8>, QM31) {
++    let delta = denominator_delta(common, relation_id0, relation_id1);
++    let log_size = LOG_N_LANES;
++    let mut logup = unsafe { LogupTraceGenerator::uninitialized(log_size) };
++    logup.write_frac_cols(1, |_, _| {
++        if optimized {
++            paired_fraction(common, relation_id0, sequence, delta, multiplicity0, multiplicity1)
++        } else {
++            let denominator0: PackedQM31 = common.combine(&[relation_id0, sequence]);
++            let denominator1: PackedQM31 = common.combine(&[relation_id1, sequence]);
++            original_fraction(denominator0, denominator1, multiplicity0, multiplicity1)
++        }
++    });
++    let (trace, claimed_sum) = logup.finalize_last();
++    let bytes = trace
++        .iter()
++        .flat_map(|evaluation| {
++            evaluation.values.as_slice().iter().flat_map(|value| value.0.to_ne_bytes())
++        })
++        .collect();
++    (bytes, claimed_sum)
++}
++
++#[test]
++fn production_pair_matches_original_for_drawn_challenges_and_real_ids() {
++    let relation_pairs = [
++        (1410849886, 514232941),
++        (531010560, 480677703),
++        (497455322, 447122465),
++        (463900084, 682009131),
++        (1109051422, 1424798916),
++        (P - 2, 3), // Exercise modular relation-ID subtraction.
++    ];
++    let mut channel = Blake2sChannel::default();
++
++    for challenge_index in 0..12u32 {
++        let common = CommonLookupElements::draw(&mut channel);
++        for (left, right) in relation_pairs {
++            let relation_id0 = PackedM31::broadcast(M31::from(left));
++            let relation_id1 = PackedM31::broadcast(M31::from(right));
++            let sequence = packed(std::array::from_fn(|lane| {
++                M31::from((challenge_index * 101 + lane as u32 * 7919 + 1) % P)
++            }));
++            let multiplicity0 = packed(std::array::from_fn(|lane| {
++                if lane % 4 == 0 {
++                    M31::from_u32_unchecked(P)
++                } else {
++                    M31::from((challenge_index * 17 + lane as u32 * 13 + 2) % P)
++                }
++            }));
++            let multiplicity1 = packed(std::array::from_fn(|lane| {
++                if lane % 4 == 1 {
++                    M31::from_u32_unchecked(P)
++                } else {
++                    M31::from((challenge_index * 23 + lane as u32 * 29 + 3) % P)
++                }
++            }));
++
++            let delta = denominator_delta(&common, relation_id0, relation_id1);
++            let (actual0, actual1) = paired_denominators(&common, relation_id0, sequence, delta);
++            let expected0: PackedQM31 = common.combine(&[relation_id0, sequence]);
++            let expected1: PackedQM31 = common.combine(&[relation_id1, sequence]);
++            assert_eq!(actual0.to_array(), expected0.to_array());
++            assert_eq!(actual1.to_array(), expected1.to_array());
++
++            let actual = paired_fraction(
++                &common,
++                relation_id0,
++                sequence,
++                delta,
++                multiplicity0,
++                multiplicity1,
++            );
++            let expected = paired_fraction_from_denominators(
++                expected0,
++                expected1,
++                multiplicity0,
++                multiplicity1,
++            );
++            let original = original_fraction(expected0, expected1, multiplicity0, multiplicity1);
++            assert_eq!(actual.0.to_array(), original.0.to_array());
++            assert_eq!(actual.1.to_array(), original.1.to_array());
++            assert_eq!(expected.0.to_array(), original.0.to_array());
++            assert_eq!(expected.1.to_array(), original.1.to_array());
++        }
++    }
++}
++
++#[test]
++fn production_denominator_addition_preserves_zero_cases_and_raw_m31_zero() {
++    let zero = PackedQM31::broadcast(QM31::from_u32_unchecked(0, 0, 0, 0));
++    let one = PackedQM31::broadcast(QM31::from_u32_unchecked(1, 0, 0, 0));
++    let minus_one = -one;
++    let cases = [(zero, one), (one, minus_one), (zero, zero)];
++    let raw_zero_and_p = packed(std::array::from_fn(|lane| {
++        if lane % 2 == 0 { M31::from_u32_unchecked(0) } else { M31::from_u32_unchecked(P) }
++    }));
++    let multiplicity_other = PackedM31::broadcast(M31::from(7));
++
++    for (denominator0, delta) in cases {
++        let (actual0, actual1) =
++            crate::witness::components::paired_lookup_delta::add_delta(denominator0, delta);
++        let expected1 = denominator0 + delta;
++        assert_eq!(actual0.to_array(), denominator0.to_array());
++        assert_eq!(actual1.to_array(), expected1.to_array());
++
++        let actual =
++            paired_fraction_from_denominators(actual0, actual1, raw_zero_and_p, multiplicity_other);
++        let expected =
++            original_fraction(denominator0, expected1, raw_zero_and_p, multiplicity_other);
++        assert_eq!(actual.0.to_array(), expected.0.to_array());
++        assert_eq!(actual.1.to_array(), expected.1.to_array());
++    }
++}
++
++#[test]
++fn production_logup_trace_bytes_match_original_pair_formula() {
++    let mut channel = Blake2sChannel::default();
++    for challenge_index in 0..4u32 {
++        let common = CommonLookupElements::draw(&mut channel);
++        let relation_id0 = PackedM31::broadcast(M31::from(1410849886));
++        let relation_id1 = PackedM31::broadcast(M31::from(514232941));
++        let sequence = packed(std::array::from_fn(|lane| {
++            M31::from((challenge_index * 997 + lane as u32 * 211 + 1) % P)
++        }));
++        let multiplicity0 = PackedM31::broadcast(M31::from(5 + challenge_index));
++        let multiplicity1 = PackedM31::broadcast(M31::from(11 + challenge_index));
++        let optimized = trace_bytes(
++            &common,
++            relation_id0,
++            relation_id1,
++            sequence,
++            multiplicity0,
++            multiplicity1,
++            true,
++        );
++        let original = trace_bytes(
++            &common,
++            relation_id0,
++            relation_id1,
++            sequence,
++            multiplicity0,
++            multiplicity1,
++            false,
++        );
++        assert_eq!(optimized, original);
++    }
++}
++
++#[test]
++fn zero_denominator_lanes_preserve_original_logup_trace_bytes() {
++    let zero = QM31::from_u32_unchecked(0, 0, 0, 0);
++    let one = QM31::from_u32_unchecked(1, 0, 0, 0);
++    let denominator0 = PackedQM31::from_array(std::array::from_fn(|lane| match lane % 3 {
++        0 => zero,
++        1 => one,
++        _ => zero,
++    }));
++    let denominator1 = PackedQM31::from_array(std::array::from_fn(|lane| match lane % 3 {
++        0 => one,
++        1 => zero,
++        _ => zero,
++    }));
++    let delta = denominator1 - denominator0;
++    let multiplicity0 = packed(std::array::from_fn(|lane| {
++        if lane % 2 == 0 { M31::from_u32_unchecked(0) } else { M31::from_u32_unchecked(P) }
++    }));
++    let multiplicity1 = PackedM31::broadcast(M31::from(7));
++
++    let log_size = LOG_N_LANES;
++    let mut optimized = unsafe { LogupTraceGenerator::uninitialized(log_size) };
++    optimized.write_frac_cols(1, |_, _| {
++        let (d0, d1) = add_delta(denominator0, delta);
++        paired_fraction_from_denominators(d0, d1, multiplicity0, multiplicity1)
++    });
++    let (optimized_trace, optimized_sum) = optimized.finalize_last();
++    let optimized_bytes: Vec<u8> = optimized_trace
++        .iter()
++        .flat_map(|evaluation| {
++            evaluation.values.as_slice().iter().flat_map(|value| value.0.to_ne_bytes())
++        })
++        .collect();
++
++    let mut original = unsafe { LogupTraceGenerator::uninitialized(log_size) };
++    original.write_frac_cols(1, |_, _| {
++        original_fraction(denominator0, denominator1, multiplicity0, multiplicity1)
++    });
++    let (original_trace, original_sum) = original.finalize_last();
++    let original_bytes: Vec<u8> = original_trace
++        .iter()
++        .flat_map(|evaluation| {
++            evaluation.values.as_slice().iter().flat_map(|value| value.0.to_ne_bytes())
++        })
++        .collect();
++    assert_eq!(optimized_bytes, original_bytes);
++    assert_eq!(optimized_sum, original_sum);
++}

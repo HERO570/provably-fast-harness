@@ -1,0 +1,27 @@
+{
+  "source_frontier": "69645ee0e6f583990c4aaf064cd08fde601ff009",
+  "pinned_head": "9df00f2249b61849be69cc14942742d0c1f81ad2",
+  "toolchain": "nightly-2026-01-15",
+  "host": "Darwin arm64; native build; not evaluator host",
+  "flags": [
+    "-C target-cpu=native",
+    "-C opt-level=3",
+    "-C codegen-units=1"
+  ],
+  "source_module_tests": {
+    "production_helper_sha256": "7a8d7a30cd8381329c094921445144d9f7f12f57abdcde4026a06751e5647d3e",
+    "production_tests_sha256": "df10b5f33aecb762886099d3c237618b804a5ca4c7ef99df0d431eafb6e5b7e0",
+    "adaptation": "Only test module path directive changed in an external harness copy; production function bodies and test file unchanged. Not a complete Cargo crate test."
+  },
+  "files": {
+    "README.md": "c82a0d0e47d4d443a43b8db37efba569492ad33bcad15926fbbc7e4bff2f586f",
+    "paired-denominator-delta.patch": "1527bd8a48ba8fc5e18d6a3c9f0608d111f0792e1c567b65d97087b8b8d6baea",
+    "paired-denominator-probe.rs": "3e893605267b56c478b0eac4d461b9ccafe516e884007830a0fb3f25b5392f24",
+    "probe-timing.log": "0c7413943b4be840c1f78d53839ff5999e03580d5ad08d3b6dce32c593c65008",
+    "selected-lineage.json": "40e4d5f9e4a981657c0bc89800d6ae9b135ba3b3592859db84e8fe487d517f07",
+    "source-tests.log": "0c38a7b909bfe9a904c1412a1e685170aaceae23c6281f29d454825c1160301c",
+    "static-preflight.json": "0d67f7890311d355e74be0782b4b03914ae667baba4223705a99d6ef7282b1f5",
+    "witness-dot-correctness.log": "ebff4aacdddebbef17a214f2da3572c229963458ac7f07edabc059b81fcce2c7",
+    "witness-dot-probe.rs": "7c588047013c4b052be2bbaa0be0b62aad023e2036a6fa7c052e05a2f7c76eca"
+  }
+}

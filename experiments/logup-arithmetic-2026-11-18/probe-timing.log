@@ -1,0 +1,5 @@
+exact packed numerator and denominator pairs: PASS; rows=278528 challenges=4
+averaged 20 paired rounds, alternating order, same challenge within each pair; 278528 pair-rows/round
+baseline two combines: total 1.270582248s, 228.089 ns/pair
+delta one combine:     total 1.040739335s, 186.828 ns/pair
+absolute kernel delta: 41.260 ns/pair; savings 11.492 ms per 278528 pairs

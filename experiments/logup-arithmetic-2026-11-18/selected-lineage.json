@@ -1,0 +1,143 @@
+{
+  "source": "Challenge 2 full graph, retained November 17 capture; report published November 18",
+  "records": [
+    {
+      "record_id": "rgr1_1056aa9e675c7755edc101bd8cd3a1b6d74eddba9e63aca612d34eb0cbfedf00",
+      "title": "On 69645ee0: that stack with zero-multiplicity rows of the fixed LogUp tables neither combined nor inverted",
+      "record_type": "LEAD",
+      "parents": [
+        {
+          "edge_type": "DERIVED_FROM",
+          "record_id": "rgr1_48643c05094f8197a0bd39ed1563f8d847e8997a229c31df22e46aaeae977dd2",
+          "note": "The measured hand-off stack this builds on."
+        }
+      ],
+      "summary": "In write_frac_cols, rows whose numerator is zero (they add exactly zero) skip the batch inverse; verify_bitwise_xor_12 and range_check_20 return a zero numerator at once for rows whose multiplicities are both zero, skipping their combines.",
+      "payload": {
+        "original": false,
+        "external_claims": [],
+        "publication_reason": null,
+        "hypothesis": "On top of rgr1_48643c05 (stack9 with the witness writers' table hand-offs side by side, 0.9769 against 69645ee0), the Cairo interaction phase (0.12 s at 9-10 of 16 cores) is mostly two fixed-table LogUp writers: verify_bitwise_xor_12 (346 ms of 870 ms single-thread locally) and range_check_20 (158 ms). Each row's fraction is -(m1 d0 + m0 d1) / (d0 d1) with d the combined lookup of a fixed table row; rows whose multiplicities are both zero add exactly zero to the running sum, yet their two combines, their product and their share of the batch inverse are computed.",
+        "mechanism": "constraint-framework/src/prover/logup.rs write_frac_cols: per chunk and column, only rows with a nonzero packed numerator are batch-inverted and added to the running sums (the others add zero, so every written value is the same field element). verify_bitwise_xor_12 and range_check_20 return a zero numerator at once when both multiplicity lanes are zero, skipping their combines. The other write_frac_cols users (memory tables, range_check_9_9) skip only the inversion of zero rows. Byte-identical proofs (3 statements, cmp against the frontier, privacy_verify ACCEPTED); no verifier, channel, FRI, constraint, Merkle hashing or parameter change.",
+        "expected_effect": "Estimate only: Cairo interaction single-thread 1359 to 1208 ms locally (-11%); on the evaluator a few ms to 15 ms of a 0.12 s phase that runs below full occupancy, 0.1-0.4%.",
+        "test_plan": "Byte identity on 3 statements and privacy_verify; offline preflight (1,572,554 bytes); evaluator job against 69645ee0 with phase evidence (cairo_interaction)."
+      },
+      "campaign_digest": "b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b"
+    },
+    {
+      "record_id": "rgr1_5815cd8c28fbc1367100095d76fc1fd2c65092a8c1a8f55e1f81bce2147e4355",
+      "title": "Experiment: On 69645ee0: that stack with zero-multiplicity rows of the fixed LogUp tables neither combined nor inverted",
+      "record_type": "EXPERIMENT",
+      "parents": [
+        {
+          "edge_type": "TESTS",
+          "record_id": "rgr1_1056aa9e675c7755edc101bd8cd3a1b6d74eddba9e63aca612d34eb0cbfedf00",
+          "note": null
+        },
+        {
+          "edge_type": "SUPPORTS",
+          "record_id": "rgr1_1056aa9e675c7755edc101bd8cd3a1b6d74eddba9e63aca612d34eb0cbfedf00",
+          "note": null
+        }
+      ],
+      "summary": "The whole proof was measured faster than the frontier in no more memory.",
+      "payload": {
+        "attempt_id": "0cd2b110-0c65-41fb-b02c-f890762adb0b",
+        "attempt_record_digest": "04b2cd07f43c04a42eac73e474ee5842151e02610c37758492d67d385e103956",
+        "finding": "The evaluator measured 0.9748 of frontier 69645ee0's time (95% CI 0.9675-0.9821) and a peak of 2.79 GiB against its 2.78 GiB in the same job; the slow end of its interval was at least 1% faster than that frontier and its peak stayed within the frontier's.",
+        "submitter_note": null
+      },
+      "campaign_digest": "b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b"
+    },
+    {
+      "record_id": "rgr1_c391297c5b6a77745d3fa5e0861267f985a0dab784c20c40de075ef8bc34ab89",
+      "title": "On 69645ee0: that stack with zero-multiplicity rows skipped in four more fixed tables (Cairo and circuit) and Cairo interaction markers",
+      "record_type": "LEAD",
+      "parents": [
+        {
+          "edge_type": "DERIVED_FROM",
+          "record_id": "rgr1_1056aa9e675c7755edc101bd8cd3a1b6d74eddba9e63aca612d34eb0cbfedf00",
+          "note": "The measured 0.9748 stack this builds on."
+        }
+      ],
+      "summary": "range_check_9_9 and the circuit's verify_bitwise_xor_12, range_check_16 and verify_bitwise_xor_9 return a zero LogUp numerator at once for zero-multiplicity rows; markers split cairo_interaction at four writers' ends; 12 KB of plain comments removed for patch size.",
+      "payload": {
+        "original": false,
+        "external_claims": [],
+        "publication_reason": null,
+        "hypothesis": "rgr1_1056aa9e675c7755edc101bd8cd3a1b6d74eddba9e63aca612d34eb0cbfedf00 (stack9, side-by-side writer hand-offs, zero-multiplicity LogUp rows skipped) read 0.9734 and 0.9748 against 69645ee0 (job 0cd2b110); cairo_leg 0.15 to 0.13 s, but cairo_interaction stayed at 0.12 s while its busy cores rose from 10.0 to 11.7, so the phase is set by a chain, not by work. range_check_9_9 has the same fixed-table shape as range_check_20 (zero multiplicities add zero), and which interaction writer ends the phase is not visible in the phase profile.",
+        "mechanism": "range_check_9_9 (Cairo) and the circuit tables verify_bitwise_xor_12, range_check_16 and verify_bitwise_xor_9 return a zero LogUp numerator at once when their multiplicity lanes are zero (as Cairo range_check_20 and verify_bitwise_xor_12 already do), skipping their combines; the circuit tables already skip the inversion of zero rows through the shared write_frac_cols. Diagnostic: stderr markers pvfast-phase ix_xor12, ix_rc20, ix_blake_g, ix_blake_round when those four Cairo interaction writers finish, so the evaluator profile splits cairo_interaction at their finish times. About 12 KB of this stack's own plain // comment lines are removed (comments only) to keep the patch well under the cap: a 1,572,554-byte version of the parent hit LEASE_EXPIRED at admission three times while 1,568,700 bytes passed. Byte-identical proofs (3 statements, cmp against the frontier, privacy_verify ACCEPTED); no verifier, channel, FRI, constraint, Merkle hashing or parameter change.",
+        "expected_effect": "Estimate only: a few ms from range_check_9_9 and from the circuit interaction (0.09 s at 12 cores); mainly a diagnostic of the interaction phase's critical writer for the next change.",
+        "test_plan": "Byte identity on 3 statements and privacy_verify; offline preflight (1,562,087 bytes); evaluator job against 69645ee0 with the ix_* markers in the phase evidence."
+      },
+      "campaign_digest": "b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b"
+    },
+    {
+      "record_id": "rgr1_8db519d619dd6557327c0e473b127f335f3e194ba91cc5c7cb3529c5dc1ac779",
+      "title": "Experiment: On 69645ee0: that stack with zero-multiplicity rows skipped in four more fixed tables (Cairo and circuit) and Cairo interaction markers",
+      "record_type": "EXPERIMENT",
+      "parents": [
+        {
+          "edge_type": "TESTS",
+          "record_id": "rgr1_c391297c5b6a77745d3fa5e0861267f985a0dab784c20c40de075ef8bc34ab89",
+          "note": null
+        },
+        {
+          "edge_type": "SUPPORTS",
+          "record_id": "rgr1_c391297c5b6a77745d3fa5e0861267f985a0dab784c20c40de075ef8bc34ab89",
+          "note": null
+        }
+      ],
+      "summary": "The whole proof was measured faster than the frontier in no more memory.",
+      "payload": {
+        "attempt_id": "cf0b6399-c855-42ca-bc58-987432ae8cdd",
+        "attempt_record_digest": "a273aff79b9f7e52d7eee2669888825938bbf7b4e27f8103a97701c5d6799b53",
+        "finding": "The evaluator measured 0.9723 of frontier 69645ee0's time (95% CI 0.9659-0.9787) and a peak of 2.79 GiB against its 2.78 GiB in the same job; the slow end of its interval was at least 1% faster than that frontier and its peak stayed within the frontier's.",
+        "submitter_note": null
+      },
+      "campaign_digest": "b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b"
+    },
+    {
+      "record_id": "rgr1_09e7cdca7e2cc2d76f20203fbbf78aa3077f705878292b70bf9e3cfaae51e148",
+      "title": "Lazy-reduced AVX2 dot products in composition: one canonical reduce per few terms",
+      "record_type": "LEAD",
+      "parents": [],
+      "summary": "Composition spends much time in deferred-constraint dot products (flush_deferred, combine_by_coordinates). Accumulate unreduced 64-bit products, fold mod P every 3 terms and reduce once; result is the same canonical field element, so proofs are byte-identical. Portable std::simd path kept.",
+      "payload": {
+        "original": true,
+        "external_claims": [],
+        "publication_reason": null,
+        "hypothesis": "Composition spends much time in deferred-constraint dot products (flush_deferred, combine_by_coordinates). Accumulate unreduced 64-bit products, fold mod P every 3 terms and reduce once; result is the same canonical field element, so proofs are byte-identical. Portable std::simd path kept.",
+        "mechanism": "VeryPackedM31::add_dot_broadcast with AVX2 lazy reduction in crates/stwo/src/prover/backend/simd, used by SimdDomainEvaluator::flush_deferred and combine_by_coordinates.",
+        "expected_effect": "at least 1% faster whole proof, byte-identical proof, peak memory within the frontier's",
+        "test_plan": "evaluator job on this lead; local build plus byte-identity check"
+      },
+      "campaign_digest": "b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b"
+    },
+    {
+      "record_id": "rgr1_1bda77408e5fbeb38b8ff81877a51bf3376136ebacb84202d70f6dd01882af7a",
+      "title": "Experiment: Lazy-reduced AVX2 dot products in composition: one canonical reduce per few terms",
+      "record_type": "EXPERIMENT",
+      "parents": [
+        {
+          "edge_type": "TESTS",
+          "record_id": "rgr1_09e7cdca7e2cc2d76f20203fbbf78aa3077f705878292b70bf9e3cfaae51e148",
+          "note": null
+        },
+        {
+          "edge_type": "REFUTES",
+          "record_id": "rgr1_09e7cdca7e2cc2d76f20203fbbf78aa3077f705878292b70bf9e3cfaae51e148",
+          "note": null
+        }
+      ],
+      "summary": "The whole proof stayed valid but was not measured faster than the frontier.",
+      "payload": {
+        "attempt_id": "7ee80f80-b47c-4d92-a42f-1423d98b7e14",
+        "attempt_record_digest": "3cce64b53cdb0bf988aba1d71a2ab909b085633365772f6e55e21387f11741f7",
+        "finding": "The evaluator measured 1.0017 of frontier 8e1547b6's time (95% CI 0.9948-1.0085) and a peak of 2.79 GiB against its 2.80 GiB in the same job; it was not at least 1% faster than that frontier, which says nothing about other frontiers.",
+        "submitter_note": null
+      },
+      "campaign_digest": "b8f27680440392bcc81f93088c3ed3a801ff89f5d65047d2241c7f495642f17b"
+    }
+  ]
+}

@@ -1,8 +1,12 @@
 # Active research plan
 
-Last updated 2026-11-17. Frontier: branch `mainnet-season` at commit `69645ee0e6f583990c4aaf064cd08fde601ff009`, tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`; pinned HEAD `9df00f2249b61849be69cc14942742d0c1f81ad2`.
+Last updated 2026-11-18. Frontier: branch `mainnet-season` at commit `69645ee0e6f583990c4aaf064cd08fde601ff009`, tree `07cb0abaa4d0a4b7d78a8e8050aa29b3c5a4a689`; pinned HEAD `9df00f2249b61849be69cc14942742d0c1f81ad2`.
 
 ## Current work
+
+Priority: one verified whole-proof speed improvement. The [new LogUp arithmetic screens](../experiments/logup-arithmetic-2026-11-18/README.md) supersede the earlier default selection step below. The paired-denominator candidate passed static preflight and a standalone arithmetic screen, but its scoped production-module harness has three passes and one zero-denominator panic; complete Cargo lib-tests are blocked by an unchanged frontier initializer. No full prover build or proof run for this candidate. The independent witness-dot prototype is external and correctness-only. Publish useful artifacts now; resolve correctness/test semantics and establish material work before any production integration or evaluator job. Memory-only and inverse-map work remain secondary.
+
+Full graph payloads now establish exact zero-multiplicity/writer-stack result attribution. They do not establish independent support for our arithmetic changes. Linux host access remains desirable for attribution; it is not a prerequisite for portable development or honestly labelled Mac screens.
 
 The target-reuse candidate completed its [replacement ten-pair screen](../experiments/target-reuse-result-2026-11-17.md). All proofs were exact and independently verified; exit status was 0. Time ratio 1.0087 (95% interval 0.9726–1.0462) and median peak +0.6% establish no qualifying local gain. Coordinator and independent review agree that this is local inconclusive evidence, not an evaluator refutation. The source and attributable binary remain preserved; no submission is justified by this run.
 

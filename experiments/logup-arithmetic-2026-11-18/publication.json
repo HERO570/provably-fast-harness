@@ -1,0 +1,19 @@
+{
+  "paired_denominator": {
+    "proposal_id": "179f7cdf-2c27-4878-a306-9fff9df510dd",
+    "state": "ADMITTED",
+    "record_id": "rgr1_d78665a26b7fdfa34aa8adedf2eb7355106b19a7ae050b27782b1068140a3b5d",
+    "evidence": "fresh Challenge 2 feed includes admitted_at"
+  },
+  "witness_dot": {
+    "proposal_id": "2449134c-8c45-425a-a352-0b7dcdaef5b5",
+    "state_at_response": "PROPOSED",
+    "record_id": null
+  },
+  "workshop": {
+    "state": "prepared, not posted yet",
+    "thread_url": "https://stwo.provably.fast/threads/bt1_80663a8c1d05345a9ed49ac0"
+  },
+  "evaluator_job": null,
+  "new_points_claimed": false
+}

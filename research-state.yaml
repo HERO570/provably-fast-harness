@@ -229,3 +229,18 @@ workspace:
   experiments_dir: "experiments/"
   to_human_dir: "to_human/"
   paper_dir: "paper/"
+
+speed_update_2026_11_18:
+  priority: "one verified whole-proof speed improvement"
+  evidence: "experiments/logup-arithmetic-2026-11-18/README.md"
+  paired_denominator_lead: "rgr1_d78665a26b7fdfa34aa8adedf2eb7355106b19a7ae050b27782b1068140a3b5d"
+  paired_denominator_state: "admitted; kernel-only result, correctness incomplete"
+  static_preflight: "PASS, 1538850 bytes, digest ad120546ae18c6297d736404b081e9b474b54298aa0602bf70b0751c9156ff4f"
+  cargo_tests: "lib-test compilation blocked by unchanged grinding initializer; no Cargo tests ran"
+  adapted_module_tests: "3 passed; 1 zero-denominator panic before original comparison"
+  witness_dot_proposal: "2449134c-8c45-425a-a352-0b7dcdaef5b5"
+  witness_dot_state: "PROPOSED at response; external correctness-only prototype"
+  witness_dot_cases: 7168
+  full_proof_run: false
+  evaluator_job: null
+  points_confirmed: false
